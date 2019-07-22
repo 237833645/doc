@@ -15,7 +15,7 @@
 
 - 配置gerrit
     - cat ~/.ssh/id_rsa.pub  复制内容粘贴到gerrit账号管理的SSH Public Keys中
-![gerrit-sshkey](images/2019/07/gerrit-sshkey.jpg)
+![gerrit-sshkey](gerrit-sshkey.jpg)
 
 - 下载repo工具，并将repo工具添加到环境变量（此处不详细介绍）
 - 配置ssh-config
@@ -69,3 +69,16 @@
 
     使用展讯ResearchDownload工具下载 pac包地址在编译后生成img目录下面。
     同展讯下载方式
+
+
+##### 阿里系统使用小技巧
+- [阿里OS adb下载][5241dcc6]
+[5241dcc6]: adb-yunos4.0.tar.gz
+
+- 技巧表单
+
+名称  |  内容
+--|--
+adb抓取log  | adb -host logctl
+adb shell  |  adb -host shell
+指令调用工程测试模式 | sendlink page://EqcFactoryMode.yunos.com/FactoryList
