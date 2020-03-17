@@ -1,4 +1,4 @@
-# Ubuntu 18.04编译内核学习
+# ubuntu 18.04编译内核学习
 
 ## 一、前期准备
 1. 安装server版本Ubuntu 18.04（略）
@@ -22,17 +22,20 @@
 ## 二、编译内核
 - 编译前需要安装的额外软件包支持
     ```
-    sudo apt-get install libncurses-dev flex bison libssl-dev
+    sudo apt-get install libncurses-dev \
+    flex bison libssl-dev
     ```
 
 - 配置内核config文件
     - 可以使用make menuconfig新配置
     - 或者使用系统自带的配置文件来 /boot/config-5.3.0-40-generic (注意，使用这个方案就不要走make menuconfig了)
         ```
-        sudo cp /boot/config-5.3.0-40-generic /usr/src/linux-source-5.3.0 .config
+        sudo cp /boot/config-5.3.0-40-generic \
+        /usr/src/linux-source-5.3.0 .config
         ```
 
 - 编译
+
     ```
     sudo make mrproper  (如果不是第一次编译内核需执行)
     sudo make menuconfig
@@ -43,6 +46,7 @@
     sudo update-grub
     sudo reboot
     ```
+
 
 ## 三、替换ubuntu内核
 
