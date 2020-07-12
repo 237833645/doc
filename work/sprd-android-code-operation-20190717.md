@@ -3,17 +3,20 @@
 ##### 软件代码管理
 
 - 代码地址下载
-```
+
+```shell
 git clone git@192.168.1.174:sl8521e/base.git
 ```
 
 - 切换branch
-```
+
+```shell
 git checkout -b fh_common -t origin fh_common
 ```
 
 - 更新同步代码
-```
+
+```shell
 git pull --rebase
 ```
 
@@ -27,46 +30,62 @@ git pull --rebase
 | sl8521e-1h10-native | emcp方案               |
 
 - 编译前拷贝展讯闭源包
-    - user版本
-    ```
+  - user版本
+
+    ```shell
     1、  cd 工程目录下
     2、  cp -rf 2h10_out/user/out    （拷贝user版本需要的包）
     3、  cp 2h10_out/y61_temp_out/* out/target/product/sl8521e_2h10/
     ```
-    - userdebug版本
-    ```
+
+  - userdebug版本
+
+    ```shell
     1、  cd 工程目录下
     2、  cp -rf 2h10_out/userdebug/out    （拷贝user版本需要的包）
     3、  cp 2h10_out/y61_temp_out/* out/target/product/sl8521e_2h10/
     ```
+
 - 编译前拷贝项目修改代码覆盖原始代码 （python copy.py 项目名）
-    - 拷贝期间会提示代码差异是否要合入，是选择Y
-    ```
+  - 拷贝期间会提示代码差异是否要合入，是选择Y
+
+    ```shell
     cd FH_PROJECT && python copy.py Y61
     ```
-    - 拷贝完成会提示  
-        Copy Script Exec Successed !!!!
+
+  - 拷贝完成会提示  
+    >    Copy Script Exec Successed !!!!
 
 - 编译代码
-    - 切换到代码根目录
-    - 配置编译需要的环境变量
-    ```
+  - 切换到代码根目录
+  - 配置编译需要的环境变量
+
+    ```shell
     source build/envsetup.sh
     ```
-    - 选择编译工程（ user版本lunch sl8521e_2h10_native-user ）
+
+  - 选择编译工程（ user版本lunch sl8521e_2h10_native-user ）
+
+    ```shell
+    lunch sl8521e_2h10_native-userdebug
     ```
-    lunch sl8521e_2h10_native-userdebug   
-    ```
-    - 导入linux头文件编译依赖
-    ```
+  
+  - 导入linux头文件编译依赖
+
+    ```shell
     kheader
     ```
-    - 编译 （j8是使用8核编译）
-    ```
+
+  - 编译 （j8是使用8核编译）
+
+    ```shell
     make -j8 2>&1 | tee log.log
     ```
-    - 打包image（ 打包user版本./make_pac_sign.sh sl8521e_2h10_native user ）
-    ```
+
+  - 打包image（ 打包user版本./make_pac_sign.sh sl8521e_2h10_native user ）
+
+    ```shell
     ./make_pac_sign.sh sl8521e_2h10_native userdebug
     ```
-    - 完成打包后会在代码根目录生产sl8521e_2h10_native_userdebug.pac这个文件
+
+  - 完成打包后会在代码根目录生产sl8521e_2h10_native_userdebug.pac这个文件

@@ -11,3 +11,4 @@
 
 1. [阿里OS展讯平台开发](./work/alios-readme/alios-readme-20190722.md)
 2. [展讯8521E平台代码编译](./work/sprd-android-code-operation-20190717.md)
+3. [MTK文档汇总](./work/mtk_work/index.md)
