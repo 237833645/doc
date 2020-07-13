@@ -62,15 +62,15 @@
 - [ EMMC ]
 
 由一个嵌入式存储解决方案组成，带有MMC（多媒体卡）接口、快闪存储器设备及主控制器。所有都在一个小型的BGA 封装。接口速度高达每秒400MBytes，eMMC具有快速、可升级的性能。同时其接口电压可以是1.8V或者是3.3V。
-![img_emmc](技术总结报告/img/1F30CC48-68E1-4827-A140-2F490F81130B.png)
+![img_emmc](img/1F30CC48-68E1-4827-A140-2F490F81130B.png)
 
 - [ DDR(Double Data Rate双倍速率) ]
 
-![img_ddr](技术总结报告/img/E67633D9-91C0-4D60-A0F7-D3561DF40716.png)
+![img_ddr](img/E67633D9-91C0-4D60-A0F7-D3561DF40716.png)
 
 - [ LPDDR(Low Power Double Data Rate) ]
 
-![img_lpddr](技术总结报告/img/ECCCCFEF-DED1-44D4-93CF-0B409646DEF7.png)
+![img_lpddr](img/ECCCCFEF-DED1-44D4-93CF-0B409646DEF7.png)
 
 由于输入/输出接口数据传输速度最高可达3200Mbps，是通常使用的DDR3 DRAM的两倍，新推出的8Gb LPDDR4内存可以支持超高清影像的拍摄和播放,并能持续拍摄2000万像素的高清照片。
 与LPDDR3内存芯片相比，LPDDR4的运行电压降为1.1伏，堪称适用于大屏幕智能手机和平板电脑、高性能网络系统的最低功耗存储解决方案。以2GB内存封装为例，比起基于4Gb LPDDR3芯片的2GB内存封装，基于8Gb LPDDR4芯片的2GB内存封装因运行电压的降低和处理速度的提升，最大可节省40%的耗电量。同时，新产品的输入/输出信号传输采用三星独有的低电压摆幅终端逻辑(LVSTL, Low Voltage Swing Terminated Logic)，不仅进一步降低了LPDDR4芯片的耗电量，并使芯片能在低电压下进行高频率运转，实现了电源使用效率的最优化。
@@ -78,7 +78,7 @@
 
 - [ EMCP内部结构 ]
 
-![img_emcp](./技术总结报告/img/20200427113408952.png)
+![img_emcp](img/20200427113408952.png)
 
 #### 调试方法
 
@@ -91,7 +91,7 @@
 
 ### 屏幕
 
-#### [LCD_MIPI技术总结](技术总结报告/lcd_mipi.md)
+#### [LCD_MIPI技术总结](lcd_mipi.md)
 
 ### 灯
 
@@ -144,7 +144,7 @@
 
 ### I2C扩展GPIO
 
-#### [艾为AW9523B-内核4.4](技术总结报告/aw9523b/AW9523B内核4.4移植文档.md)
+#### [艾为AW9523B-内核4.4](aw9523b/AW9523B内核4.4移植文档.md)
 
 ### mipi转接一分二
 
