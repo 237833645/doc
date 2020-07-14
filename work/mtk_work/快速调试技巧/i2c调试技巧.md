@@ -30,8 +30,6 @@ git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git
 git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git -b i2c-tools-3.1
 ```
 
-![i2c_tools-img](img/EDE14ABC-2262-46A9-9B7B-336A4CA93A6B.png)
-
 本地下载文件：
 
 [res/i2c-tools-4.1.tar.gz](res/i2c-tools-4.1.tar.gz)
