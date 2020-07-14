@@ -196,4 +196,4 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 ### mtk平台android系统移植包供使用参考
 
 下载地址：
-[android-i2c-tools.zip](res/android-i2c-tools.zip)
+[../驱动移植包/common/android-i2c-tools移植包.zip](../驱动移植包/common/android-i2c-tools移植包.zip)
