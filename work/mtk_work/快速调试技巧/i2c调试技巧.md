@@ -53,8 +53,8 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES += $(LOCAL_PATH) $(LOCAL_PATH)/linux/include
-LOCAL_SRC_FILES := 	tools/i2cbusses.c \
-					tools/util.c
+LOCAL_SRC_FILES :=  tools/i2cbusses.c \
+                    tools/util.c
 LOCAL_MODULE := i2c-tools
 include $(BUILD_STATIC_LIBRARY)
 ######################################################
@@ -63,7 +63,7 @@ include $(BUILD_STATIC_LIBRARY)
 ######################################################
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := 	tools/i2cdetect.c 
+LOCAL_SRC_FILES :=  tools/i2cdetect.c
 LOCAL_MODULE:=i2cdetect
 LOCAL_CPPFLAGS += -DANDROID
 LOCAL_SHARED_LIBRARIES:=libc
@@ -75,7 +75,7 @@ include $(BUILD_EXECUTABLE)
 ######################################################
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := 	tools/i2cdump.c 
+LOCAL_SRC_FILES :=  tools/i2cdump.c
 LOCAL_MODULE:=i2cdump
 LOCAL_CPPFLAGS += -DANDROID
 LOCAL_SHARED_LIBRARIES:=libc
@@ -87,7 +87,7 @@ include $(BUILD_EXECUTABLE)
 ######################################################
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := 	tools/i2cset.c 
+LOCAL_SRC_FILES :=  tools/i2cset.c
 LOCAL_MODULE:=i2cset
 LOCAL_CPPFLAGS += -DANDROID
 LOCAL_SHARED_LIBRARIES:=libc
@@ -99,7 +99,7 @@ include $(BUILD_EXECUTABLE)
 ######################################################
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := 	tools/i2cget.c 
+LOCAL_SRC_FILES :=  tools/i2cget.c
 LOCAL_MODULE:=i2cget
 LOCAL_CPPFLAGS += -DANDROID
 LOCAL_SHARED_LIBRARIES:=libc
@@ -168,7 +168,6 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 ```
 
 ![i2cdump](img/20181109185507277321.png)
-
 
 通过i2c写入内容到eeprom
 
