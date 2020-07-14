@@ -9,7 +9,13 @@
 首先是开启的方式是源文件在
 > vendor\mediatek\proprietary\hardware\fbconfig_tool\common
 
-使用时需要打开Project中的宏改为MTK_EMULATOR_SUPPORT=yes
+```shell
+使用时需要打开Project中的宏改为
+MTK_EMULATOR_SUPPORT=yes
+内核修改
+CONFIG_MTK_EMULATOR_SUPPORT=y
+```
+
 当然会出现有些工程不是在该目录下，比如external下，我们通过find -name fbconfig.c文件也可以找到，可以直接进入该目录，使用mm 进行编译，然后make snod,最后下载进去。
 
 当然！打开宏可能会出现问题，我们可以使用以上方法直接mm编译进系统。
