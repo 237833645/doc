@@ -16,7 +16,7 @@
 
 - 下载  [MIPI_Video mode公式.xls](res/MIPI_Video%20mode公式.xls)
 
-- 详细mipi时序讲解请参考总结文档 [技术总结报告/#lcd_mipi技术总结](https://237833645.github.io/doc/work/mtk_work/技术总结报告/#lcd_mipi技术总结)
+- 详细mipi时序讲解请参考总结文档 [技术总结报告/#lcd_mipi技术总结](https://237833645.github.io/doc/work/mtk_work/技术总结报告/lcd_mipi.html)
 
 ---
 
