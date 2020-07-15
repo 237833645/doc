@@ -1,5 +1,6 @@
-#### STM32 OLED接线调试过程
-##### STM32到OLED端接线
+# STM32 OLED接线调试过程
+
+## STM32到OLED端接线
 
 |STM32|OLED|
 |-|-|
@@ -11,11 +12,11 @@
 |PA2   |  DC |
 |PA4   |  CS |
 
-###### 代码调试过程
+## 代码调试过程
 
 - platformio.ini配置依赖库（需要"Adafruit GFX Library"和"Adafruit SSD1306"）
 
-```
+```c
 [env:genericSTM32F103C8]
 platform = ststm32
 board = genericSTM32F103C8
@@ -35,7 +36,7 @@ lib_deps =
 
 - 修改编译报错(.piolibdeps/Adafruit SSD1306_ID135/Adafruit_SSD1306.h)
 
-```
+```c
 #define SSD1306_128_64 ///< DEPRECTAED: old way to specify 128x64 screen
 //#define SSD1306_128_32   ///< DEPRECATED: old way to specify 128x32 screen
 //#define SSD1306_96_16  ///< DEPRECATED: old way to specify 96x16 screen
@@ -43,7 +44,7 @@ lib_deps =
 
 - 修改demo程序里面的管脚定义
 
-```
+```c
 #define OLED_MOSI  PA6
 #define OLED_CLK   PA5
 #define OLED_DC    PA2

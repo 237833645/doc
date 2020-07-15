@@ -8,7 +8,7 @@
 
 - 阿里gerrit账号和密码
 
-网页地址  |  [http://gerrit-custom2.yunos.com:8080](http://gerrit-custom2.yunos.com:8080)
+网页地址  |  <http://gerrit-custom2.yunos.com:8080>
 --|--
 账号  |  gomtel.zhengxuan.lin
 密码  |  gomtel.zhengxuan.lin.9kj7

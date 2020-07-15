@@ -1,9 +1,11 @@
-##### 0.96寸OLED显示屏模块 黄蓝双色屏幕开发板12864屏STM32 IIC/SPI
-淘宝地址：https://detail.tmall.com/item.htm?_u=g27i0qu5a07a&id=573363075194
+# 0.96寸OLED显示屏模块 黄蓝双色屏幕开发板12864屏STM32 IIC/SPI
 
-资料下载地址：https://pan.baidu.com/s/1ArqSpLArCiRvFxc61qd1Qw
+淘宝地址：<https://detail.tmall.com/item.htm?_u=g27i0qu5a07a&id=573363075194>
 
-##### 产品介绍
+资料下载地址：<https://pan.baidu.com/s/1ArqSpLArCiRvFxc61qd1Qw>
+
+## 产品介绍
+
 - 128 x 64 分辨率屏幕
 - STM32 spi iic 7脚
 - 无需背光，显示单元能自发光
@@ -27,7 +29,6 @@
 ![单片机模拟SPI接线](images/2019/06/单片机模拟spi接线.png)
 ![单片机硬件IIC接线](images/2019/06/单片机硬件iic接线.png)
 ![单片机模拟IIC接线](images/2019/06/单片机模拟iic接线.png)
-
 
 - 产品效果图
 ![oled效果图](images/2019/06/oled效果图.png)
