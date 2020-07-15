@@ -1,9 +1,11 @@
 # 效率工作技巧
 
 ## 零零PDF密码
+
 2762463240
 
 ---
+
 ## adb 操作技巧
 
 - adb 睡眠唤醒系统
@@ -61,14 +63,13 @@ adb shell stop
 adb shell start
 ```
 
-
 - 打开拨号盘
 
 ```shell
 adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 ```
-- adb 读取adc值
 
+- adb 读取adc值
 
 ## 工程编译及技巧
 
