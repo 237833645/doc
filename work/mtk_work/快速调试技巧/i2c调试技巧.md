@@ -34,7 +34,7 @@ git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git -b i2c-tool
 
 [res/i2c-tools-4.1.tar.gz](res/i2c-tools-4.1.tar.gz)
 
-```shell
+```bash
 解压 tar -zxvf i2c-tools-4.1.tar.gz
 ```
 
@@ -44,7 +44,7 @@ git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git -b i2c-tool
 
 - 编写Android.mk
 
-```shell
+```bash
 LOCAL_PATH := $(call my-dir)
 
 ######################################################
@@ -109,14 +109,14 @@ include $(BUILD_EXECUTABLE)
 
 - 修改头文件及相关连接文件的定义
 
-```shell
+```bash
 1. 将include/linux/i2c-dev.h 文件复制到tools目录中
 2. 修改所有tools目录里面的头文件为 #include "i2c-dev.h"
 ```
 
 - 开启内核i2c-dev设备节点支持
   
-```shell
+```bash
   CONFIG_I2C_CHARDEV=y
 ```
 
@@ -124,7 +124,7 @@ include $(BUILD_EXECUTABLE)
 
 编译完成后在tools/文件夹下会有如下几个可执行文件，i2cdetect, i2cdump, i2cget, i2cset
 
-```shell
+```bash
 mmm extern/i2c-tools
 make snod
 
@@ -137,7 +137,7 @@ adb reboot
   
 1、查询罗列出I2C的控制器总线数目
 
-```shell
+```bash
 # i2cdetect -l
 i2c-0   i2c             OMAP I2C adapter                        I2C adapter
 i2c-1   i2c             OMAP I2C adapter                        I2C adapter
@@ -145,7 +145,7 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 
 查询i2c总线上挂接的设备及设备的地址
 
-```shell
+```bash
 # i2cdetect -y 0
 ```
 
@@ -153,7 +153,7 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 
 从上图可看出，在i2c 总线0上有1个设备地址为0x50
 
-```shell
+```bash
 0 -------  i2c-0，
 -y-------  取消用户交互，直接执行
 -f --------强制执行
@@ -161,7 +161,7 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 
 通过i2c读出eeprom的所有的内容
 
-```shell
+```bash
 # i2cdump -f -y 0 0x50
 ```
 
@@ -169,11 +169,11 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 
 通过i2c写入内容到eeprom
 
-```shell
+```bash
 # i2cset -y -f 0 0x50 0x00 0x11
 ```
 
-```shell
+```bash
 0   -------  i2c-0，
 -y  -------  取消用户交互，直接执行
 -f   -------  强制执行
@@ -184,7 +184,7 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 
 再次读取发现数据改变了，写入成功：
 
-```shell
+```bash
 # i2cdump -f -y 0 0x50
 ```
 

@@ -26,7 +26,7 @@
 首先是开启的方式是源文件在
 > vendor\mediatek\proprietary\hardware\fbconfig_tool\common
 
-```shell
+```bash
 使用时需要打开Project中的宏改为
 MTK_EMULATOR_SUPPORT=yes
 内核修改

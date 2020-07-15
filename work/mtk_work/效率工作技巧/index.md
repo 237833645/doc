@@ -10,41 +10,41 @@
 
 - adb 睡眠唤醒系统
 
-```shell
+```bash
 系统睡眠            adb shell echo mem > /sys/power/state
 系统唤醒            adb shell echo  on > /sys/power/state
 ```
 
 - adb 开关LCD背光灯
 
-```shell
+```bash
 关LCD背光灯         adb shell echo  0 > sys/class/leds/lcd-backlight/brightness
 开LCD背光灯         adb shell echo  255 > sys/class/leds/lcd-backlight/brightness
 ```
 
 - adb 发送power键值
 
-```shell
+```bash
 发送power键         adb shell input keyevent 26
 ```
 
 - adb 开启关闭MTKLog
 
-```shell
+```bash
 开启MTKLog          adb shell am broadcast -a com.mediatek.mtklogger.ADB_CMD -e cmd_name start --ei cmd_target 7
 关闭MTKLog          adb shell am broadcast -a com.mediatek.mtklogger.ADB_CMD -e cmd_name stop  --ei cmd_target 7
 ```
 
 - adb 开启关闭飞行模式
 
-```shell
+```bash
 打开飞行模式        adb shell settings put global airplane_mode_on 1
 关闭飞行模式        adb shell settings put global airplane_mode_on 0
 ```
 
 - adb 设置屏幕分辨率及dpi
 
-```shell
+```bash
 读取屏幕分辨率      adb shell wm size
 设置屏幕分辨率      adb shell wm size 1136x2480
 恢复为默认分辨率    adb shell wm size reset
@@ -56,7 +56,7 @@
 
 - 开启系统自带返回键
 
-```shell
+```bash
 adb root
 adb shell setprop qemu.hw.mainkeys 0
 adb shell stop
@@ -65,7 +65,7 @@ adb shell start
 
 - 打开拨号盘
 
-```shell
+```bash
 adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 ```
 
@@ -75,7 +75,7 @@ adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 
 - 克隆工程
 
-```shell
+```bash
 克隆39工程
 1. perl vendor/mediatek/proprietary/scripts/project_clone/project_clone.pl -p "/home/rinlink/rinlink/platform_o1_6739" -o "mediateksample/h900_1g" -n "mediateksample/h900_512"
 2. dws文件软链接
@@ -85,7 +85,7 @@ adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 
 - 编译技巧
 
-```shell
+```bash
 6739O平台编译   odmdtboimage bootimage
 6737N平台编译   dtboimage bootimage
 ```
