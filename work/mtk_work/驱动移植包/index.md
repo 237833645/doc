@@ -1,9 +1,18 @@
 # 驱动移植包 (只放入mtk工作需要的驱动代码差分包)
 
 - [驱动移植包 (只放入mtk工作需要的驱动代码差分包)](#驱动移植包-只放入mtk工作需要的驱动代码差分包)
+  - [camera \ tp \ sensor \ charger 移植包](#camera--tp--sensor--charger-移植包)
   - [kernel-3.18](#kernel-318)
   - [kernel-4.4](#kernel-44)
   - [common](#common)
+
+## camera \ tp \ sensor \ charger 移植包
+
+- [MTK各平台Camera驱动移植包](camera/camera_patch_list.md)
+- [MTK各平台TP驱动移植包](tp/tp_patch_list.md)
+
+
+---
 
 ## kernel-3.18
 
