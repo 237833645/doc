@@ -88,12 +88,24 @@ struct panel_spec lcd_ek79023_mipi_spec = {
 
 ![img_3](./img/68282CF1-5B16-4449-ADA5-614504567AB8.png)
 
+---
+
 Excel公式表 ( 此表可以快速计算 )
 
-mipi时序配置
+### mipi 时序配置
+
 ![img_mipi](img/2C61EE91-5139-4198-BA75-78EDADC019DC.png)
 
-RGB时序配置
+而dsi在clock的上升沿和下降沿都会采集数据，所以在计算clock时应为Data Rate的一半，对应前面的420MHz，那么clock应设置为210MHz（注意在计算clock时，clock * 2应比Data Rate稍大）。
+
+表中的CLK Lane Speed 和Data Rate是一个意思, **[ PLL = Data Rate / 2 ]**
+
+参考文档：[https://blog.csdn.net/zuoyioo7/article/details/79021459](https://blog.csdn.net/zuoyioo7/article/details/79021459)
+
+---
+
+### RGB时序配置
 ![img_rgb](img/EA88DE89-72EA-4D96-B9A8-ECD206A927B0.png)
 
 [MIPI_Video-mode公式.xls](res/MIPI_Video%20mode公式.xls)
+

@@ -6,6 +6,8 @@
 
 ## MIPI_Video mode公式.xls表
 
+excel表中的CLK Lane Speed 和Data Rate是一个意思
+
 - mipi时序调试
 
 ![img_mipi](img/2C61EE91-5139-4198-BA75-78EDADC019DC.png)
