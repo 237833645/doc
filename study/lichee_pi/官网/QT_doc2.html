@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>移植QT5.9.1 &mdash; Lichee zero  文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://zero.lichee.pro/_static/icon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="documentation_options.js"></script>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="underscore.js"></script>
+        <script type="text/javascript" src="doctools.js"></script>
+        <script type="text/javascript" src="language_data.js"></script>
+        <script type="text/javascript" src="translations.js"></script>
+    
+    <script type="text/javascript" src="theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="theme.css" type="text/css" />
+  <link rel="stylesheet" href="pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="移植QT4.8.7" href="QT_doc3.html" />
+    <link rel="prev" title="移植tslib" href="QT_doc1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Lichee zero
+          
+
+          
+            
+            <img src="http://zero.lichee.pro/_static/icon2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">初来乍到篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_cn.html">荔枝派与创作者的自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Linux使用小贴士</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board_intro.html">认识zero的硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_index.html">Docker环境简明教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">系统开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type.html">Zero的开发环境分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uboot_index.html">UBOOT适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel_index.html">Linux内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsp_index.html">BSP内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesys_index.html">根文件系统编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPI_index.html">SPI系统杂谈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_index.html">Zero 镜像烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Imager.html">Zero Imager的使用</a></li>
+</ul>
+<p class="caption"><span class="caption-text">驱动开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Device_Tree_Intro.html">设备树简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peripheral_index.html">外设适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_index.html">设备驱动</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用开发篇:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="autorun.html">开机自启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Segment Fault调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="otg2PC.html">Zero通过otg与PC共享网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB_cam.html">USB摄像头使用</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="QT_index.html">基于QT的GUI开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="QT_doc1.html">移植tslib</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="QT_doc2.html#">移植QT5.9.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#id2">下载QT5.9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#x11">编译X11版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#arm">交叉编译arm版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#qt">向开发板添加Qt库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#id3">参考资料</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QT_doc2.html#id4">附录：QT配置帮助文件 翻译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc3.html">移植QT4.8.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc4.html">QtCreator使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc5.html">Qt5.x移植到Qt4.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc6.html">Qt字体相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc7.html">Qt移植总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc8.html">Qt裁剪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QT_doc9.html">Qt去除鼠标指针显示</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">贡献投稿篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="todolist.html">荔枝派任务领取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html">投稿文章精选</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_doc.html">文档构建</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lichee zero</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="QT_index.html">基于QT的GUI开发</a> &raquo;</li>
+        
+      <li>移植QT5.9.1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qt5-9-1">
+<h1><a class="toc-backref" href="QT_doc2.html#id6">移植QT5.9.1</a><a class="headerlink" href="QT_doc2.html#qt5-9-1" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">本文目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="QT_doc2.html#qt5-9-1" id="id6">移植QT5.9.1</a></p>
+<ul>
+<li><p><a class="reference internal" href="QT_doc2.html#id2" id="id7">下载QT5.9.1</a></p></li>
+<li><p><a class="reference internal" href="QT_doc2.html#x11" id="id8">编译X11版本</a></p></li>
+<li><p><a class="reference internal" href="QT_doc2.html#arm" id="id9">交叉编译arm版本</a></p></li>
+<li><p><a class="reference internal" href="QT_doc2.html#qt" id="id10">向开发板添加Qt库</a></p></li>
+<li><p><a class="reference internal" href="QT_doc2.html#id3" id="id11">参考资料</a></p></li>
+<li><p><a class="reference internal" href="QT_doc2.html#id4" id="id12">附录：QT配置帮助文件 翻译</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>移植完成tslib之后，就可以进行QT本体的移植了，目前最新版本为5.9.1。</p>
+<p>注意QT本体编译时间较长，笔记本上会耗时2~3小时，我使用的32线程服务器的编译时间为9分钟左右。</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="QT_doc2.html#id7">下载QT5.9.1</a><a class="headerlink" href="QT_doc2.html#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz
+tar xf qt-everywhere-opensource-src-5.9.1.tar.xz    <span class="c1">#这里解压也需要30s左右，别以为死机了。。</span>
+<span class="nb">cd</span> qt-everywhere-opensource-src-5.9.1
+./configure --help &gt;help.txt   <span class="c1">#QT的配置较为复杂，进来先看看帮助文档，在本节最后附录里有翻译</span>
+</pre></div>
+</div>
+<p>一般来说，我们需要编译主机和目标板两个版本的qt：</p>
+<blockquote>
+<div><p>主机版可以用于前期的gui的设计调试；目标板用于实际产品的验证。</p>
+</div></blockquote>
+</div>
+<div class="section" id="x11">
+<h2><a class="toc-backref" href="QT_doc2.html#id8">编译X11版本</a><a class="headerlink" href="QT_doc2.html#x11" title="永久链接至标题">¶</a></h2>
+<p>主机版一般是X11，配置如下：</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">cfg_X11.sh</span><a class="headerlink" href="QT_doc2.html#id5" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="c1">#!/bin/bash</span>
+ ./configure -prefix /opt/qt-5.9.1-x11 -opensource -make tools
+ <span class="c1">#安装位置，开源版本，编译qt工具（makeqpf,qtconfig）</span>
+ make -j32
+ sudo make install
+</pre></div>
+</div>
+</div>
+<p>运行该脚本，首次配置用时1分钟左右。编译一次参考时间：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">real</span>        <span class="mi">9</span><span class="n">m17</span><span class="o">.</span><span class="mi">309</span><span class="n">s</span>
+<span class="n">user</span>        <span class="mi">206</span><span class="n">m59</span><span class="o">.</span><span class="mi">052</span><span class="n">s</span>
+<span class="n">sys</span> <span class="mi">17</span><span class="n">m30</span><span class="o">.</span><span class="mi">300</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>所以单核虚拟机编译需要三小时左右。</p>
+<p>编译完成后install也需要1分钟左右。</p>
+<p>安装完成后在/opt/qt-5.9.1-x11下可见安装的文件。</p>
+</div>
+<div class="section" id="arm">
+<h2><a class="toc-backref" href="QT_doc2.html#id9">交叉编译arm版本</a><a class="headerlink" href="QT_doc2.html#arm" title="永久链接至标题">¶</a></h2>
+<p>注意，在第二次编译前，先 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> 下。如果编译时候仍有错误，可以重新解压编译。</p>
+<p>交叉编译，需要配置 xplatform选项，比如要在arm-linux平台上移植Qt的话，就在配置项中加上 <code class="docutils literal notranslate"><span class="pre">-xplatform</span> <span class="pre">linux-arm-gnueabi-g++</span></code> ，这个是平台名字，Qt5支持的交叉平台都可在源码顶层目录中的 <em>/qtbase/mkspecs/</em> 下找到。</p>
+<p>首先我们需要编辑 <em>qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf</em>：</p>
+<p>加上：（注意，和tslib类似，这里要加上其它什么支持的话，也是交叉编译的库的路径）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QT_QPA_DEFAULT_PLATFORM</span> <span class="o">=</span> linuxfb
+<span class="nv">QMAKE_CFLAGS_RELEASE</span> <span class="o">+=</span> -O2 -march<span class="o">=</span>armv7-a -lts
+<span class="nv">QMAKE_CXXFLAGS_RELEASE</span> <span class="o">+=</span> -O2 -march<span class="o">=</span>armv7-a -lts
+<span class="nv">QMAKE_INCDIR</span> <span class="o">+=</span> /opt/tslib/include /opt/sqlite3/include
+<span class="nv">QMAKE_LIBDIR</span> <span class="o">+=</span> /opt/tslib/lib /opt/sqlite3/lib
+</pre></div>
+</div>
+<p>把 <em>arm-linux-gnueabihf-gcc</em> 改成 <em>arm-linux-gnueabi-gcc</em> 等。</p>
+<p>然后再编辑配置脚本cfg_arm.sh</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+./configure -verbose <span class="se">\</span>
+-prefix /opt/qt5.9.1-arm <span class="se">\</span>
+-confirm-license <span class="se">\</span>
+-opensource <span class="se">\</span>
+-release <span class="se">\</span>
+-make libs <span class="se">\</span>
+-xplatform linux-arm-gnueabi-g++ <span class="se">\</span>
+-optimized-qmake <span class="se">\</span>
+-pch <span class="se">\</span>
+-sql-sqlite -sqlite <span class="se">\</span>
+-qt-libjpeg <span class="se">\</span>
+-qt-libpng <span class="se">\</span>
+-qt-zlib <span class="se">\</span>
+-tslib <span class="se">\</span>
+-no-opengl <span class="se">\</span>
+-no-sse2 <span class="se">\</span>
+-no-openssl <span class="se">\</span>
+-no-cups <span class="se">\</span>
+-no-glib <span class="se">\</span>
+-no-dbus <span class="se">\</span>
+-no-xcb <span class="se">\</span>
+-no-separate-debug-info <span class="se">\</span>
+-I/opt/tslib/include -L/opt/tslib/lib <span class="se">\</span>
+-make examples -make tools -nomake tests -no-iconv
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -j32
+sudo make install
+</pre></div>
+</div>
+<p>完成后，相关文件在 <em>/opt/qt5.9.1-arm</em> 下。</p>
+</div>
+<div class="section" id="qt">
+<h2><a class="toc-backref" href="QT_doc2.html#id10">向开发板添加Qt库</a><a class="headerlink" href="QT_doc2.html#qt" title="永久链接至标题">¶</a></h2>
+<p>首先将 <em>/opt/qt5.9.1-arm</em> 和 <em>/opt/tslib</em> 复制到开发板的对应目录下</p>
+<p>然后设置开发板 Qt 环境变量， <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">/etc/bash.bashrc</span></code></p>
+<p>添加下面内容：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TSLIB_CONSOLEDEVICE</span><span class="o">=</span>none
+<span class="nb">export</span> <span class="nv">TSLIB_FBDEVICE</span><span class="o">=</span>/dev/fb0
+<span class="nb">export</span> <span class="nv">TSLIB_TSDEVICE</span><span class="o">=</span>/dev/input/event1
+<span class="nb">export</span> <span class="nv">TSLIB_CONFFILE</span><span class="o">=</span>/opt/tslib/etc/ts.conf
+<span class="nb">export</span> <span class="nv">TSLIB_PLUGINDIR</span><span class="o">=</span>/opt/tslib/lib/ts
+<span class="nb">export</span> <span class="nv">TSLIB_CALIBFILE</span><span class="o">=</span>/etc/pointercal
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/lib:/usr/lib:/opt/tslib/lib:/opt/qt5.9.1-arm/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/bin:/sbin:/usr/bin/:/usr/sbin:/opt/tslib/bin
+<span class="nb">export</span> <span class="nv">QT_QPA_PLATFORM_PLUGIN_PATH</span><span class="o">=</span>/opt/qt5.9.1-arm/plugins
+<span class="nb">export</span> <span class="nv">QT_QPA_PLATFORM</span><span class="o">=</span>linuxfb:tty<span class="o">=</span>/dev/fb0
+<span class="nb">export</span> <span class="nv">QT_QPA_FONTDIR</span><span class="o">=</span>/opt/qt5.9.1-arm/lib/fonts
+<span class="nb">export</span> <span class="nv">QT_QPA_GENERIC_PLUGINS</span><span class="o">=</span>tslib:<span class="nv">$TSLIB_TSDEVICE</span>
+</pre></div>
+</div>
+<p>保存后生效上述内容： <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/etc/bash.bashrc</span></code></p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="QT_doc2.html#id11">参考资料</a><a class="headerlink" href="QT_doc2.html#id3" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://blog.csdn.net/newthinker_wei/article/details/39560109">http://blog.csdn.net/newthinker_wei/article/details/39560109</a></p>
+<p><a class="reference external" href="http://www.linuxidc.com/Linux/2014-03/98079.htm">http://www.linuxidc.com/Linux/2014-03/98079.htm</a></p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="QT_doc2.html#id12">附录：QT配置帮助文件 翻译</a><a class="headerlink" href="QT_doc2.html#id4" title="永久链接至标题">¶</a></h2>
+<p>Usage: configure [options] [assignments]</p>
+<p>在命令行使用VAR=value来配置变量。</p>
+<p>每个大写的库名（用-list-libraries可以查看），支持这些后缀：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_INCDIR</span><span class="p">,</span> <span class="n">_LIBDIR</span><span class="p">,</span> <span class="n">_PREFIX</span> <span class="p">(</span><span class="n">INCDIR</span><span class="o">=</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">include</span><span class="p">,</span> <span class="n">LIBDIR</span><span class="o">=</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">lib</span><span class="p">),</span>
+<span class="n">_LIBS</span><span class="p">,</span> <span class="ow">and</span> <span class="o">-</span> <span class="n">on</span> <span class="n">Windows</span> <span class="ow">and</span> <span class="n">Darwin</span> <span class="o">-</span> <span class="n">_LIBS_DEBUG</span> <span class="ow">and</span> <span class="n">_LIBS_RELEASE</span><span class="o">.</span> <span class="n">E</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span>
+<span class="n">ICU_PREFIX</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">icu42</span> <span class="n">ICU_LIBS</span><span class="o">=</span><span class="s2">&quot;-licui18n -licuuc -licudata&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>同时支持操作 QMAKE_* 变量，来修改mkspec里指定的值，比如QMAKE_CXXFLAGS+=-g3.</p>
+<p><strong>顶层安装路径：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-prefix ...... 目标路径（在开发板上的绝对路径）
+[如果使能了developer-build，就是/usr/local/Qt-$QT_VERSION, $PWD]
+-extprefix ... 安装路径（在主机上的路径，比prefix更多一个前置路径），可不写
+[SYSROOT/PREFIX]
+-hostprefix [dir] .. The installation directory for build tools running on
+the host machine. If [dir] is not given, the current
+build directory will be used. [EXTPREFIX]
+-external-hostbindir ... Path to Qt tools built for this machine.
+Use this when -platform does not match the current
+system, i.e., to make a Canadian Cross Build.
+</pre></div>
+</div>
+<p><strong>微调安装路径的分布</strong> ，注意除了-sysconfdir外的所有目录需要在 <em>-prefix/-hostprefix</em> 下。</p>
+<p>（这里基本可以不配置）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">bindir</span> <span class="o">.........</span> <span class="n">Executables</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="nb">bin</span><span class="p">]</span>
+<span class="o">-</span><span class="n">headerdir</span> <span class="o">......</span> <span class="n">Header</span> <span class="n">files</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">include</span><span class="p">]</span>
+<span class="o">-</span><span class="n">libdir</span> <span class="o">.........</span> <span class="n">Libraries</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">lib</span><span class="p">]</span>
+<span class="o">-</span><span class="n">archdatadir</span> <span class="o">....</span> <span class="n">Arch</span><span class="o">-</span><span class="n">dependent</span> <span class="n">data</span> <span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span>
+<span class="o">-</span><span class="n">plugindir</span> <span class="o">......</span> <span class="n">Plugins</span> <span class="p">[</span><span class="n">ARCHDATADIR</span><span class="o">/</span><span class="n">plugins</span><span class="p">]</span>
+<span class="o">-</span><span class="n">libexecdir</span> <span class="o">.....</span> <span class="n">Helper</span> <span class="n">programs</span> <span class="p">[</span><span class="n">ARCHDATADIR</span><span class="o">/</span><span class="nb">bin</span> <span class="n">on</span> <span class="n">Windows</span><span class="p">,</span>
+<span class="n">ARCHDATADIR</span><span class="o">/</span><span class="n">libexec</span> <span class="n">otherwise</span><span class="p">]</span>
+<span class="o">-</span><span class="n">importdir</span> <span class="o">......</span> <span class="n">QML1</span> <span class="n">imports</span> <span class="p">[</span><span class="n">ARCHDATADIR</span><span class="o">/</span><span class="n">imports</span><span class="p">]</span>
+<span class="o">-</span><span class="n">qmldir</span> <span class="o">.........</span> <span class="n">QML2</span> <span class="n">imports</span> <span class="p">[</span><span class="n">ARCHDATADIR</span><span class="o">/</span><span class="n">qml</span><span class="p">]</span>
+<span class="o">-</span><span class="n">datadir</span> <span class="o">........</span> <span class="n">Arch</span><span class="o">-</span><span class="n">independent</span> <span class="n">data</span> <span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span>
+<span class="o">-</span><span class="n">docdir</span> <span class="o">.........</span> <span class="n">Documentation</span> <span class="p">[</span><span class="n">DATADIR</span><span class="o">/</span><span class="n">doc</span><span class="p">]</span>
+<span class="o">-</span><span class="n">translationdir</span> <span class="o">.</span> <span class="n">Translations</span> <span class="p">[</span><span class="n">DATADIR</span><span class="o">/</span><span class="n">translations</span><span class="p">]</span>
+<span class="o">-</span><span class="n">sysconfdir</span> <span class="o">.....</span> <span class="n">Settings</span> <span class="n">used</span> <span class="n">by</span> <span class="n">Qt</span> <span class="n">programs</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">xdg</span><span class="p">]</span>
+<span class="o">-</span><span class="n">examplesdir</span> <span class="o">....</span> <span class="n">Examples</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">examples</span><span class="p">]</span>
+<span class="o">-</span><span class="n">testsdir</span> <span class="o">.......</span> <span class="n">Tests</span> <span class="p">[</span><span class="n">PREFIX</span><span class="o">/</span><span class="n">tests</span><span class="p">]</span>
+
+<span class="o">-</span><span class="n">hostbindir</span> <span class="o">.....</span> <span class="n">Host</span> <span class="n">executables</span> <span class="p">[</span><span class="n">HOSTPREFIX</span><span class="o">/</span><span class="nb">bin</span><span class="p">]</span>
+<span class="o">-</span><span class="n">hostlibdir</span> <span class="o">.....</span> <span class="n">Host</span> <span class="n">libraries</span> <span class="p">[</span><span class="n">HOSTPREFIX</span><span class="o">/</span><span class="n">lib</span><span class="p">]</span>
+<span class="o">-</span><span class="n">hostdatadir</span> <span class="o">....</span> <span class="n">Data</span> <span class="n">used</span> <span class="n">by</span> <span class="n">qmake</span> <span class="p">[</span><span class="n">HOSTPREFIX</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>对剩余的选项的约定：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>当一个选项描述符在一系列方括号内的变量之后，这个选项的解释是：
+空选项表示yes； 所有其他值是可能的前缀，比如-no-gui.
+Values are listed in the order they are tried if not specified;
+&#39;auto&#39; 是 &#39;yes/no&#39;的简写. 单个 &#39;yes&#39; 和 &#39;no&#39; 表示没有自动检测的二进制选项。
+</pre></div>
+</div>
+<p><strong>可配置的meta：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">help</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span> <span class="o">............</span> <span class="n">Display</span> <span class="n">this</span> <span class="n">help</span> <span class="n">screen</span>
+<span class="o">-</span><span class="n">verbose</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span> <span class="o">.........</span> <span class="n">Print</span> <span class="n">verbose</span> <span class="n">messages</span> <span class="n">during</span> <span class="n">configuration</span>
+<span class="o">-</span><span class="k">continue</span> <span class="o">............</span> <span class="n">Continue</span> <span class="n">configure</span> <span class="n">despite</span> <span class="n">errors</span>
+<span class="o">-</span><span class="n">redo</span> <span class="o">................</span> <span class="n">Re</span><span class="o">-</span><span class="n">configure</span> <span class="k">with</span> <span class="n">previously</span> <span class="n">used</span> <span class="n">options</span><span class="o">.</span>
+<span class="n">Additional</span> <span class="n">options</span> <span class="n">may</span> <span class="n">be</span> <span class="n">passed</span><span class="p">,</span> <span class="n">but</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span>
+<span class="n">saved</span> <span class="k">for</span> <span class="n">later</span> <span class="n">use</span> <span class="n">by</span> <span class="o">-</span><span class="n">redo</span><span class="o">.</span>
+<span class="o">-</span><span class="n">recheck</span> <span class="o">.............</span> <span class="n">Discard</span> <span class="n">cached</span> <span class="n">negative</span> <span class="n">configure</span> <span class="n">test</span> <span class="n">results</span><span class="o">.</span>
+<span class="n">Use</span> <span class="n">this</span> <span class="n">after</span> <span class="n">installing</span> <span class="n">missing</span> <span class="n">dependencies</span><span class="o">.</span>
+<span class="o">-</span><span class="n">recheck</span><span class="o">-</span><span class="nb">all</span> <span class="o">.........</span> <span class="n">Discard</span> <span class="nb">all</span> <span class="n">cached</span> <span class="n">configure</span> <span class="n">test</span> <span class="n">results</span><span class="o">.</span>
+<span class="o">-</span><span class="n">feature</span><span class="o">-</span> <span class="o">...</span> <span class="n">Enable</span>
+<span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">feature</span><span class="o">-</span> <span class="n">Disable</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
+<span class="o">-</span><span class="nb">list</span><span class="o">-</span><span class="n">features</span> <span class="o">.......</span> <span class="n">List</span> <span class="n">available</span> <span class="n">features</span><span class="o">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">some</span> <span class="n">features</span>
+<span class="n">have</span> <span class="n">dedicated</span> <span class="n">command</span> <span class="n">line</span> <span class="n">options</span> <span class="k">as</span> <span class="n">well</span><span class="o">.</span>
+
+<span class="o">-</span><span class="nb">list</span><span class="o">-</span><span class="n">libraries</span> <span class="o">......</span> <span class="n">List</span> <span class="n">possible</span> <span class="n">external</span> <span class="n">dependencies</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>构建选项：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">opensource</span> <span class="o">..........</span> <span class="n">Build</span> <span class="n">the</span> <span class="n">Open</span><span class="o">-</span><span class="n">Source</span> <span class="n">Edition</span> <span class="n">of</span> <span class="n">Qt</span>
+<span class="o">-</span><span class="n">commercial</span> <span class="o">..........</span> <span class="n">Build</span> <span class="n">the</span> <span class="n">Commercial</span> <span class="n">Edition</span> <span class="n">of</span> <span class="n">Qt</span>
+<span class="o">-</span><span class="n">confirm</span><span class="o">-</span><span class="n">license</span> <span class="o">.....</span> <span class="n">Automatically</span> <span class="n">acknowledge</span> <span class="n">the</span> <span class="n">license</span>
+<span class="o">-</span><span class="n">release</span> <span class="o">.............</span> <span class="n">Build</span> <span class="n">Qt</span> <span class="k">with</span> <span class="n">debugging</span> <span class="n">turned</span> <span class="n">off</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">debug</span> <span class="o">...............</span> <span class="n">Build</span> <span class="n">Qt</span> <span class="k">with</span> <span class="n">debugging</span> <span class="n">turned</span> <span class="n">on</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">debug</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">release</span> <span class="o">...</span> <span class="n">Build</span> <span class="n">two</span> <span class="n">versions</span> <span class="n">of</span> <span class="n">Qt</span><span class="p">,</span> <span class="k">with</span> <span class="ow">and</span> <span class="n">without</span>
+<span class="n">debugging</span> <span class="n">turned</span> <span class="n">on</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span> <span class="p">(</span><span class="n">Apple</span> <span class="ow">and</span> <span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">optimize</span><span class="o">-</span><span class="n">debug</span> <span class="o">......</span> <span class="n">Enable</span> <span class="n">debug</span><span class="o">-</span><span class="n">friendly</span> <span class="n">optimizations</span> <span class="ow">in</span> <span class="n">debug</span> <span class="n">builds</span>
+<span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Not</span> <span class="n">supported</span> <span class="k">with</span> <span class="n">MSVC</span><span class="p">)</span>
+<span class="o">-</span><span class="n">optimize</span><span class="o">-</span><span class="n">size</span> <span class="o">.......</span> <span class="n">Optimize</span> <span class="n">release</span> <span class="n">builds</span> <span class="k">for</span> <span class="n">size</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">speed</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">optimized</span><span class="o">-</span><span class="n">tools</span> <span class="o">.....</span> <span class="n">Build</span> <span class="n">optimized</span> <span class="n">host</span> <span class="n">tools</span> <span class="n">even</span> <span class="ow">in</span> <span class="n">debug</span> <span class="n">build</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">debug</span><span class="o">-</span><span class="n">info</span> <span class="o">....</span> <span class="n">Create</span> <span class="n">symbol</span> <span class="n">files</span> <span class="k">for</span> <span class="n">release</span> <span class="n">builds</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">separate</span><span class="o">-</span><span class="n">debug</span><span class="o">-</span><span class="n">info</span> <span class="o">.</span> <span class="n">Split</span> <span class="n">off</span> <span class="n">debug</span> <span class="n">information</span> <span class="n">to</span> <span class="n">separate</span> <span class="n">files</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">strip</span> <span class="o">...............</span> <span class="n">Strip</span> <span class="n">release</span> <span class="n">binaries</span> <span class="n">of</span> <span class="n">unneeded</span> <span class="n">symbols</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">asserts</span> <span class="o">.......</span> <span class="n">Enable</span> <span class="n">Q_ASSERT</span> <span class="n">even</span> <span class="ow">in</span> <span class="n">release</span> <span class="n">builds</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">developer</span><span class="o">-</span><span class="n">build</span> <span class="o">.....</span> <span class="n">Compile</span> <span class="ow">and</span> <span class="n">link</span> <span class="n">Qt</span> <span class="k">for</span> <span class="n">developing</span> <span class="n">Qt</span> <span class="n">itself</span>
+<span class="p">(</span><span class="n">exports</span> <span class="k">for</span> <span class="n">auto</span><span class="o">-</span><span class="n">tests</span><span class="p">,</span> <span class="n">extra</span> <span class="n">checks</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">shared</span> <span class="o">..............</span> <span class="n">Build</span> <span class="n">shared</span> <span class="n">Qt</span> <span class="n">libraries</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span> <span class="p">(</span><span class="n">no</span> <span class="k">for</span> <span class="n">UIKit</span><span class="p">)</span>
+<span class="o">-</span><span class="n">static</span> <span class="o">..............</span> <span class="n">Build</span> <span class="n">static</span> <span class="n">Qt</span> <span class="n">libraries</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">yes</span> <span class="k">for</span> <span class="n">UIKit</span><span class="p">)</span>
+<span class="o">-</span><span class="n">framework</span> <span class="o">...........</span> <span class="n">Build</span> <span class="n">Qt</span> <span class="n">framework</span> <span class="n">bundles</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span> <span class="p">(</span><span class="n">Apple</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">platform</span> <span class="o">...</span> <span class="n">Select</span> <span class="n">host</span> <span class="n">mkspec</span> <span class="p">[</span><span class="n">detected</span><span class="p">]</span>
+<span class="o">-</span><span class="n">xplatform</span> <span class="o">..</span> <span class="n">Select</span> <span class="n">target</span> <span class="n">mkspec</span> <span class="n">when</span> <span class="n">cross</span><span class="o">-</span><span class="n">compiling</span> <span class="p">[</span><span class="n">PLATFORM</span><span class="p">]</span>
+<span class="o">-</span><span class="n">device</span> <span class="o">.......</span> <span class="n">Cross</span><span class="o">-</span><span class="nb">compile</span> <span class="k">for</span> <span class="n">device</span>
+<span class="o">-</span><span class="n">device</span><span class="o">-</span><span class="n">option</span> <span class="o">&lt;</span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="o">&gt;</span> <span class="o">...</span> <span class="n">Add</span> <span class="n">option</span> <span class="k">for</span> <span class="n">the</span> <span class="n">device</span> <span class="n">mkspec</span>
+
+<span class="o">-</span><span class="n">appstore</span><span class="o">-</span><span class="n">compliant</span> <span class="o">..</span> <span class="n">Disable</span> <span class="n">code</span> <span class="n">that</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">allowed</span> <span class="ow">in</span> <span class="n">platform</span> <span class="n">app</span> <span class="n">stores</span><span class="o">.</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">on</span> <span class="n">by</span> <span class="n">default</span> <span class="k">for</span> <span class="n">platforms</span> <span class="n">which</span> <span class="n">require</span> <span class="n">distribution</span>
+<span class="n">through</span> <span class="n">an</span> <span class="n">app</span> <span class="n">store</span> <span class="n">by</span> <span class="n">default</span><span class="p">,</span> <span class="ow">in</span> <span class="n">particular</span> <span class="n">Android</span><span class="p">,</span>
+<span class="n">iOS</span><span class="p">,</span> <span class="n">tvOS</span><span class="p">,</span> <span class="n">watchOS</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Universal</span> <span class="n">Windows</span> <span class="n">Platform</span><span class="o">.</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">qtnamespace</span> <span class="o">..</span> <span class="n">Wrap</span> <span class="nb">all</span> <span class="n">Qt</span> <span class="n">library</span> <span class="n">code</span> <span class="ow">in</span> <span class="s1">&#39;namespace {...}&#39;</span><span class="o">.</span>
+<span class="o">-</span><span class="n">qtlibinfix</span> <span class="o">..</span> <span class="n">Rename</span> <span class="nb">all</span> <span class="n">libQt5</span><span class="o">*.</span><span class="n">so</span> <span class="n">to</span> <span class="n">libQt5</span><span class="o">*.</span><span class="n">so</span><span class="o">.</span>
+
+<span class="o">-</span><span class="n">testcocoon</span> <span class="o">..........</span> <span class="n">Instrument</span> <span class="k">with</span> <span class="n">the</span> <span class="n">TestCocoon</span> <span class="n">code</span> <span class="n">coverage</span> <span class="n">tool</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">gcov</span> <span class="o">................</span> <span class="n">Instrument</span> <span class="k">with</span> <span class="n">the</span> <span class="n">GCov</span> <span class="n">code</span> <span class="n">coverage</span> <span class="n">tool</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">sanitize</span> <span class="p">{</span><span class="n">address</span><span class="o">|</span><span class="n">thread</span><span class="o">|</span><span class="n">memory</span><span class="o">|</span><span class="n">undefined</span><span class="p">}</span>
+<span class="n">Instrument</span> <span class="k">with</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">compiler</span> <span class="n">sanitizer</span><span class="o">.</span>
+<span class="o">-</span><span class="n">c</span><span class="o">++</span><span class="n">std</span> <span class="o">....</span> <span class="n">Select</span> <span class="n">C</span><span class="o">++</span> <span class="n">standard</span> <span class="p">[</span><span class="n">c</span><span class="o">++</span><span class="mi">1</span><span class="n">z</span><span class="o">/</span><span class="n">c</span><span class="o">++</span><span class="mi">14</span><span class="o">/</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span><span class="p">]</span>
+<span class="p">(</span><span class="n">Not</span> <span class="n">supported</span> <span class="k">with</span> <span class="n">MSVC</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">sse2</span> <span class="o">................</span> <span class="n">Use</span> <span class="n">SSE2</span> <span class="n">instructions</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">sse3</span><span class="o">/-</span><span class="n">ssse3</span><span class="o">/-</span><span class="n">sse4</span><span class="o">.</span><span class="mi">1</span><span class="o">/-</span><span class="n">sse4</span><span class="o">.</span><span class="mi">2</span><span class="o">/-</span><span class="n">avx</span><span class="o">/-</span><span class="n">avx2</span><span class="o">/-</span><span class="n">avx512</span>
+<span class="n">Enable</span> <span class="n">use</span> <span class="n">of</span> <span class="n">particular</span> <span class="n">x86</span> <span class="n">instructions</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="n">Enabled</span> <span class="n">ones</span> <span class="n">are</span> <span class="n">still</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">runtime</span> <span class="n">detection</span><span class="o">.</span>
+<span class="o">-</span><span class="n">mips_dsp</span><span class="o">/-</span><span class="n">mips_dspr2</span> <span class="n">Use</span> <span class="n">MIPS</span> <span class="n">DSP</span><span class="o">/</span><span class="n">rev2</span> <span class="n">instructions</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">qreal</span> <span class="o">........</span> <span class="n">typedef</span> <span class="n">qreal</span> <span class="n">to</span> <span class="n">the</span> <span class="n">specified</span> <span class="nb">type</span><span class="o">.</span> <span class="p">[</span><span class="n">double</span><span class="p">]</span>
+<span class="n">Note</span><span class="p">:</span> <span class="n">this</span> <span class="n">affects</span> <span class="n">binary</span> <span class="n">compatibility</span><span class="o">.</span>
+
+<span class="o">-</span><span class="n">R</span> <span class="o">..........</span> <span class="n">Add</span> <span class="n">an</span> <span class="n">explicit</span> <span class="n">runtime</span> <span class="n">library</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Qt</span>
+<span class="n">libraries</span><span class="o">.</span> <span class="n">Supports</span> <span class="n">paths</span> <span class="n">relative</span> <span class="n">to</span> <span class="n">LIBDIR</span><span class="o">.</span>
+<span class="o">-</span><span class="n">rpath</span> <span class="o">...............</span> <span class="n">Link</span> <span class="n">Qt</span> <span class="n">libraries</span> <span class="ow">and</span> <span class="n">executables</span> <span class="n">using</span> <span class="n">the</span> <span class="n">library</span>
+<span class="n">install</span> <span class="n">path</span> <span class="k">as</span> <span class="n">a</span> <span class="n">runtime</span> <span class="n">library</span> <span class="n">path</span><span class="o">.</span> <span class="n">Similar</span> <span class="n">to</span>
+<span class="o">-</span><span class="n">R</span> <span class="n">LIBDIR</span><span class="o">.</span> <span class="n">On</span> <span class="n">Apple</span> <span class="n">platforms</span><span class="p">,</span> <span class="n">disabling</span> <span class="n">this</span> <span class="n">implies</span>
+<span class="n">using</span> <span class="n">absolute</span> <span class="n">install</span> <span class="n">names</span> <span class="p">(</span><span class="n">based</span> <span class="ow">in</span> <span class="n">LIBDIR</span><span class="p">)</span> <span class="k">for</span>
+<span class="n">dynamic</span> <span class="n">libraries</span> <span class="ow">and</span> <span class="n">frameworks</span><span class="o">.</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+
+<span class="o">-</span><span class="n">reduce</span><span class="o">-</span><span class="n">exports</span> <span class="o">......</span> <span class="n">Reduce</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">exported</span> <span class="n">symbols</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">reduce</span><span class="o">-</span><span class="n">relocations</span> <span class="o">..</span> <span class="n">Reduce</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">relocations</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">manifests</span> <span class="o">....</span> <span class="n">Embed</span> <span class="n">manifests</span> <span class="n">into</span> <span class="n">plugins</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">static</span><span class="o">-</span><span class="n">runtime</span> <span class="o">......</span> <span class="n">With</span> <span class="o">-</span><span class="n">static</span><span class="p">,</span> <span class="n">use</span> <span class="n">static</span> <span class="n">runtime</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">pch</span> <span class="o">.................</span> <span class="n">Use</span> <span class="n">precompiled</span> <span class="n">headers</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">ltcg</span> <span class="o">................</span> <span class="n">Use</span> <span class="n">Link</span> <span class="n">Time</span> <span class="n">Code</span> <span class="n">Generation</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">use</span><span class="o">-</span><span class="n">gold</span><span class="o">-</span><span class="n">linker</span> <span class="o">.....</span> <span class="n">Use</span> <span class="n">the</span> <span class="n">GNU</span> <span class="n">gold</span> <span class="n">linker</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">incredibuild</span><span class="o">-</span><span class="n">xge</span> <span class="o">....</span> <span class="n">Use</span> <span class="n">the</span> <span class="n">IncrediBuild</span> <span class="n">XGE</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">make</span><span class="o">-</span><span class="n">tool</span> <span class="o">....</span> <span class="n">Use</span> <span class="n">to</span> <span class="n">build</span> <span class="n">qmake</span> <span class="p">[</span><span class="n">nmake</span><span class="p">]</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">mp</span> <span class="o">..................</span> <span class="n">Use</span> <span class="n">multiple</span> <span class="n">processors</span> <span class="k">for</span> <span class="n">compilation</span> <span class="p">(</span><span class="n">MSVC</span> <span class="n">only</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">warnings</span><span class="o">-</span><span class="n">are</span><span class="o">-</span><span class="n">errors</span> <span class="o">.</span> <span class="n">Treat</span> <span class="n">warnings</span> <span class="k">as</span> <span class="n">errors</span> <span class="p">[</span><span class="n">no</span><span class="p">;</span> <span class="n">yes</span> <span class="k">if</span> <span class="o">-</span><span class="n">developer</span><span class="o">-</span><span class="n">build</span><span class="p">]</span>
+<span class="o">-</span><span class="n">silent</span> <span class="o">..............</span> <span class="n">Reduce</span> <span class="n">the</span> <span class="n">build</span> <span class="n">output</span> <span class="n">so</span> <span class="n">that</span> <span class="n">warnings</span> <span class="ow">and</span> <span class="n">errors</span>
+<span class="n">can</span> <span class="n">be</span> <span class="n">seen</span> <span class="n">more</span> <span class="n">easily</span>
+</pre></div>
+</div>
+<p><strong>构建环境：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-sysroot ....... Set as the target sysroot
+-gcc-sysroot ......... With -sysroot, pass --sysroot to the compiler [yes]
+
+-pkg-config .......... Use pkg-config [auto] (Unix only)
+
+-D .......... Pass additional preprocessor define
+-I .......... Pass additional include path
+-L .......... Pass additional library path
+-F .......... Pass additional framework path (Apple only)
+
+-sdk ........... Build Qt using Apple provided SDK . The argument
+should be one of the available SDKs as listed by
+&#39;xcodebuild -showsdks&#39;.
+Note that the argument applies only to Qt libraries
+and applications built using the target mkspec - not
+host tools such as qmake, moc, rcc, etc.
+
+-android-sdk path .... Set Android SDK root path [$ANDROID_SDK_ROOT]
+-android-ndk path .... Set Android NDK root path [$ANDROID_NDK_ROOT]
+-android-ndk-platform Set Android platform
+-android-ndk-host .... Set Android NDK host (linux-x86, linux-x86_64, etc.)
+[$ANDROID_NDK_HOST]
+-android-arch ........ Set Android architecture (armeabi, armeabi-v7a,
+arm64-v8a, x86, x86_64, mips, mips64)
+-android-toolchain-version ... Set Android toolchain version
+-android-style-assets Automatically extract style assets from the device at
+run time. This option makes the Android style behave
+correctly, but also makes the Android platform plugin
+incompatible with the LGPL2.1. [yes]
+</pre></div>
+</div>
+<p><strong>组件选择</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">skip</span> <span class="o">.........</span> <span class="n">Exclude</span> <span class="n">an</span> <span class="n">entire</span> <span class="n">repository</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">build</span><span class="o">.</span>
+<span class="o">-</span><span class="n">make</span> <span class="o">.........</span> <span class="n">Add</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">parts</span> <span class="n">to</span> <span class="n">be</span> <span class="n">built</span><span class="o">.</span>
+<span class="n">Specifying</span> <span class="n">this</span> <span class="n">option</span> <span class="n">clears</span> <span class="n">the</span> <span class="n">default</span> <span class="nb">list</span> <span class="n">first</span><span class="o">.</span>
+<span class="p">[</span><span class="n">libs</span> <span class="ow">and</span> <span class="n">examples</span><span class="p">,</span> <span class="n">also</span> <span class="n">tools</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">cross</span><span class="o">-</span><span class="n">building</span><span class="p">,</span>
+<span class="n">also</span> <span class="n">tests</span> <span class="k">if</span> <span class="o">-</span><span class="n">developer</span><span class="o">-</span><span class="n">build</span><span class="p">]</span>
+<span class="o">-</span><span class="n">nomake</span> <span class="o">.......</span> <span class="n">Exclude</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">parts</span> <span class="n">to</span> <span class="n">be</span> <span class="n">built</span><span class="o">.</span>
+<span class="o">-</span><span class="nb">compile</span><span class="o">-</span><span class="n">examples</span> <span class="o">....</span> <span class="n">When</span> <span class="n">unset</span><span class="p">,</span> <span class="n">install</span> <span class="n">only</span> <span class="n">the</span> <span class="n">sources</span> <span class="n">of</span> <span class="n">examples</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">gui</span> <span class="o">.................</span> <span class="n">Build</span> <span class="n">the</span> <span class="n">Qt</span> <span class="n">GUI</span> <span class="n">module</span> <span class="ow">and</span> <span class="n">dependencies</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">widgets</span> <span class="o">.............</span> <span class="n">Build</span> <span class="n">the</span> <span class="n">Qt</span> <span class="n">Widgets</span> <span class="n">module</span> <span class="ow">and</span> <span class="n">dependencies</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">dbus</span> <span class="o">.............</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">build</span> <span class="n">the</span> <span class="n">Qt</span> <span class="n">D</span><span class="o">-</span><span class="n">Bus</span> <span class="n">module</span>
+<span class="p">[</span><span class="n">default</span> <span class="n">on</span> <span class="n">Android</span> <span class="ow">and</span> <span class="n">Windows</span><span class="p">]</span>
+<span class="o">-</span><span class="n">dbus</span><span class="o">-</span><span class="n">linked</span> <span class="o">.........</span> <span class="n">Build</span> <span class="n">Qt</span> <span class="n">D</span><span class="o">-</span><span class="n">Bus</span> <span class="ow">and</span> <span class="n">link</span> <span class="n">to</span> <span class="n">libdbus</span><span class="o">-</span><span class="mi">1</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">dbus</span><span class="o">-</span><span class="n">runtime</span> <span class="o">........</span> <span class="n">Build</span> <span class="n">Qt</span> <span class="n">D</span><span class="o">-</span><span class="n">Bus</span> <span class="ow">and</span> <span class="n">dynamically</span> <span class="n">load</span> <span class="n">libdbus</span><span class="o">-</span><span class="mi">1</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">accessibility</span> <span class="o">.......</span> <span class="n">Enable</span> <span class="n">accessibility</span> <span class="n">support</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="n">Note</span><span class="p">:</span> <span class="n">Disabling</span> <span class="n">accessibility</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">recommended</span><span class="o">.</span>
+<span class="o">-</span><span class="n">qml</span><span class="o">-</span><span class="n">debug</span> <span class="o">...........</span> <span class="n">Enable</span> <span class="n">QML</span> <span class="n">debugging</span> <span class="n">support</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+
+<span class="n">Qt</span> <span class="n">comes</span> <span class="k">with</span> <span class="n">bundled</span> <span class="n">copies</span> <span class="n">of</span> <span class="n">some</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">party</span> <span class="n">libraries</span><span class="o">.</span> <span class="n">These</span> <span class="n">are</span> <span class="n">used</span>
+<span class="n">by</span> <span class="n">default</span> <span class="k">if</span> <span class="n">auto</span><span class="o">-</span><span class="n">detection</span> <span class="n">of</span> <span class="n">the</span> <span class="n">respective</span> <span class="n">system</span> <span class="n">library</span> <span class="n">fails</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>核心选项</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">doubleconversion</span> <span class="o">....</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">double</span> <span class="n">conversion</span> <span class="n">library</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="n">No</span> <span class="n">implies</span> <span class="n">use</span> <span class="n">of</span> <span class="n">sscanf_l</span> <span class="ow">and</span> <span class="n">snprintf_l</span> <span class="p">(</span><span class="n">imprecise</span><span class="p">)</span><span class="o">.</span>
+<span class="o">-</span><span class="n">glib</span> <span class="o">................</span> <span class="n">Enable</span> <span class="n">Glib</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">;</span> <span class="n">auto</span> <span class="n">on</span> <span class="n">Unix</span><span class="p">]</span>
+<span class="o">-</span><span class="n">eventfd</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">eventfd</span> <span class="n">support</span>
+<span class="o">-</span><span class="n">inotify</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">inotify</span> <span class="n">support</span>
+<span class="o">-</span><span class="n">iconv</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">iconv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">support</span> <span class="p">[</span><span class="n">posix</span><span class="o">/</span><span class="n">sun</span><span class="o">/</span><span class="n">gnu</span><span class="o">/</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">icu</span> <span class="o">.................</span> <span class="n">Enable</span> <span class="n">ICU</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">pcre</span> <span class="o">................</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">libpcre2</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="p">]</span>
+<span class="o">-</span><span class="n">pps</span> <span class="o">.................</span> <span class="n">Enable</span> <span class="n">PPS</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">QNX</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">zlib</span> <span class="o">................</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">zlib</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>日志后端</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">journald</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">journald</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">syslog</span> <span class="o">............</span> <span class="n">Enable</span> <span class="n">syslog</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">slog2</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">slog2</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">QNX</span> <span class="n">only</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>网络选择</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">ssl</span> <span class="o">.................</span> <span class="n">Enable</span> <span class="n">either</span> <span class="n">SSL</span> <span class="n">support</span> <span class="n">method</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">openssl</span> <span class="o">..........</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">OpenSSL</span> <span class="p">[</span><span class="n">default</span> <span class="n">on</span> <span class="n">Apple</span> <span class="ow">and</span> <span class="n">WinRT</span><span class="p">]</span>
+<span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">linked</span> <span class="o">......</span> <span class="n">Use</span> <span class="n">OpenSSL</span> <span class="ow">and</span> <span class="n">link</span> <span class="n">to</span> <span class="n">libssl</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">runtime</span> <span class="o">.....</span> <span class="n">Use</span> <span class="n">OpenSSL</span> <span class="ow">and</span> <span class="n">dynamically</span> <span class="n">load</span> <span class="n">libssl</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">securetransport</span> <span class="o">.....</span> <span class="n">Use</span> <span class="n">SecureTransport</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Apple</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">sctp</span> <span class="o">................</span> <span class="n">Enable</span> <span class="n">SCTP</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+
+<span class="o">-</span><span class="n">libproxy</span> <span class="o">............</span> <span class="n">Enable</span> <span class="n">use</span> <span class="n">of</span> <span class="n">libproxy</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">proxies</span> <span class="o">......</span> <span class="n">Use</span> <span class="n">system</span> <span class="n">network</span> <span class="n">proxies</span> <span class="n">by</span> <span class="n">default</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Gui, 打印, 挂件选择</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">cups</span> <span class="o">................</span> <span class="n">Enable</span> <span class="n">CUPS</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">fontconfig</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">Fontconfig</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">freetype</span> <span class="o">............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">FreeType</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">harfbuzz</span> <span class="o">............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">HarfBuzz</span><span class="o">-</span><span class="n">NG</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="p">(</span><span class="n">Not</span> <span class="n">auto</span><span class="o">-</span><span class="n">detected</span> <span class="n">on</span> <span class="n">Apple</span> <span class="ow">and</span> <span class="n">Windows</span><span class="p">)</span>
+<span class="o">-</span><span class="n">gtk</span> <span class="o">.................</span> <span class="n">Enable</span> <span class="n">GTK</span> <span class="n">platform</span> <span class="n">theme</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+
+<span class="o">-</span><span class="n">lgmon</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">lgmon</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">QNX</span> <span class="n">only</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">opengl</span> <span class="o">...........</span> <span class="n">Disable</span> <span class="n">OpenGL</span> <span class="n">support</span>
+<span class="o">-</span><span class="n">opengl</span> <span class="o">........</span> <span class="n">Enable</span> <span class="n">OpenGL</span> <span class="n">support</span><span class="o">.</span> <span class="n">Supported</span> <span class="n">APIs</span><span class="p">:</span>
+<span class="n">es2</span> <span class="p">(</span><span class="n">default</span> <span class="n">on</span> <span class="n">Windows</span><span class="p">),</span> <span class="n">desktop</span> <span class="p">(</span><span class="n">default</span> <span class="n">on</span> <span class="n">Unix</span><span class="p">),</span>
+<span class="n">dynamic</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">opengles3</span> <span class="o">...........</span> <span class="n">Enable</span> <span class="n">OpenGL</span> <span class="n">ES</span> <span class="mf">3.</span><span class="n">x</span> <span class="n">support</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">ES</span> <span class="mf">2.</span><span class="n">x</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">angle</span> <span class="o">...............</span> <span class="n">Use</span> <span class="n">bundled</span> <span class="n">ANGLE</span> <span class="n">to</span> <span class="n">support</span> <span class="n">OpenGL</span> <span class="n">ES</span> <span class="mf">2.0</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">combined</span><span class="o">-</span><span class="n">angle</span><span class="o">-</span><span class="n">lib</span> <span class="o">..</span> <span class="n">Merge</span> <span class="n">LibEGL</span> <span class="ow">and</span> <span class="n">LibGLESv2</span> <span class="n">into</span> <span class="n">LibANGLE</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">qpa</span> <span class="o">..........</span> <span class="n">Select</span> <span class="n">default</span> <span class="n">QPA</span> <span class="n">backend</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="n">xcb</span><span class="p">,</span> <span class="n">cocoa</span><span class="p">,</span> <span class="n">windows</span><span class="p">)</span>
+<span class="o">-</span><span class="n">xcb</span><span class="o">-</span><span class="n">xlib</span><span class="o">.............</span> <span class="n">Enable</span> <span class="n">Xcb</span><span class="o">-</span><span class="n">Xlib</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>平台后端：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">direct2d</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">Direct2D</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">directfb</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">DirectFB</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">eglfs</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">EGLFS</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">;</span> <span class="n">no</span> <span class="n">on</span> <span class="n">Android</span> <span class="ow">and</span> <span class="n">Windows</span><span class="p">]</span>
+<span class="o">-</span><span class="n">gbm</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">backends</span> <span class="k">for</span> <span class="n">GBM</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Linux</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">kms</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">backends</span> <span class="k">for</span> <span class="n">KMS</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Linux</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">linuxfb</span> <span class="o">...........</span> <span class="n">Enable</span> <span class="n">Linux</span> <span class="n">Framebuffer</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Linux</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">mirclient</span> <span class="o">.........</span> <span class="n">Enable</span> <span class="n">Mir</span> <span class="n">client</span> <span class="n">support</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span> <span class="p">(</span><span class="n">Linux</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">xcb</span> <span class="o">...............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">xcb</span><span class="o">-*</span> <span class="n">libraries</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="p">(</span><span class="o">-</span><span class="n">qt</span><span class="o">-</span><span class="n">xcb</span> <span class="n">still</span> <span class="n">uses</span> <span class="n">system</span> <span class="n">version</span> <span class="n">of</span> <span class="n">libxcb</span> <span class="n">itself</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输入后端</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">evdev</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">evdev</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">imf</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">IMF</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">QNX</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">libinput</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">libinput</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">mtdev</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">mtdev</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">tslib</span> <span class="o">.............</span> <span class="n">Enable</span> <span class="n">tslib</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">xinput2</span> <span class="o">...........</span> <span class="n">Enable</span> <span class="n">XInput2</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">xkbcommon</span><span class="o">-</span><span class="n">x11</span> <span class="o">.....</span> <span class="n">Select</span> <span class="n">xkbcommon</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">combination</span> <span class="k">with</span> <span class="n">xcb</span>
+<span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">xkb</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">root</span> <span class="o">...</span> <span class="n">With</span> <span class="o">-</span><span class="n">qt</span><span class="o">-</span><span class="n">xkbcommon</span><span class="o">-</span><span class="n">x11</span><span class="p">,</span> <span class="nb">set</span> <span class="n">default</span> <span class="n">XKB</span> <span class="n">config</span>
+<span class="n">root</span> <span class="p">[</span><span class="n">detect</span><span class="p">]</span>
+<span class="o">-</span><span class="n">xkbcommon</span><span class="o">-</span><span class="n">evdev</span> <span class="o">...</span> <span class="n">Enable</span> <span class="n">X</span><span class="o">-</span><span class="n">less</span> <span class="n">xkbcommon</span> <span class="ow">in</span> <span class="n">combination</span> <span class="k">with</span> <span class="n">libinput</span>
+<span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>图像格式</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">gif</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">reading</span> <span class="n">support</span> <span class="k">for</span> <span class="n">GIF</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">ico</span> <span class="o">...............</span> <span class="n">Enable</span> <span class="n">support</span> <span class="k">for</span> <span class="n">ICO</span> <span class="p">[</span><span class="n">yes</span><span class="p">]</span>
+<span class="o">-</span><span class="n">libpng</span> <span class="o">............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">libpng</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">libjpeg</span> <span class="o">...........</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">libjpeg</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>数据库选项</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">sql</span><span class="o">-</span> <span class="o">........</span> <span class="n">Enable</span> <span class="n">SQL</span> <span class="n">plugin</span><span class="o">.</span> <span class="n">Supported</span> <span class="n">drivers</span><span class="p">:</span>
+<span class="n">db2</span> <span class="n">ibase</span> <span class="n">mysql</span> <span class="n">oci</span> <span class="n">odbc</span> <span class="n">psql</span> <span class="n">sqlite2</span> <span class="n">sqlite</span> <span class="n">tds</span>
+<span class="p">[</span><span class="nb">all</span> <span class="n">auto</span><span class="p">]</span>
+<span class="o">-</span><span class="n">sqlite</span> <span class="o">..............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">sqlite3</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Qt3D 选项</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">assimp</span> <span class="o">..............</span> <span class="n">Select</span> <span class="n">used</span> <span class="n">assimp</span> <span class="n">library</span> <span class="p">[</span><span class="n">system</span><span class="o">/</span><span class="n">qt</span><span class="o">/</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">qt3d</span><span class="o">-</span><span class="n">profile</span><span class="o">-</span><span class="n">jobs</span> <span class="o">...</span> <span class="n">Enable</span> <span class="n">jobs</span> <span class="n">profiling</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+<span class="o">-</span><span class="n">qt3d</span><span class="o">-</span><span class="n">profile</span><span class="o">-</span><span class="n">gl</span> <span class="o">.....</span> <span class="n">Enable</span> <span class="n">OpenGL</span> <span class="n">profiling</span> <span class="p">[</span><span class="n">no</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>多媒体选项</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">pulseaudio</span> <span class="o">..........</span> <span class="n">Enable</span> <span class="n">PulseAudio</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">alsa</span> <span class="o">................</span> <span class="n">Enable</span> <span class="n">ALSA</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span> <span class="p">(</span><span class="n">Unix</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">gstreamer</span> <span class="o">........</span> <span class="n">Disable</span> <span class="n">support</span> <span class="k">for</span> <span class="n">GStreamer</span>
+<span class="o">-</span><span class="n">gstreamer</span> <span class="p">[</span><span class="n">version</span><span class="p">]</span> <span class="o">.</span> <span class="n">Enable</span> <span class="n">GStreamer</span> <span class="n">support</span> <span class="p">[</span><span class="n">auto</span><span class="p">]</span>
+<span class="n">With</span> <span class="n">no</span> <span class="n">parameter</span><span class="p">,</span> <span class="mf">1.0</span> <span class="ow">is</span> <span class="n">tried</span> <span class="n">first</span><span class="p">,</span> <span class="n">then</span> <span class="mf">0.10</span><span class="o">.</span>
+<span class="o">-</span><span class="n">mediaplayer</span><span class="o">-</span><span class="n">backend</span> <span class="o">...</span> <span class="n">Select</span> <span class="n">media</span> <span class="n">player</span> <span class="n">backend</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">only</span><span class="p">)</span>
+<span class="n">Supported</span> <span class="n">backends</span><span class="p">:</span> <span class="n">directshow</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">wmf</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="QT_doc3.html" class="btn btn-neutral float-right" title="移植QT4.8.7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="QT_doc1.html" class="btn btn-neutral float-left" title="移植tslib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lichee Pi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<meta http-equiv="Cache-Control" max-age=7200 />
+
+<!-- <a href="https://github.com/Lichee-Pi">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork LicheePi on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+</a> -->
+
+<a href="https://github.com/Lichee-Pi" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2980B9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+    
+    @keyframes octocat-wave {
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+    
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA5Mi8xMDYzMA==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+<!-- End of Chaport Live Chat code -->
+  
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
