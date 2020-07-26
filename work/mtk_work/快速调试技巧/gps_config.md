@@ -1,6 +1,6 @@
 # MTK gps配置
 
-##查看原理图：
+## 查看原理图
 
 ```c
 GPIO_GPS_LNA_EN // 据此查到对应GPIO79(AL27)
