@@ -20,6 +20,10 @@ brew install aircrack-ng
 sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
 ```
 
+```bash
+sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+```
+
 以下为我附近所有的wifi， 注意看表格， SSID， BSSID， CHANNEL，这些关键词都会在后面提到：
 
 ![1136594-20190509113023452-1542251724.png](img/1136594-20190509113023452-1542251724.png)
