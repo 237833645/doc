@@ -18,11 +18,11 @@ int main(void)
         goto END;
     }
 
-    LED_GPIO_CLK_ENABLE();
 
     GPIO_InitTypeDef GPIO_InitStruct;
     GPIO_InitTypeDef GPIO_InitStruct2;
 
+    LED_GPIO_CLK_ENABLE();
     GPIO_InitStruct.Pin = LED_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
@@ -31,40 +31,40 @@ int main(void)
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_AFIO_CLK_ENABLE();
-
     GPIO_InitStruct2.Pin = KEY_PIN;
     GPIO_InitStruct2.Mode = GPIO_MODE_IT_FALLING | GPIO_MODE_AF_INPUT;
-    GPIO_InitStruct2.Pull = GPIO_PULLUP;
-    GPIO_InitStruct2.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct2.Pull = GPIO_NOPULL;
+    GPIO_InitStruct2.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(KEY_GPIO_PORT, &GPIO_InitStruct2);
 
+    LL_EXTI_InitTypeDef 
+
+    //HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
     HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-    //HAL_GPIO_WritePin(KEY_GPIO_PORT, KEY_PIN, GPIO_PIN_RESET);
+    //HAL_NVIC_SetPendingIRQ(EXTI0_IRQn);
+    //HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
     while (1)
     {
         ;
-        //HAL_Delay(50);
-        //HAL_GPIO_TogglePin(KEY_GPIO_PORT, KEY_PIN);
     }
 
     END:
     HAL_DeInit();
 }
 
+/*
 void EXTI0_IRQHandler(void)
 {
-    HAL_NVIC_DisableIRQ(EXTI0_IRQn);
     HAL_GPIO_EXTI_IRQHandler(KEY_PIN);
-    //HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-}
+}*/
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    HAL_GPIO_TogglePin(KEY_GPIO_PORT, KEY_PIN);
-    HAL_Delay(50);
-    HAL_NVIC_EnableIRQ(EXTI0_IRQn); 
+    if (GPIO_Pin == KEY_PIN)
+    {
+        HAL_GPIO_TogglePin(LED_GPIO_PORT, LED_PIN);
+    }
 }
 
 void HAL_MspInit(void)
