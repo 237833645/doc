@@ -36,8 +36,7 @@ int main(void)
     GPIO_InitStruct2.Pull = GPIO_NOPULL;
     GPIO_InitStruct2.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(KEY_GPIO_PORT, &GPIO_InitStruct2);
-
-    LL_EXTI_InitTypeDef 
+ 
 
     //HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
     HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
