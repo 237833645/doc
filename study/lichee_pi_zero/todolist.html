@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>荔枝派TODO任务领取 &mdash; Lichee zero  文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://zero.lichee.pro/_static/icon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="documentation_options.js"></script>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="underscore.js"></script>
+        <script type="text/javascript" src="doctools.js"></script>
+        <script type="text/javascript" src="language_data.js"></script>
+        <script type="text/javascript" src="translations.js"></script>
+    
+    <script type="text/javascript" src="theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="theme.css" type="text/css" />
+  <link rel="stylesheet" href="pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="投稿文章精选" href="contents.html" />
+    <link rel="prev" title="Qt去除鼠标指针显示" href="QT_doc9.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Lichee zero
+          
+
+          
+            
+            <img src="http://zero.lichee.pro/_static/icon2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">初来乍到篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_cn.html">荔枝派与创作者的自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Linux使用小贴士</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board_intro.html">认识zero的硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_index.html">Docker环境简明教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">系统开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type.html">Zero的开发环境分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uboot_index.html">UBOOT适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel_index.html">Linux内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsp_index.html">BSP内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesys_index.html">根文件系统编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPI_index.html">SPI系统杂谈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_index.html">Zero 镜像烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Imager.html">Zero Imager的使用</a></li>
+</ul>
+<p class="caption"><span class="caption-text">驱动开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Device_Tree_Intro.html">设备树简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peripheral_index.html">外设适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_index.html">设备驱动</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autorun.html">开机自启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Segment Fault调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="otg2PC.html">Zero通过otg与PC共享网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB_cam.html">USB摄像头使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QT_index.html">基于QT的GUI开发</a></li>
+</ul>
+<p class="caption"><span class="caption-text">贡献投稿篇:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="todolist.html#">荔枝派任务领取</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="todolist.html#id1">前言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="todolist.html#licheepi-zero-todo-list">LicheePi Zero TODO List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="todolist.html#id2">其它项目 快餐式外包</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html">投稿文章精选</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_doc.html">文档构建</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lichee zero</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>荔枝派TODO任务领取</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="todo">
+<h1>荔枝派TODO任务领取<a class="headerlink" href="todolist.html#todo" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>前言<a class="headerlink" href="todolist.html#id1" title="永久链接至标题">¶</a></h2>
+<p>本文档详细介绍荔枝派Zero的使用，将由群主设计目录框架，群友众包完成。</p>
+<p>完成每篇文档的群友均可获得Zero一片，有难度的文档会酌情提高回报。</p>
+<p>需要什么教程的朋友可以在这里留言，我将添加到TODO List里。</p>
+<p>本文不定期更新开发者任务，有荔枝派相关的，也有其他小项目的，有兴趣的朋友可以在其下留言或者直接小窗联系群主QQ：<em>715805855</em>, 或者邮箱 <em>zepanwucai&#64;gmail.com</em> 领取任务。</p>
+<p><span class="guilabel">tips</span> 普通简单任务请在一周内完成，困难任务酌情放宽时间。</p>
+<p><span class="guilabel">tips</span> 每个任务同时可由多人认领，由最先完成者获取回报。也可组队认领，回报由队内协商分配</p>
+</div>
+<div class="section" id="licheepi-zero-todo-list">
+<h2>LicheePi Zero TODO List<a class="headerlink" href="todolist.html#licheepi-zero-todo-list" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 17%" />
+<col style="width: 49%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>大项 Item</p></th>
+<th class="head"><p>小项 SubItem</p></th>
+<th class="head"><p>详述 description</p></th>
+<th class="head"><p>预估难度 difficulty(1~5)</p></th>
+<th class="head"><p>预估耗时 timecost</p></th>
+<th class="head"><p>回报 reward</p></th>
+<th class="head"><p>领取人 contributor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>教程撰写 Tutorial</p></td>
+<td><p>开箱指南 OpenBoxTutorialCN</p></td>
+<td><p>1.Zero各部分简介 2.启动方式介绍 3.系统镜像组成部分介绍 4.系统镜像分类介绍 5.镜像烧录及简单演示</p></td>
+<td><p>1</p></td>
+<td><p>1~2h</p></td>
+<td><p>Zero</p></td>
+<td><p>Ç†~木耳多糖 5.4 sendout</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>OpenBox Tutorial EN</p></td>
+<td><p>1.Zero element intro 2.boot method intro 3.system image partion intro 4.system image intro 5.image download and demonstration</p></td>
+<td><p>1</p></td>
+<td><p>1~2h</p></td>
+<td><p>Zero</p></td>
+<td><p>熟悉的陌生人 5.1 sendout</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>WiFi/BT module Usage CN</p></td>
+<td><p>0.模块的焊接演示 1.WiFi的使用及iperf测试 2.BT的使用及连接蓝牙外设的测试</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>ZeroW</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>WiFi/BTmodule Usage EN</p></td>
+<td><p>0.solder method 1.WiFi usgae and iperf test 2.BT usage and test</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>ZeroW</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>Uboot compile CN</p></td>
+<td><p>介绍Uboot的结构，menuconfig里的常见配置选项，编译步骤等</p></td>
+<td><p>1</p></td>
+<td><p>1h</p></td>
+<td><p>Zero</p></td>
+<td><p>飞跃5.4 sendout</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>Uboot compile EN</p></td>
+<td><p>intro Uboot struct，menuconfig items,compile setps and soon</p></td>
+<td><p>1</p></td>
+<td><p>1h</p></td>
+<td><p>Zero</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>Linux kernel compile CN</p></td>
+<td><p>介绍Zero的开发环境搭建，内核配置编译过程，常见驱动的配置等</p></td>
+<td><p>2</p></td>
+<td><p>1~2h</p></td>
+<td><p>ZeroW</p></td>
+<td><p>亦∮魔 5.4 sendout</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>Linux kernel compile EN</p></td>
+<td><p>Zero’s Linux development environment setup，kernel config，driver config,etc.</p></td>
+<td><p>2</p></td>
+<td><p>1~2h</p></td>
+<td><p>ZeroW</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Uboot调试 Uboot Works</p></td>
+<td><p>SPI启动SPI Nor boot up</p></td>
+<td><p>SPI NOR flash启动到内核，撰写文档SPI NOR Flash boot up to kernel,write the document</p></td>
+<td><p>4</p></td>
+<td><p>4~8h</p></td>
+<td><p>ZeroW+5 inch LCD</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>驱动调试 DriverWorks</p></td>
+<td><p>适配以太网驱动 Adapt Ethernet driver</p></td>
+<td><p>尝试编译以太网驱动，发送给群主验证，并撰写过程文档compile and debug ethernet driver,write the document</p></td>
+<td><p>3</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td><p>techping 5.4 sendout &amp; finished</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>Adapt SPI LCD</p></td>
+<td><p>尝试编译SPI LCD驱动，作为系统主显示，发给群主验证，并记录文档 compile and debug SPI LCD Driver，write the document</p></td>
+<td><p>3</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td><p>QianFan 5.1 sendout</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>Adapt I2C OLED</p></td>
+<td><p>尝试编译I2C OLED驱动，发给群主验证，并记录文档 compile and debug I2C OLED driver，write the document</p></td>
+<td><p>3</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td><p>星空 5.4 finished</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>适配OV5647摄像头主线驱动　MIPI CSI and OV5647 driver</p></td>
+<td><p>尝试移植OV5647驱动，主要是drivers/media/i2c下寄存器操作和drivers/media/platform下平台相关操作。发给群主验证，并撰写移植文档 write and debug MIPICSI,OV5647 driver，write the document</p></td>
+<td><p>5</p></td>
+<td><p>???</p></td>
+<td><p>$500</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>官方SDK驱动摄像头 AW SDK MCSI driver</p></td>
+<td><p>剥离官方SDK的Linux内核，构建可使用摄像头的系统镜像 strip AW SDK’s linux,and run camera on it</p></td>
+<td><p>4</p></td>
+<td><p>4~8h</p></td>
+<td><p>$100</p></td>
+<td><p>王伟 5.4 sendout</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>适配HDMI转接板驱动 Adapt HDMI driver</p></td>
+<td><p>IT66121FN驱动 compile and debug IT66121 driver,write the document</p></td>
+<td><p>3</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td><p>techping 5.4 sendout</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>适配按键手柄驱动 Adapt I2C joystick driver</p></td>
+<td><p>TCA8418驱动 TCA8418 driver compile and debug,write the document</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>ZeroW</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PCB相关PCB Works</p></td>
+<td><p>底板修改 Dock optimizing</p></td>
+<td><p>修改优化初版底板 Dock optimizing</p></td>
+<td><p>2</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>I2C手柄修改 I2C joystick optimizing</p></td>
+<td><p>优化手柄握感 I2C joystick optimizing</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>ZeroW</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>RGB40P转50P转接板设计 RGB40P to 50P</p></td>
+<td><p>根据群创通用50P RGB屏的定义，设计40P转50P转接板 RGB40P to 50P adapt or board design</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>报销打样，元件费用 freePCB and bom</p></td>
+<td><p>shadow 5.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>系统镜像</p></td>
+<td><p>rootfs for lxde</p></td>
+<td><p>新增lxde的根文件系统</p></td>
+<td><p>2</p></td>
+<td><p>2h</p></td>
+<td><p>ZeroW</p></td>
+<td><p>Anonym 5.1 finished</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>打包镜像 package image</p></td>
+<td><p>打包uboot，内核，根文件系统到单独的dd镜像package “dd” image</p></td>
+<td><p>1</p></td>
+<td><p>1~2h</p></td>
+<td><p>Zero</p></td>
+<td><p>Anonym 5.1 Finished</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>Qt image</p></td>
+<td><p>打包Qt镜像，并撰写使用文档 Package Qt image,write document</p></td>
+<td><p>2</p></td>
+<td><p>2~4h</p></td>
+<td><p>ZeroWDock</p></td>
+<td><p>fu登ck 5.1</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>openwrt image</p></td>
+<td><p>打包Openwrt镜像，包含压缩版和不压缩版，撰写编译，使用文档 package openwrt image(compress and uncompress),write document</p></td>
+<td><p>2</p></td>
+<td><p>4h</p></td>
+<td><p>ZeroWDock+5 inch LCD</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>杂项 MISC</p></td>
+<td><p>名片式说明书设计 specification card design</p></td>
+<td><p>90x54mm标准名片大小的简易说明书，一面标注Zero的引脚位，一面是各资源链接</p></td>
+<td><p>1</p></td>
+<td><p>1~2h</p></td>
+<td><p>Zero</p></td>
+<td><p>小白杨 5.2</p></td>
+</tr>
+<tr class="row-even"><td><p>其它Other</p></td>
+<td><p>可以提出其它建议，加入到TODOlist清单中 Add more task to this List</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h2>其它项目 快餐式外包<a class="headerlink" href="todolist.html#id2" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 58%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>项目</p></th>
+<th class="head"><p>详述</p></th>
+<th class="head"><p>预估难度</p></th>
+<th class="head"><p>预估耗时</p></th>
+<th class="head"><p>回报</p></th>
+<th class="head"><p>领取人</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>某LED灯板原理图及PCB修改</p></td>
+<td><p>从单色灯改成双色灯和RGBW灯，单面板</p></td>
+<td><p>2</p></td>
+<td><p>2~4h</p></td>
+<td><p>200RMB</p></td>
+<td><p>Sandwich à lane 5.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>某LED灯板闪灯程序修改</p></td>
+<td><p>从单色灯修改为双色灯和RGBW灯的闪烁方式</p></td>
+<td><p>2</p></td>
+<td><p>2~4h</p></td>
+<td><p>200RMB</p></td>
+<td><p>Sandwich à lane 5.1</p></td>
+</tr>
+<tr class="row-even"><td><p>某GPRS模组MQTT调试</p></td>
+<td><p>使用上海合宙的Air200模块，Lua编程，自带MQTT库，与我方后端工程师对接调试，需先付开发板押金</p></td>
+<td><p>2</p></td>
+<td><p>4~6h</p></td>
+<td><p>500RMB</p></td>
+<td><p>MARtinT3CH 5.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contents.html" class="btn btn-neutral float-right" title="投稿文章精选" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="QT_doc9.html" class="btn btn-neutral float-left" title="Qt去除鼠标指针显示" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lichee Pi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<meta http-equiv="Cache-Control" max-age=7200 />
+
+<!-- <a href="https://github.com/Lichee-Pi">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork LicheePi on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+</a> -->
+
+<a href="https://github.com/Lichee-Pi" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2980B9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+    
+    @keyframes octocat-wave {
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+    
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA5Mi8xMDYzMA==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+<!-- End of Chaport Live Chat code -->
+  
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

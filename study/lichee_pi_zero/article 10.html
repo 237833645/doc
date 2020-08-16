@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lichee 编译踩坑记录(ilichee ZERO) &mdash; Lichee zero  文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://zero.lichee.pro/_static/icon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="documentation_options.js"></script>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="underscore.js"></script>
+        <script type="text/javascript" src="doctools.js"></script>
+        <script type="text/javascript" src="language_data.js"></script>
+        <script type="text/javascript" src="translations.js"></script>
+    
+    <script type="text/javascript" src="theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="theme.css" type="text/css" />
+  <link rel="stylesheet" href="pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="lichee_zero_外设GPIO接口" href="article&#32;11.html" />
+    <link rel="prev" title="Visio-uboot-sunxi流程" href="article&#32;9.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Lichee zero
+          
+
+          
+            
+            <img src="http://zero.lichee.pro/_static/icon2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">初来乍到篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_cn.html">荔枝派与创作者的自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Linux使用小贴士</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board_intro.html">认识zero的硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_index.html">Docker环境简明教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">系统开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type.html">Zero的开发环境分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uboot_index.html">UBOOT适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel_index.html">Linux内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsp_index.html">BSP内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesys_index.html">根文件系统编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPI_index.html">SPI系统杂谈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_index.html">Zero 镜像烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Imager.html">Zero Imager的使用</a></li>
+</ul>
+<p class="caption"><span class="caption-text">驱动开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Device_Tree_Intro.html">设备树简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peripheral_index.html">外设适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_index.html">设备驱动</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autorun.html">开机自启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Segment Fault调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="otg2PC.html">Zero通过otg与PC共享网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB_cam.html">USB摄像头使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QT_index.html">基于QT的GUI开发</a></li>
+</ul>
+<p class="caption"><span class="caption-text">贡献投稿篇:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="todolist.html">荔枝派任务领取</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contents.html">投稿文章精选</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="article&#32;1.html">荔枝派zero开箱指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;2.html">Zero i2c oled使用指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;3.html">zero SPI LCD使用指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;4.html">Zero u-boot编译和使用指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;5.html">TF WiFi使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;6.html">Zero Ethernet使用指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;7.html">Zero 移植Qt5.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;8.html">ZeroSpiNorFlash启动系统制作指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;9.html">Visio-uboot-sunxi流程</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="article&#32;10.html#">lichee 编译踩坑记录(ilichee ZERO)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="article&#32;10.html#id2">1. 编译环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="article&#32;10.html#buildroot">2. buildroot源码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="article&#32;10.html#host-m4-1-4-15">1) host-m4-1.4.15</a></li>
+<li class="toctree-l4"><a class="reference internal" href="article&#32;10.html#host-autoconf-2-65">2) host-autoconf-2.65</a></li>
+<li class="toctree-l4"><a class="reference internal" href="article&#32;10.html#host-makedevs">3) host-makedevs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="article&#32;10.html#licheerootfs-cpio-gz">3. lichee缺rootfs.cpio.gz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="article&#32;10.html#awk-line-2-function-strtonum-never-defined">4. awk: line 2: function strtonum never defined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="article&#32;10.html#pack-finish">5. pack finish但无镜像输出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;11.html">lichee_zero_外设GPIO接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="article&#32;12.html">TF WIFI 小白编</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build_doc.html">文档构建</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lichee zero</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="contents.html">投稿文章精选</a> &raquo;</li>
+        
+      <li>lichee 编译踩坑记录(ilichee ZERO)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lichee-ilichee-zero">
+<h1><a class="toc-backref" href="article&#32;10.html#id3">lichee 编译踩坑记录(ilichee ZERO)</a><a class="headerlink" href="article&#32;10.html#lichee-ilichee-zero" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">本文目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="article&#32;10.html#lichee-ilichee-zero" id="id3">lichee 编译踩坑记录(ilichee ZERO)</a></p>
+<ul>
+<li><p><a class="reference internal" href="article&#32;10.html#id2" id="id4">1. 编译环境</a></p></li>
+<li><p><a class="reference internal" href="article&#32;10.html#buildroot" id="id5">2. buildroot源码</a></p>
+<ul>
+<li><p><a class="reference internal" href="article&#32;10.html#host-m4-1-4-15" id="id6">1) host-m4-1.4.15</a></p></li>
+<li><p><a class="reference internal" href="article&#32;10.html#host-autoconf-2-65" id="id7">2) host-autoconf-2.65</a></p></li>
+<li><p><a class="reference internal" href="article&#32;10.html#host-makedevs" id="id8">3) host-makedevs</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="article&#32;10.html#licheerootfs-cpio-gz" id="id9">3. lichee缺rootfs.cpio.gz</a></p></li>
+<li><p><a class="reference internal" href="article&#32;10.html#awk-line-2-function-strtonum-never-defined" id="id10">4. awk: line 2: function strtonum never defined</a></p></li>
+<li><p><a class="reference internal" href="article&#32;10.html#pack-finish" id="id11">5. pack finish但无镜像输出</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="article&#32;10.html#id4">1. 编译环境</a><a class="headerlink" href="article&#32;10.html#id2" title="永久链接至标题">¶</a></h2>
+<p>编译的时候原来是正常编译过linux内核的，不过buildroot和里面带的程序还需要其他的一些软件包</p>
+<dl class="simple">
+<dt>需要安装的包</dt><dd><p><code class="docutils literal notranslate"><span class="pre">bison</span> <span class="pre">flex</span> <span class="pre">texinfo</span> <span class="pre">zlib1g-dev</span> <span class="pre">gawk</span></code></p>
+</dd>
+<dt>填坑方案</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">[包名称]</span></code></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="buildroot">
+<h2><a class="toc-backref" href="article&#32;10.html#id5">2. buildroot源码</a><a class="headerlink" href="article&#32;10.html#buildroot" title="永久链接至标题">¶</a></h2>
+<p>由于各种各样的原因buildroot里到处是坑- -有的源码可能对新编译器不适应，需要修改</p>
+<p>修改时有两个位置，如果还没有进行编译可以在 <code class="docutils literal notranslate"><span class="pre">/buildroot/pakage/[包名称]/</span></code> 里找到对应文件/文件夹</p>
+<p>编译时使用的是将上面的源码复制到 <code class="docutils literal notranslate"><span class="pre">/out/linux/common/buildroot/build/[包名称]</span></code> 或 <code class="docutils literal notranslate"><span class="pre">/out/linux/common/buildroot/build/host-[包名称]</span></code> 下，
+所以如果编译的过程中出错除了改buildroot里的源码也需要改后面那两个(如果有)文件夹下的源码</p>
+<div class="section" id="host-m4-1-4-15">
+<h3><a class="toc-backref" href="article&#32;10.html#id6">1) host-m4-1.4.15</a><a class="headerlink" href="article&#32;10.html#host-m4-1-4-15" title="永久链接至标题">¶</a></h3>
+<p>buildroot过程中</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./stdio.h:456:1:error: &#39;gets&#39; undeclared here (not in a function)</span>
+<span class="go">_GL_WARN_ON_USE(gets, &quot;gets is a security hole - use fgets instead&quot;);</span>
+</pre></div>
+</div>
+<p>填坑方法：参考链接：<a class="reference external" href="http://www.civilnet.cn/talk/browse.php?topicno=78555">http://www.civilnet.cn/talk/browse.php?topicno=78555</a></p>
+<p>找到： <code class="docutils literal notranslate"><span class="pre">host-m4-1.4.15/lib/stdio.h</span></code> ，然后对stdio.h文件做出如下改动，必要时连同 <code class="docutils literal notranslate"><span class="pre">stdio.in.h</span></code> 一起修改：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">=== modified file &#39;host-m4-1.4.15/lib/stdio.h&#39;</span>
+<span class="go">@@ -140,8 +140,10 @@</span>
+<span class="go">+#if defined gets</span>
+<span class="gp">#</span>undef gets
+<span class="go">_GL_WARN_ON_USE (gets, &quot;gets is a security hole - use fgets instead&quot;);</span>
+<span class="go">+#endif</span>
+</pre></div>
+</div>
+<p>修改后测试通过</p>
+</div>
+<div class="section" id="host-autoconf-2-65">
+<h3><a class="toc-backref" href="article&#32;10.html#id7">2) host-autoconf-2.65</a><a class="headerlink" href="article&#32;10.html#host-autoconf-2-65" title="永久链接至标题">¶</a></h3>
+<p>buildroot过程中</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">conftest.c:14625:must</span> <span class="pre">be</span> <span class="pre">after</span> <span class="pre">&#64;defmac'</span> <span class="pre">to</span> <span class="pre">use&#64;defmacx'</span></code></p>
+</div></blockquote>
+<p>填坑方法：参考链接：<a class="reference external" href="http://gnu-autoconf.7623.n7.nabble.com/compile-error-conftest-c-14625-must-be-after-defmac-to-use-defmacx-td18843.html">http://gnu-autoconf.7623.n7.nabble.com/compile-error-conftest-c-14625-must-be-after-defmac-to-use-defmacx-td18843.html</a></p>
+<p>找到 <code class="docutils literal notranslate"><span class="pre">autoconf-2.65/doc/autoconf.texi</span></code> ,进行修改</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@@ -15,7 +15,7 @@</span>
+<span class="go">@c The ARG is an optional argument.  To be used for macro arguments in</span>
+<span class="go">@c their documentation (@defmac).</span>
+<span class="go">@macro ovar{varname}</span>
+<span class="go">-@r{[}@var{\varname}@r{]}@c</span>
+<span class="go">+@r{[}@var{\varname}@r{]}</span>
+<span class="go">@end macro</span>
+<span class="go">@c @dvar(ARG, DEFAULT)</span>
+<span class="go">@@ -23,7 +23,7 @@</span>
+<span class="go">@c The ARG is an optional argument, defaulting to DEFAULT.  To be used</span>
+<span class="go">@c for macro arguments in their documentation (@defmac).</span>
+<span class="go">@macro dvar{varname, default}</span>
+<span class="go">-@r{[}@var{\varname} = @samp{\default}@r{]}@c</span>
+<span class="go">+@r{[}@var{\varname} = @samp{\default}@r{]}</span>
+<span class="go">@end macro</span>
+<span class="go">@c Handling the indexes with Texinfo yields several different problems.</span>
+</pre></div>
+</div>
+<p>修改后测试通过</p>
+</div>
+<div class="section" id="host-makedevs">
+<h3><a class="toc-backref" href="article&#32;10.html#id8">3) host-makedevs</a><a class="headerlink" href="article&#32;10.html#host-makedevs" title="永久链接至标题">¶</a></h3>
+<p>buildroot过程中</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/lichee/out/linux/common/buildroot/build/host-makedevs/makedevs.c:374:6: error: variable ‘ret’ set but not used [-Werror=unused-but-set-variable]</span>
+<span class="go">int ret = EXIT_SUCCESS;</span>
+<span class="go">^</span>
+<span class="go">cc1: all warnings being treated as errors</span>
+</pre></div>
+</div>
+<p>找到 <code class="docutils literal notranslate"><span class="pre">/makedevs/makedevs.c</span></code> 或 <code class="docutils literal notranslate"><span class="pre">/host-makedevs/makedevs.c</span></code> 进行修改</p>
+<p>最后一行， <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0</span></code>; 修改为： <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">ret</span></code>;</p>
+<p>这也算(╯‵□′)╯︵┻━┻)</p>
+</div>
+</div>
+<div class="section" id="licheerootfs-cpio-gz">
+<h2><a class="toc-backref" href="article&#32;10.html#id9">3. lichee缺rootfs.cpio.gz</a><a class="headerlink" href="article&#32;10.html#licheerootfs-cpio-gz" title="永久链接至标题">¶</a></h2>
+<p>buildroot后</p>
+<p>无法定位 <strong>“rootfs.cpio.gz”</strong></p>
+<p>泽畔大大说可以自己包一个 我从H3的SDK里扒了一个出来 目前为止没有出错 放到linux内核目录下</p>
+</div>
+<div class="section" id="awk-line-2-function-strtonum-never-defined">
+<h2><a class="toc-backref" href="article&#32;10.html#id10">4. awk: line 2: function strtonum never defined</a><a class="headerlink" href="article&#32;10.html#awk-line-2-function-strtonum-never-defined" title="永久链接至标题">¶</a></h2>
+<p>awk版本问题，需要安装gawk</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">gawk</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="pack-finish">
+<h2><a class="toc-backref" href="article&#32;10.html#id11">5. pack finish但无镜像输出</a><a class="headerlink" href="article&#32;10.html#pack-finish" title="永久链接至标题">¶</a></h2>
+<p>出现 <code class="docutils literal notranslate"><span class="pre">Dragon</span> <span class="pre">execute</span> <span class="pre">image.cfg</span> <span class="pre">failed</span></code></p>
+<p>lichee默认的对象是编译到nor flash上，但是没找到nor flash的配置文件o(╯□╰)o</p>
+<p>修改**/lichee/tools/pack/pack**</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">354： -update_mbr    sys_partition_nor.bin 1 &gt; /dev/null</span>
+<span class="go">355： -dragon image.cfg      sys_partition_nor.fex</span>
+<span class="go">354： +update_mbr    sys_partition.bin 1 &gt; /dev/null</span>
+<span class="go">355： +dragon image.cfg      sys_partition.fex</span>
+</pre></div>
+</div>
+<p>用默认的配置文件 似乎是针对nand的</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ./build.sh
+sudo ./build.sh pack
+</pre></div>
+</div>
+<p>终于成功〒▽〒</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="article&#32;11.html" class="btn btn-neutral float-right" title="lichee_zero_外设GPIO接口" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="article&#32;9.html" class="btn btn-neutral float-left" title="Visio-uboot-sunxi流程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lichee Pi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<meta http-equiv="Cache-Control" max-age=7200 />
+
+<!-- <a href="https://github.com/Lichee-Pi">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork LicheePi on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+</a> -->
+
+<a href="https://github.com/Lichee-Pi" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2980B9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+    
+    @keyframes octocat-wave {
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+    
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA5Mi8xMDYzMA==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+<!-- End of Chaport Live Chat code -->
+  
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

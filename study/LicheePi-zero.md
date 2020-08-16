@@ -2,7 +2,7 @@
 
 官网地址：
 
-- [荔枝派Zero 用户指南 本地](lichee_pi/zero.lichee.pro/index.html)
+- [荔枝派Zero 用户指南 本地](lichee_pi_zero/index.html)
 - [荔枝派Zero 用户指南 http://zero.lichee.pro](http://zero.lichee.pro)
 
 ## 环境配置
