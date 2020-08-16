@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>USB摄像头使用 &mdash; Lichee zero  文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://zero.lichee.pro/_static/icon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="基于QT的GUI开发" href="QT_index.html" />
+    <link rel="prev" title="Zero通过otg与PC共享网络" href="otg2PC.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Lichee zero
+          
+
+          
+            
+            <img src="http://zero.lichee.pro/_static/icon2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">初来乍到篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../入门/intro_cn.html">荔枝派与创作者的自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../入门/tips.html">Linux使用小贴士</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../入门/board_intro.html">认识zero的硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../入门/docker_index.html">Docker环境简明教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">系统开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/type.html">Zero的开发环境分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/uboot_index.html">UBOOT适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/kernel_index.html">Linux内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/bsp_index.html">BSP内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/filesys_index.html">根文件系统编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/SPI_index.html">SPI系统杂谈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/download_index.html">Zero 镜像烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/Imager.html">Zero Imager的使用</a></li>
+</ul>
+<p class="caption"><span class="caption-text">驱动开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/Device_Tree_Intro.html">设备树简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/peripheral_index.html">外设适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/device_index.html">设备驱动</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用开发篇:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="autorun.html">开机自启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Segment Fault调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="otg2PC.html">Zero通过otg与PC共享网络</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="USB_cam.html#">USB摄像头使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="USB_cam.html#id2">内核选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="USB_cam.html#fswebcam">fswebcam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="USB_cam.html#mjpeg-streamer">mjpeg-streamer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QT_index.html">基于QT的GUI开发</a></li>
+</ul>
+<p class="caption"><span class="caption-text">贡献投稿篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/todolist.html">荔枝派任务领取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/contents.html">投稿文章精选</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/build_doc.html">文档构建</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lichee zero</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>USB摄像头使用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usb">
+<h1><a class="toc-backref" href="USB_cam.html#id3">USB摄像头使用</a><a class="headerlink" href="USB_cam.html#usb" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">本文目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="USB_cam.html#usb" id="id3">USB摄像头使用</a></p>
+<ul>
+<li><p><a class="reference internal" href="USB_cam.html#id2" id="id4">内核选项</a></p></li>
+<li><p><a class="reference internal" href="USB_cam.html#fswebcam" id="id5">fswebcam</a></p></li>
+<li><p><a class="reference internal" href="USB_cam.html#mjpeg-streamer" id="id6">mjpeg-streamer</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="USB_cam.html#id4">内核选项</a><a class="headerlink" href="USB_cam.html#id2" title="永久链接至标题">¶</a></h2>
+<p>插入USB摄像头，lsusb 可见：（摄像头PID:VID视你插入的USB摄像头型号而定）</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Bus</span> <span class="pre">001</span> <span class="pre">Device</span> <span class="pre">003:</span> <span class="pre">ID</span> <span class="pre">1908:2311</span> <span class="pre">GEMBIRD</span></code></p>
+</div></blockquote>
+<p>在dev下可见 <em>video0</em> 设备。</p>
+</div>
+<div class="section" id="fswebcam">
+<h2><a class="toc-backref" href="USB_cam.html#id5">fswebcam</a><a class="headerlink" href="USB_cam.html#fswebcam" title="永久链接至标题">¶</a></h2>
+<p>fswebcam可以用来抓取摄像头图片。可以通过apt-get直接安装。</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">fswebcam</span> <span class="pre">-d</span> <span class="pre">/dev/video0</span> <span class="pre">--no-banner</span> <span class="pre">-r</span> <span class="pre">320x240</span> <span class="pre">capture.jpg</span></code></p>
+</div></blockquote>
+<p>抓取一帧图片。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@LicheePi:~# fswebcam --help
+Usage: fswebcam [&lt;options&gt;] &lt;filename&gt; [[&lt;options&gt;] &lt;filename&gt; ... ]
+
+Options:
+
+-?, --help                   Display this help page and exit.
+-c, --config &lt;filename&gt;      Load configuration from file.
+-q, --quiet                  Hides all messages except for errors.
+-v, --verbose                Displays extra messages while capturing
+    --version                Displays the version and exits.
+-l, --loop &lt;seconds&gt;         Run in loop mode.
+-b, --background             Run in the background.
+-o, --output &lt;filename&gt;      Output the log to a file.
+-d, --device &lt;name&gt;          Sets the source to use.
+-i, --input &lt;number/name&gt;    Selects the input to use.
+-t, --tuner &lt;number&gt;         Selects the tuner to use.
+-f, --frequency &lt;number&gt;     Selects the frequency use.
+-p, --palette &lt;name&gt;         Selects the palette format to use.
+-D, --delay &lt;number&gt;         Sets the pre-capture delay time. (seconds)
+-r, --resolution &lt;size&gt;      Sets the capture resolution.
+    --fps &lt;framerate&gt;        Sets the capture frame rate.
+-F, --frames &lt;number&gt;        Sets the number of frames to capture.
+-S, --skip &lt;number&gt;          Sets the number of frames to skip.
+    --dumpframe &lt;filename&gt;   Dump a raw frame to file.
+-s, --set &lt;name&gt;=&lt;value&gt;     Sets a control value.
+    --revert                 Restores original captured image.
+    --flip &lt;direction&gt;       Flips the image. (h, v)
+    --crop &lt;size&gt;[,&lt;offset&gt;] Crop a part of the image.
+    --scale &lt;size&gt;           Scales the image.
+    --rotate &lt;angle&gt;         Rotates the image in right angles.
+    --deinterlace            Reduces interlace artifacts.
+    --invert                 Inverts the images colours.
+    --greyscale              Removes colour from the image.
+    --swapchannels &lt;c1c2&gt;    Swap channels c1 and c2.
+    --no-banner              Hides the banner.
+    --top-banner             Puts the banner at the top.
+    --bottom-banner          Puts the banner at the bottom. (Default)
+    --banner-colour &lt;colour&gt; Sets the banner colour. (#AARRGGBB)
+    --line-colour &lt;colour&gt;   Sets the banner line colour.
+    --text-colour &lt;colour&gt;   Sets the text colour.
+    --font &lt;[name][:size]&gt;   Sets the font and/or size.
+    --no-shadow              Disables the text shadow.
+    --shadow                 Enables the text shadow.
+    --title &lt;text&gt;           Sets the main title. (top left)
+    --no-title               Clears the main title.
+    --subtitle &lt;text&gt;        Sets the sub-title. (bottom left)
+    --no-subtitle            Clears the sub-title.
+    --timestamp &lt;format&gt;     Sets the timestamp format. (top right)
+    --no-timestamp           Clears the timestamp.
+    --gmt                    Use GMT instead of local timezone.
+    --info &lt;text&gt;            Sets the info text. (bottom right)
+    --no-info                Clears the info text.
+    --underlay &lt;PNG image&gt;   Sets the underlay image.
+    --no-underlay            Clears the underlay.
+    --overlay &lt;PNG image&gt;    Sets the overlay image.
+    --no-overlay             Clears the overlay.
+    --jpeg &lt;factor&gt;          Outputs a JPEG image. (-1, 0 - 95)
+    --png &lt;factor&gt;           Outputs a PNG image. (-1, 0 - 10)
+    --save &lt;filename&gt;        Save image to file.
+    --exec &lt;command&gt;         Execute a command and wait for it to complete.
+</pre></div>
+</div>
+</div>
+<div class="section" id="mjpeg-streamer">
+<h2><a class="toc-backref" href="USB_cam.html#id6">mjpeg-streamer</a><a class="headerlink" href="USB_cam.html#mjpeg-streamer" title="永久链接至标题">¶</a></h2>
+<p>前置软件：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install g++ libjpeg62-turbo-dev imagemagick libv4l-dev cmake git
+sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
+<span class="nb">cd</span> mjpg-streamer/mjpg-streamer-experimental
+make all
+sudo make install
+</pre></div>
+</div>
+<p>设置环境变量</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/mjpg-streamer</span></code></p>
+</div></blockquote>
+<p>开启web服务器</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mjpg_streamer</span> <span class="pre">-i</span> <span class="pre">&quot;input_uvc.so</span> <span class="pre">-d</span> <span class="pre">/dev/video0</span> <span class="pre">-r</span> <span class="pre">640x480&quot;</span> <span class="pre">-o</span> <span class="pre">&quot;output_http.so</span> <span class="pre">-p</span> <span class="pre">8080</span> <span class="pre">-w</span> <span class="pre">/usr/local/share/mjpg-streamer/www&quot;</span></code></p>
+</div></blockquote>
+<p>然后在同个局域网内的电脑的浏览器上访问 zero ip:8080即可看到图像。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mjpg_streamer -i <span class="s2">&quot;input_uvc.so -f 10 -r 320*240 -y&quot;</span> -o <span class="s2">&quot;output_http.so -c &quot;</span>ruoyun:liufeng<span class="s2">&quot; -w www -p 8888&quot;</span> -o <span class="s2">&quot;output_file.so -d 1000 -f /mnt &quot;</span>
+-i 输入
+<span class="s2">&quot;input_uvc.so -f 10 -r 320*240 -y&quot;</span>
+input_uvc.so：UVC输入组件
+-f  <span class="m">10</span>             ：表示10帧
+-r <span class="m">320</span>*240     ：分辨率
+-y                   ：YUV格式输入（有卡顿），不加表示MJPG输入（需要摄像头支持）
+
+-o输出
+    <span class="s2">&quot;output_http.so -c &quot;</span>ruoyun:liufeng<span class="s2">&quot; -w www -p 8888&quot;</span>
+    output_http.so          ：网页输出组件
+    -c <span class="s2">&quot;ruoyun:liufeng&quot;</span>       ：用户名：ruoyun        密码：liufeng
+    -w www                                  : 网页输出
+    -p <span class="m">8888</span>                                   ：端口   <span class="m">8888</span>
+
+    <span class="s2">&quot;output_file.so -d 1000 -f /mnt &quot;</span>
+    output_file.so                  ：图片输出组件
+    -d <span class="m">1000</span>                                   ： 时间1S
+    -f /mnt                                       ：输出图片放在哪，我是开机直接把/mnu挂载到本地文件夹了
+</pre></div>
+</div>
+<p>总体帮助</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@LicheePi:~# mjpg_streamer --help
+-----------------------------------------------------------------------
+Usage: mjpg_streamer
+-i <span class="p">|</span> --input <span class="s2">&quot;&lt;input-plugin.so&gt; [parameters]&quot;</span>
+-o <span class="p">|</span> --output <span class="s2">&quot;&lt;output-plugin.so&gt; [parameters]&quot;</span>
+<span class="o">[</span>-h <span class="p">|</span> --help <span class="o">]</span>........: display this <span class="nb">help</span>
+<span class="o">[</span>-v <span class="p">|</span> --version <span class="o">]</span>.....: display version information
+<span class="o">[</span>-b <span class="p">|</span> --background<span class="o">]</span>...: fork to the background, daemon mode
+-----------------------------------------------------------------------
+Example <span class="c1">#1:</span>
+To open an UVC webcam <span class="s2">&quot;/dev/video1&quot;</span> and stream it via HTTP:
+mjpg_streamer -i <span class="s2">&quot;input_uvc.so -d /dev/video1&quot;</span> -o <span class="s2">&quot;output_http.so&quot;</span>
+-----------------------------------------------------------------------
+Example <span class="c1">#2:</span>
+To open an UVC webcam and stream via HTTP port <span class="m">8090</span>:
+mjpg_streamer -i <span class="s2">&quot;input_uvc.so&quot;</span> -o <span class="s2">&quot;output_http.so -p 8090&quot;</span>
+-----------------------------------------------------------------------
+Example <span class="c1">#3:</span>
+To get <span class="nb">help</span> <span class="k">for</span> a certain input plugin:
+mjpg_streamer -i <span class="s2">&quot;input_uvc.so --help&quot;</span>
+-----------------------------------------------------------------------
+In <span class="k">case</span> the modules <span class="o">(=</span>plugins<span class="o">)</span> can not be found:
+* Set the default search path <span class="k">for</span> the modules with:
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/path/to/plugins,
+* or put the plugins into the <span class="s2">&quot;/lib/&quot;</span> or <span class="s2">&quot;/usr/lib&quot;</span> folder,
+* or instead of just providing the plugin file name, use a <span class="nb">complete</span>
+path and filename:
+mjpg_streamer -i <span class="s2">&quot;/path/to/modules/input_uvc.so&quot;</span>
+-----------------------------------------------------------------------
+</pre></div>
+</div>
+<p>输入插件帮助</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@LicheePi:~# mjpg_streamer -i <span class="s2">&quot;input_uvc.so --help&quot;</span>
+MJPG Streamer Version.: <span class="m">2</span>.0
+---------------------------------------------------------------
+Help <span class="k">for</span> input plugin..: UVC webcam grabber
+---------------------------------------------------------------
+The following parameters can be passed to this plugin:
+
+<span class="o">[</span>-d <span class="p">|</span> --device <span class="o">]</span>.......: video device to open <span class="o">(</span>your camera<span class="o">)</span>
+<span class="o">[</span>-r <span class="p">|</span> --resolution <span class="o">]</span>...: the resolution of the video device,
+                        can be one of the following strings:
+                        QQVGA QCIF CGA QVGA CIF PAL
+                        VGA SVGA XGA HD SXGA UXGA
+                        FHD
+                        or a custom value like the following
+                        example: 640x480
+<span class="o">[</span>-f <span class="p">|</span> --fps <span class="o">]</span>..........: frames per second
+                        <span class="o">(</span>activates YUYV format, disables MJPEG<span class="o">)</span>
+<span class="o">[</span>-q <span class="p">|</span> --quality <span class="o">]</span> .....: <span class="nb">set</span> quality of JPEG encoding
+<span class="o">[</span>-m <span class="p">|</span> --minimum_size <span class="o">]</span>.: drop frames smaller <span class="k">then</span> this limit, useful
+                        <span class="k">if</span> the webcam produces small-sized garbage frames
+                        may happen under low light conditions
+<span class="o">[</span>-e <span class="p">|</span> --every_frame <span class="o">]</span>..: drop all frames except numbered
+<span class="o">[</span>-n <span class="p">|</span> --no_dynctrl <span class="o">]</span>...: <span class="k">do</span> not initalize dynctrls of Linux-UVC driver
+<span class="o">[</span>-l <span class="p">|</span> --led <span class="o">]</span>..........: switch the LED <span class="s2">&quot;on&quot;</span>, <span class="s2">&quot;off&quot;</span>, <span class="nb">let</span> it <span class="s2">&quot;blink&quot;</span> or leave
+                        it up to the driver using the value <span class="s2">&quot;auto&quot;</span>
+<span class="o">[</span>-t <span class="p">|</span> --tvnorm <span class="o">]</span> ......: <span class="nb">set</span> TV-Norm pal, ntsc or secam
+<span class="o">[</span>-u <span class="p">|</span> --uyvy <span class="o">]</span> ........: Use UYVY format, default: MJPEG <span class="o">(</span>uses more cpu power<span class="o">)</span>
+<span class="o">[</span>-y <span class="p">|</span> --yuv  <span class="o">]</span> ........: Use YUV format, default: MJPEG <span class="o">(</span>uses more cpu power<span class="o">)</span>
+<span class="o">[</span>-fourcc <span class="o">]</span> ............: Use FOURCC codec <span class="s1">&#39;argopt&#39;</span>,
+                        currently supported codecs are: RGBP
+---------------------------------------------------------------
+
+Optional parameters <span class="o">(</span>may not be supported by all cameras<span class="o">)</span>:
+
+<span class="o">[</span>-br <span class="o">]</span>.................: Set image brightness <span class="o">(</span>auto or integer<span class="o">)</span>
+<span class="o">[</span>-co <span class="o">]</span>.................: Set image contrast <span class="o">(</span>integer<span class="o">)</span>
+<span class="o">[</span>-sh <span class="o">]</span>.................: Set image sharpness <span class="o">(</span>integer<span class="o">)</span>
+<span class="o">[</span>-sa <span class="o">]</span>.................: Set image saturation <span class="o">(</span>integer<span class="o">)</span>
+<span class="o">[</span>-cb <span class="o">]</span>.................: Set color balance <span class="o">(</span>auto or integer<span class="o">)</span>
+<span class="o">[</span>-wb <span class="o">]</span>.................: Set white balance <span class="o">(</span>auto or integer<span class="o">)</span>
+<span class="o">[</span>-ex <span class="o">]</span>.................: Set exposure <span class="o">(</span>auto, shutter-priority, aperature-priority, or integer<span class="o">)</span>
+<span class="o">[</span>-bk <span class="o">]</span>.................: Set backlight compensation <span class="o">(</span>integer<span class="o">)</span>
+<span class="o">[</span>-rot <span class="o">]</span>................: Set image rotation <span class="o">(</span><span class="m">0</span>-359<span class="o">)</span>
+<span class="o">[</span>-hf <span class="o">]</span>.................: Set horizontal flip <span class="o">(</span>true/false<span class="o">)</span>
+<span class="o">[</span>-vf <span class="o">]</span>.................: Set vertical flip <span class="o">(</span>true/false<span class="o">)</span>
+<span class="o">[</span>-pl <span class="o">]</span>.................: Set power line filter <span class="o">(</span>disabled, 50hz, 60hz, auto<span class="o">)</span>
+<span class="o">[</span>-gain <span class="o">]</span>...............: Set gain <span class="o">(</span>auto or integer<span class="o">)</span>
+<span class="o">[</span>-cagc <span class="o">]</span>...............: Set chroma gain control <span class="o">(</span>auto or integer<span class="o">)</span>
+---------------------------------------------------------------
+
+input_init<span class="o">()</span> <span class="k">return</span> value signals to <span class="nb">exit</span>
+</pre></div>
+</div>
+<p>输出插件帮助</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@LicheePi:~# mjpg_streamer -o <span class="s2">&quot;output_http.so --help&quot;</span>
+MJPG Streamer Version.: <span class="m">2</span>.0
+---------------------------------------------------------------
+Help <span class="k">for</span> output plugin..: HTTP output plugin
+---------------------------------------------------------------
+The following parameters can be passed to this plugin:
+
+<span class="o">[</span>-w <span class="p">|</span> --www <span class="o">]</span>...........: folder that contains webpages in
+                        flat hierarchy <span class="o">(</span>no subfolders<span class="o">)</span>
+<span class="o">[</span>-p <span class="p">|</span> --port <span class="o">]</span>..........: TCP port <span class="k">for</span> this HTTP server
+<span class="o">[</span>-l <span class="o">]</span> --listen <span class="o">]</span>........: Listen on Hostname / IP
+<span class="o">[</span>-c <span class="p">|</span> --credentials <span class="o">]</span>...: ask <span class="k">for</span> <span class="s2">&quot;username:password&quot;</span> on connect
+<span class="o">[</span>-n <span class="p">|</span> --nocommands <span class="o">]</span>....: disable execution of commands
+---------------------------------------------------------------
+output_init<span class="o">()</span> <span class="k">return</span> value signals to <span class="nb">exit</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="QT_index.html" class="btn btn-neutral float-right" title="基于QT的GUI开发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="otg2PC.html" class="btn btn-neutral float-left" title="Zero通过otg与PC共享网络" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lichee Pi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<meta http-equiv="Cache-Control" max-age=7200 />
+
+<!-- <a href="https://github.com/Lichee-Pi">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork LicheePi on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+</a> -->
+
+<a href="https://github.com/Lichee-Pi" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2980B9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+    
+    @keyframes octocat-wave {
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+    
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA5Mi8xMDYzMA==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+<!-- End of Chaport Live Chat code -->
+  
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

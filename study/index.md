@@ -14,7 +14,7 @@
 - wget下载整个网站
 
 ```bash
-wget -c -r -nd -np -k -L -p http://zero.lichee.pro/ 
+wget -c -r -np -k -L -p www.oldlinux.org/Linux.old/
 ```
 
 - 

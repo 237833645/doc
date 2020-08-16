@@ -2,7 +2,7 @@
 
 官网地址：
 
-- [荔枝派Zero 用户指南 本地](lichee_pi/官网/index.html)
+- [荔枝派Zero 用户指南 本地](lichee_pi/zero.lichee.pro/index.html)
 - [荔枝派Zero 用户指南 http://zero.lichee.pro](http://zero.lichee.pro)
 
 ## 环境配置
@@ -21,6 +21,6 @@
 
 ## TF-Card 启动
 
-- 参考此网站[荔枝派Zero 制作TF启动卡详细过程（绝对能用）]https://blog.csdn.net/Code_MoMo/article/details/104623584/
+- 参考此网站 [荔枝派Zero 制作TF启动卡详细过程（绝对能用](https://blog.csdn.net/Code_MoMo/article/details/104623584/)
 
 ## 未完待续

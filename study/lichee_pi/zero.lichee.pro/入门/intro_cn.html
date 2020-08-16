@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>荔枝派Zero: 震惊！从未见过如此精思巧构之Pi！ &mdash; Lichee zero  文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://zero.lichee.pro/_static/icon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Linux使用小贴士" href="tips.html" />
+    <link rel="prev" title="荔枝派Zero 用户指南" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Lichee zero
+          
+
+          
+            
+            <img src="http://zero.lichee.pro/_static/icon2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">初来乍到篇:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="intro_cn.html#">荔枝派与创作者的自我介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id1">缘起</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id2">初识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id3">细探</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#tf-wifi">TF Wifi卡</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="intro_cn.html#id4">直插板载卡槽</a></li>
+<li class="toctree-l4"><a class="reference internal" href="intro_cn.html#id5">2.54插针叠加</a></li>
+<li class="toctree-l4"><a class="reference internal" href="intro_cn.html#tf">直插底板的TF卡槽</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#p-rgb">通用40P RGB液晶屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#rgbvga">RGB转VGA模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#rgbhdmi">RGB转HDMI模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#rgblvds">RGB转LVDS模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#rgbdvp-csi">RGB转DVP CSI模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#rgbgpio">RGB转GPIO模块</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id6">添翼</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#id7">底板的功放模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#id8">底板的显示模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#id9">底板的输入设备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#id10">底板的通信接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_cn.html#id11">底板的语音助手外设</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id12">惊艳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_cn.html#id13">未完待续</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Linux使用小贴士</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board_intro.html">认识zero的硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_index.html">Docker环境简明教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">系统开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/type.html">Zero的开发环境分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/uboot_index.html">UBOOT适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/kernel_index.html">Linux内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/bsp_index.html">BSP内核编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/filesys_index.html">根文件系统编译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/SPI_index.html">SPI系统杂谈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/download_index.html">Zero 镜像烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../系统开发/Imager.html">Zero Imager的使用</a></li>
+</ul>
+<p class="caption"><span class="caption-text">驱动开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/Device_Tree_Intro.html">设备树简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/peripheral_index.html">外设适配</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../驱动/device_index.html">设备驱动</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用开发篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../应用/autorun.html">开机自启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../应用/debug.html">Segment Fault调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../应用/otg2PC.html">Zero通过otg与PC共享网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../应用/USB_cam.html">USB摄像头使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../应用/QT_index.html">基于QT的GUI开发</a></li>
+</ul>
+<p class="caption"><span class="caption-text">贡献投稿篇:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/todolist.html">荔枝派任务领取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/contents.html">投稿文章精选</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../贡献/build_doc.html">文档构建</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lichee zero</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>荔枝派Zero: 震惊！从未见过如此精思巧构之Pi！</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zero-pi">
+<h1>荔枝派Zero: 震惊！从未见过如此精思巧构之Pi！<a class="headerlink" href="intro_cn.html#zero-pi" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>缘起<a class="headerlink" href="intro_cn.html#id1" title="永久链接至标题">¶</a></h2>
+<p>去年仲夏之夜，我吃着荔枝DIY了荔枝派One。
+One的众筹和生产过程可谓万分曲折，不过整个流程经历下来也让我更清楚怎样的Pi才是一块好Pi。</p>
+<blockquote>
+<div><p><em>笔者是业余时间将项目中使用过的主控芯片部分电路抽出，重新设计布局而成荔枝派系列板卡，时间并不充分，但是提供qq群与论坛供大家交流整理资料；</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>希望初次学习linux使用的朋友能够钻研在使用中遇到的问题并与大家交流分享，而不要当伸手党，真正的linux大神不是伸手伸出来的，也不是培训班里培训出来的，而是自己踩坑踩出来的。</em></p>
+</div></blockquote>
+<p>荔枝派Zero从去年年末开始构思，设计目标就是一块满足创客和嵌入式工程师一切美好设想的Pi：</p>
+<center> **低成本，小体积，高性能，易使用，多扩展。** </center ><p>（~$6；~45x26mm，略长于SD卡；24MHz~1.2GHz；多种开发语言，<font color=red>直插面包板</font>，同时<font color=red>全引脚邮票孔引出</font>；多种外设模块）</p>
+<p><strong>目标应用场景是：</strong></p>
+<ul class="simple">
+<li><p>使用较复杂的通信接口和协议的物联网应用</p></li>
+<li><p>需要较美观，复杂逻辑的人机交互界面的应用</p></li>
+<li><p>需要较多运算(相对于常用MCU)的应用场景</p></li>
+<li><p>需要使用linux下的开源软件进行快速开发的场景</p></li>
+<li><p>高端极客玩家，在体积、性能、易用性 上取得平衡。</p></li>
+<li><p>入门级玩家，软件工程师，使用熟悉的语言进行硬件diy。</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>初识<a class="headerlink" href="intro_cn.html#id2" title="永久链接至标题">¶</a></h2>
+<p>荔枝派Zero基于Allwinner V3s (<strong>ARM Cortex-A7 CPU, 1.2GHz, 512Mbit DDR2 integrated</strong>), 可从板载SPI Nor Flash(SOP8 16MB / WSON8 32MB) 或者 TF卡启动。</p>
+<p>Zero采用了巧妙的引脚引出设计：</p>
+<ul class="simple">
+<li><p>兼容常用的2.54mm插针，甚至可以 <strong>直插面包板</strong> 使用；</p></li>
+<li><p>使用1.27mm邮票孔引出，可以 <strong>直接贴片</strong> 使用；</p></li>
+<li><p>1.27mm邮票孔也可以使用 <strong>2.54插针偏移半针位焊接</strong> ，适合diy</p></li>
+<li><p>板载 <strong>FPC40接口</strong> ，可以转接多种实用外设</p></li>
+<li><p>专为Zero设计的 <strong>TF wifi</strong> 模块，可插卡槽，也可直插2.54焊针。</p></li>
+</ul>
+<hr class="docutils" />
+<p>荔枝派Zero 麻雀虽小五脏俱全，具备了常用的多种低速外设（UART，SPI，I2C，PWM，ADC），单片机上少有的高速接口它也有不少（OTG USB，MIPI CSI，EPHY，RGB LCD），还内置了CODEC（直接耳机麦克）~
+Zero的引脚布局示意图如下：</p>
+<blockquote>
+<div><p><em>“2.54mm Pinout”标识是可直接插入面包板或者使用标准杜邦线连接的。</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>“1.27mm”标识的是较为不常用或者不方便手工接线的引脚，一般在贴片时使用，或者也可以用2.54插针偏移半个针位使用。</em></p>
+</div></blockquote>
+<p><img alt="https://box.kancloud.cn/fb63cd12ae1def9dd50710d2a32dc5c1_1095x740.png" src="https://box.kancloud.cn/fb63cd12ae1def9dd50710d2a32dc5c1_1095x740.png" /></p>
+<hr class="docutils" />
+<p>话不多说，下面开始曝照！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>由于以下样板由我手工焊接，难免有些焊接痕迹，焊得丑请轻喷，成品会用机贴的。
+</pre></div>
+</div>
+<p>正面：从左往右为：RGB LED；主芯片；tf卡槽；LCD背光电路；micro usb otg。</p>
+<p><img alt="https://box.kancloud.cn/aa69c26a162e043a1831f6693ec059d7_1024x768.jpg" src="https://box.kancloud.cn/aa69c26a162e043a1831f6693ec059d7_1024x768.jpg" /></p>
+<hr class="docutils" />
+<p>背面：从左往右为：电阻屏控制器；DCDC芯片；预留的SPI flash接口，兼容SOP8和WSON8封装的SPI flash（16/32MB）；FPC40接口。
+<img alt="https://box.kancloud.cn/f66b91d12d8a68d6fd65a70274205b19_1024x768.jpg" src="https://box.kancloud.cn/f66b91d12d8a68d6fd65a70274205b19_1024x768.jpg" /></p>
+<hr class="docutils" />
+<p>正反面一起看：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c0ffddaf6c8.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c0ffddaf6c8.jpg" /></p>
+<hr class="docutils" />
+<p>插针引出演示：</p>
+<p>直插面包板：双列插针间距900mil，可直插面包板！</p>
+<p>应该是首款可直插面包板的Cortex-A7水果派~ 手残党的福音~</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1004512a1a.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1004512a1a.jpg" /></p>
+<p>Zero的常用引脚使用2.54mm插针引出，如果想用到全部引脚，也不必像其它板子那样飞线，仍然可以用2.54插针和杜邦线搞定！</p>
+<p>如下图所示，邮票孔是1.27mm间距，所以刚好可以间隔半个脚位焊上2.54mm插针，轻松使用杜邦线连接！</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1005e9d727.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1005e9d727.jpg" /></p>
+<hr class="docutils" />
+<p>上面的高清大图看上去是不是觉得Zero比较大呢？没有比较就没有伤害，其实Zero只比SD卡长一点！</p>
+<p>与SD卡一起比个子：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1007a7df0c.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1007a7df0c.jpg" /></p>
+<hr class="docutils" />
+<p>Zero默认运行主频高达1G（最高1.2G），你是否认为它功耗感人？</p>
+<p>NONONO，其实它以1G主频跑起linux后的运行电流 和 STM32F4以168MHz主频全速运行的电流（93mA）差不多！</p>
+<p>比STMF7全速运行于216MHz的电流（193mA）要低一半以上！</p>
+<p>有图有真相：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100926dcf8.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100926dcf8.jpg" /></p>
+<p>再来看看Zero全速运行时的发热情况：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100ab44010.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100ab44010.jpg" /></p>
+<p>是的，仅有40度左右，略高于体温，比H3之流 动辄80℃+的CPU温度要让人安心多了，再也不用画蛇添足地给水果派加装散热片了~</p>
+<p>这还是1GHz主频下的电流和发热情况，Zero可以在24MHz~1.2GHz之间以24MHz步进设置主频，如果你用24MHz或者48MHz当单片机用的话，那耗电还会低上不少！</p>
+</div>
+<div class="section" id="id3">
+<h2>细探<a class="headerlink" href="intro_cn.html#id3" title="永久链接至标题">¶</a></h2>
+<p>Zero除了核心板本身，还设计了一系列常用的外设以及配套底板用于功能验证，在此为您细细道来。</p>
+<div class="section" id="tf-wifi">
+<h3>TF Wifi卡<a class="headerlink" href="intro_cn.html#tf-wifi" title="永久链接至标题">¶</a></h3>
+<p>IoT大行其道的今天，联网功能也必不可少。</p>
+<p>Zero可使用Wifi，Ethernet连入网络，还在配套演示底板上集成了Lora模块，可用作Lora网关。</p>
+<p>出于体积考虑，Zero核心板上并未加入wifi功能，但是我专为Zero设计了小巧的tf wifi 模块，可用多种方式与Zero叠加。</p>
+<p>下图就是TF WiFi模块：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100fe634c9.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c100fe634c9.jpg" /></p>
+<p>模块本身使用0.8mm厚度 PCB制成，与TF卡厚度（0.75mm）极为接近，可以直接插入TF卡槽！</p>
+<p>注意到上图有一长一短模块，长模块是为常用的全槽TF卡槽兼容使用，短模块是为Zero上的半槽TF卡槽使用。</p>
+<p>由于PCB仅有0.8mm厚，所以收到PCB后，只要使用剪刀沿白色丝印剪下，即可获得半槽使用的TF WiFi模块！</p>
+<p>TF Wifi卡的多种使用方法：</p>
+<p><img alt="http://www.elecfans.com/tt/images/lichenpizerotfwifiuseful20170309.gif" src="http://www.elecfans.com/tt/images/lichenpizerotfwifiuseful20170309.gif" /></p>
+<div class="section" id="id4">
+<h4>直插板载卡槽<a class="headerlink" href="intro_cn.html#id4" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div><p><em>注意Zero默认使用TF卡启动，若要使用板子插槽接TF WiFi模块，则需要从SPI Flash启动。</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h4>2.54插针叠加<a class="headerlink" href="intro_cn.html#id5" title="永久链接至标题">¶</a></h4>
+<p>当使用TF卡作为启动介质而占用了板载TF卡槽时，仍可使用2.54插针轻松叠加使用！</p>
+<p>Zero精心排布了2.54插针的引脚顺序，并在TF Wifi 模块上预留了相同顺序的2.54mm间距焊盘，因此可以直接使用2.54mm插针叠加！</p>
+<blockquote>
+<div><p>*注意右侧刚好没有和FPC40的翻盖干涉，仍可使用座子外接屏幕等外设~ *</p>
+</div></blockquote>
+</div>
+<div class="section" id="tf">
+<h4>直插底板的TF卡槽<a class="headerlink" href="intro_cn.html#tf" title="永久链接至标题">¶</a></h4>
+<p>底板上也预留了TF卡槽，因此选购了底板的话可以直插底板上的卡槽。</p>
+<blockquote>
+<div><p><em>底板其余部分先打码保持神秘感^_^</em></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="p-rgb">
+<h3>通用40P RGB液晶屏<a class="headerlink" href="intro_cn.html#p-rgb" title="永久链接至标题">¶</a></h3>
+<p>Zero采用了和One兼容的通用40P RGB液晶屏（含触摸屏），并且板载了电阻屏控制器，支持触控操作。之前买了One的液晶屏套餐的可复用之前的液晶屏。</p>
+<p>下图是5寸 480x800高清液晶屏，另有480x272的4.3寸普清液晶屏。</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1013bc757f.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1013bc757f.jpg" /></p>
+</div>
+<div class="section" id="rgbvga">
+<h3>RGB转VGA模块<a class="headerlink" href="intro_cn.html#rgbvga" title="永久链接至标题">¶</a></h3>
+<p>去年年中以来，液晶屏价格暴涨，如果无法接受目前液晶屏价格的话，可以选择RGB转VGA模块，可接普通显示器使用。
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101ba18a76.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101ba18a76.jpg" /></p>
+</div>
+<div class="section" id="rgbhdmi">
+<h3>RGB转HDMI模块<a class="headerlink" href="intro_cn.html#rgbhdmi" title="永久链接至标题">¶</a></h3>
+<p>如果你的显示器没有VGA接口（土豪高端显示器），可选用RGB转HDMI模块，该模块可直插HDMI显示器。</p>
+<blockquote>
+<div><p><em>注意：截止发稿时，笔者还没时间搞这模块的驱动，该驱动列入开发者奖励计划（详见后文）。</em></p>
+</div></blockquote>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101e943920.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101e943920.jpg" /></p>
+</div>
+<div class="section" id="rgblvds">
+<h3>RGB转LVDS模块<a class="headerlink" href="intro_cn.html#rgblvds" title="永久链接至标题">¶</a></h3>
+<p>如果你手中有闲置的笔记本显示屏（非高清，1280x800, 1366x768或更低分辨率），则可选购该模块。注意笔记本屏幕一般需要额外的LED背光电源供电。</p>
+<blockquote>
+<div><p><em>该模块支持单八，单六 LVDS屏；正面FPC座为单八接口，背面为单六接口。</em></p>
+</div></blockquote>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101fccaa15.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c101fccaa15.jpg" /></p>
+<p>如果你手头没有闲置笔记本液晶屏，又想尝试大屏，众筹套餐中提供了10.1寸LVDS平板屏幕，1280x800分辨率，内置led恒流升压驱动电路。</p>
+</div>
+<div class="section" id="rgbdvp-csi">
+<h3>RGB转DVP CSI模块<a class="headerlink" href="intro_cn.html#rgbdvp-csi" title="永久链接至标题">¶</a></h3>
+<p>Zero的DVP CSI接口引脚和RGB引脚复用，所以之前购买了One的摄像头的用户，可以使用此转接板转接原DVP接口的24Pin摄像头（OV7670，OV2640等）。</p>
+<blockquote>
+<div><p><em>注意：截止发稿时，笔者还没时间搞改摄像头驱动，该驱动列入开发者奖励计划（详见后文）。</em></p>
+</div></blockquote>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c102449522d.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c102449522d.jpg" /></p>
+</div>
+<div class="section" id="rgbgpio">
+<h3>RGB转GPIO模块<a class="headerlink" href="intro_cn.html#rgbgpio" title="永久链接至标题">¶</a></h3>
+<p>如果你没用到LCD屏，又需要很多IO，则可以使用该RGB转GPIO模块，它将转出22个GPIO，以及两路ADC（使用电阻屏驱动器），和若干电源引脚。
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1022c30039.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1022c30039.jpg" /></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>添翼<a class="headerlink" href="intro_cn.html#id6" title="永久链接至标题">¶</a></h2>
+<p>前面介绍的模块主要是FPC40的转接板，对于Zero上1.27邮票孔引出的其它引脚，除了可以用2.54插针偏移半位焊接引出外，也可使用配套底板（Docker）直接贴片上去，更加紧凑，也方便验证、使用各个高速接口。</p>
+<p>Docker布局概览：
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1027e9fed7.png" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1027e9fed7.png" /></p>
+<hr class="docutils" />
+<p>实物图镇楼：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104931d7c4.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104931d7c4.jpg" /></p>
+<hr class="docutils" />
+<p>底板左下方有两三排插针，分别是I2C，SPI，UART，PWM的引出插针。</p>
+<p>右下方有四个功能按键，是使用Zero的ADC功能实现的。</p>
+<p>右侧为usb供电口，电池接口，USB OTG口；底板的电源电路支持单节锂电池的充放电管理，以及5V升压。</p>
+<p>右上方为内置网络变压器的RJ45接口。</p>
+<blockquote>
+<div><p><em>注意到RJ45接口较高，体积较大，所以默认不焊接上去，只附上该座子，有需要验证以太网口的朋友可自行焊接；需要DIY掌上设备的朋友可留空该座来减小底板体积。</em></p>
+</div></blockquote>
+<p>底板上方为美标四线耳机座和高灵敏度麦克风。</p>
+<p>底板下方配有一个24pin MIPI的摄像头座，座子为b2b连接器（axe624124）。
+配套的是500W像素自动对焦的OV5648摄像头。</p>
+<blockquote>
+<div><p><em>注意：截止发稿时，笔者还没时间搞这模块的驱动，该驱动列入开发者奖励计划（详见后文）。该摄像头在官方SDK里有驱动，但尚未在主线内核中适配。</em></p>
+</div></blockquote>
+<div class="section" id="id7">
+<h3>底板的功放模块<a class="headerlink" href="intro_cn.html#id7" title="永久链接至标题">¶</a></h3>
+<p>Zero自带CODEC，但自带的CODEC只能推动耳机，所以底板上贴的是耳机座。</p>
+<p>考虑到用Zero做WiFi音箱或者其它自带扬声器发声的设备（如掌机？），底板上预留了功放模块的接口，即TF卡槽后面的5pin 排母。</p>
+<p>在该接口上可堆叠PA模块，如下图所示
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104a771537.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104a771537.jpg" /></p>
+<p>PA模块可带动3W*2个扬声器，并自带音量旋钮，适合做一些手持设备。</p>
+<p>以下是可选配的扬声器：
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104c3bcc1d.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104c3bcc1d.jpg" />
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104c4102b6.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c104c4102b6.jpg" /></p>
+<blockquote>
+<div><p><em>也可搭配骨传导扬声器！可做骨传导耳机或者振动音箱~</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>底板的显示模块<a class="headerlink" href="intro_cn.html#id8" title="永久链接至标题">¶</a></h3>
+<p>底板下方有一排2.54排座，可用于插接I2C接口的OLED或者SPI接口的TFT。</p>
+<p>0.96寸128x64 OLED:
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105128edc5.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105128edc5.jpg" /></p>
+<p>1.3寸128x64 OLED:
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1052197743.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1052197743.jpg" /></p>
+<p>2.4寸 240x320 TFT:
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1052f744a7.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1052f744a7.jpg" /></p>
+</div>
+<div class="section" id="id9">
+<h3>底板的输入设备<a class="headerlink" href="intro_cn.html#id9" title="永久链接至标题">¶</a></h3>
+<p>底板的输入除了四个ADC做的功能按键外，还可选配下小手柄/键盘。</p>
+<p>手柄与2.4寸屏幕搭配食用风味更佳 /斜眼笑
+<img alt="http://www.elecfans.com/tt/images/lichenpizerokeyboard20170309.gif" src="http://www.elecfans.com/tt/images/lichenpizerokeyboard20170309.gif" /></p>
+</div>
+<div class="section" id="id10">
+<h3>底板的通信接口<a class="headerlink" href="intro_cn.html#id10" title="永久链接至标题">¶</a></h3>
+<p>底板上有三个通信接口，分别是TF Wifi卡接口，RJ45 以太网接口，和Lora模块接口。</p>
+<hr class="docutils" />
+<p>前面介绍的TF Wifi卡插底板的示意图：</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105c954d9a.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105c954d9a.jpg" /></p>
+<hr class="docutils" />
+<p>底板背面的Lora模块示意图：
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1059be3a9f.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c1059be3a9f.jpg" /></p>
+<p>Lora模块本身可以全双工，但是Zero作为网关使用时，底部Lora模块配置为一发一收，可以显著降低丢包率。</p>
+<p>Lora网关的相关参数为：</p>
+<ol class="simple">
+<li><p>星形拓扑，空旷通信距离15km</p></li>
+<li><p>xxx</p></li>
+</ol>
+</div>
+<div class="section" id="id11">
+<h3>底板的语音助手外设<a class="headerlink" href="intro_cn.html#id11" title="永久链接至标题">¶</a></h3>
+<p>底板的耳机口可外接麦克风阵列模块，实现远场语音识别（声源单位，波束成型），阵列模块自带关键词唤醒功能。</p>
+<p>麦克风阵列模块默认搭配高灵敏度驻极体麦克风，可选配硅麦克（一致性好）</p>
+<p><img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105e615e20.png" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c105e615e20.png" /></p>
+<p>麦克风阵列的主要参数为：</p>
+<ol class="simple">
+<li><p>板载6颗驻极体/硅麦克，24颗LED，可选配OLED</p></li>
+<li><p>声源定位精度优于15°，板上LED或者OLED指示方位</p></li>
+<li><p>消除混响，500ms以内室内混响</p></li>
+<li><p>波束成形，可指定6方位波束成形，具有噪声抑制和语音增强功能，室内环境下语音识别距离约5m。</p></li>
+<li><p>关键词唤醒，可设定自定义关键词唤醒（使用拼音配置，方便快捷，无需上传服务器计算特征码），引脚输出唤醒边沿。</p></li>
+<li><p>一路模拟音频输出，一路I2S数字音频输出。</p></li>
+<li><p>可使用I2C/UART配置模块参数，读取信息（声源角度等）</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>惊艳<a class="headerlink" href="intro_cn.html#id12" title="永久链接至标题">¶</a></h2>
+<p>Zero核心板或者配套底板还可选配无线键鼠与锂电池，搭配定制的LCD转轴支架，简单组装即成一台迷你笔记本！</p>
+<blockquote>
+<div><p><em>注：Zero底板具有锂电池充放电管理功能；Zero核心板不可直接给锂电池充电。</em></p>
+</div></blockquote>
+<p>使用Zero核心板制作的简易“笔记本电脑”，只需一块电池，一个屏幕，一个无线键鼠。
+<img alt="https://cdn.instructables.com/FAI/3MH2/IZT6PA8U/FAI3MH2IZT6PA8U.LARGE.jpg" src="https://cdn.instructables.com/FAI/3MH2/IZT6PA8U/FAI3MH2IZT6PA8U.LARGE.jpg" /></p>
+<p>Zero开启debian桌面系统
+<img alt="https://cdn.instructables.com/FCG/L1US/IZT6PA9W/FCGL1USIZT6PA9W.LARGE.jpg" src="https://cdn.instructables.com/FCG/L1US/IZT6PA9W/FCGL1USIZT6PA9W.LARGE.jpg" />
+<img alt="https://cdn.instructables.com/FP2/N6UK/IZT6PA9Y/FP2N6UKIZT6PA9Y.LARGE.jpg" src="https://cdn.instructables.com/FP2/N6UK/IZT6PA9Y/FP2N6UKIZT6PA9Y.LARGE.jpg" /></p>
+<p>超级玛丽毫无压力
+<img alt="http://odfef978i.bkt.clouddn.com/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3.png" src="http://odfef978i.bkt.clouddn.com/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3.png" /></p>
+<p>回顾GBA经典游戏
+<img alt="https://cdn.instructables.com/FAI/QFQF/IZT6PAAT/FAIQFQFIZT6PAAT.LARGE.jpg" src="https://cdn.instructables.com/FAI/QFQF/IZT6PAAT/FAIQFQFIZT6PAAT.LARGE.jpg" /></p>
+<p>Zero畅玩经典游戏DOOM！
+<img alt="https://cdn.instructables.com/FFZ/5W91/IZT6PABS/FFZ5W91IZT6PABS.LARGE.jpg" src="https://cdn.instructables.com/FFZ/5W91/IZT6PABS/FFZ5W91IZT6PABS.LARGE.jpg" /></p>
+<hr class="docutils" />
+<p>荔枝派Zero还可以运行树莓派系统！原来你是披着树莓皮的的荔枝派！</p>
+<blockquote>
+<div><p><em>注：Zero由于内存限制，运行树莓派系统会较为卡顿。</em></p>
+</div></blockquote>
+<p><img alt="https://cdn.instructables.com/FVM/EITJ/IZT6PA9O/FVMEITJIZT6PA9O.LARGE.jpg" src="https://cdn.instructables.com/FVM/EITJ/IZT6PA9O/FVMEITJIZT6PA9O.LARGE.jpg" /></p>
+<p>开启键盘夜光的靓图！是不是有大牌范呢？
+<img alt="https://cdn.instructables.com/FV9/CQCM/IZT6PA96/FV9CQCMIZT6PA96.LARGE.jpg" src="https://cdn.instructables.com/FV9/CQCM/IZT6PA96/FV9CQCMIZT6PA96.LARGE.jpg" />
+<img alt="https://cdn.instructables.com/FR0/3XJ1/IZT6R3RK/FR03XJ1IZT6R3RK.LARGE.jpg" src="https://cdn.instructables.com/FR0/3XJ1/IZT6R3RK/FR03XJ1IZT6R3RK.LARGE.jpg" /></p>
+<p>详情还可戳 <a class="reference external" href="http://v.youku.com/v_show/id_XMjYwNzkyOTM1Ng==.html?spm=a2hzp.8244740.userfeed.5%212~5~5~5%213~5~A">视频演示</a> 欣赏喔~</p>
+</div>
+<div class="section" id="id13">
+<h2>未完待续<a class="headerlink" href="intro_cn.html#id13" title="永久链接至标题">¶</a></h2>
+<p>配件全家福（貌似还漏了个别配件）
+<img alt="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c10639ced82.jpg" src="http://z.elecfans.com/uploads/ueditor/2017-03-09/58c10639ced82.jpg" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tips.html" class="btn btn-neutral float-right" title="Linux使用小贴士" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="荔枝派Zero 用户指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lichee Pi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<meta http-equiv="Cache-Control" max-age=7200 />
+
+<!-- <a href="https://github.com/Lichee-Pi">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork LicheePi on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+</a> -->
+
+<a href="https://github.com/Lichee-Pi" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2980B9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>
+    .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+    
+    @keyframes octocat-wave {
+        0%,
+        100% {
+            transform: rotate(0)
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg)
+        }
+        40%,
+        80% {
+            transform: rotate(10deg)
+        }
+    }
+    
+    @media (max-width:500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }
+</style>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA5Mi8xMDYzMA==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+<!-- End of Chaport Live Chat code -->
+  
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
