@@ -16,5 +16,3 @@
 ```bash
 wget -c -r -nd -np -k -L -p www.oldlinux.org/Linux.old/
 ```
-
-- 
