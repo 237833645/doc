@@ -69,6 +69,12 @@ adb shell start
 adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 ```
 
+- 打开设置界面
+
+```bash
+adb shell am start -n com.android.settings/com.android.settings.Settings$ApnSettingsActivity
+```
+
 - adb 读取adc值
 
 ## 工程编译及技巧
