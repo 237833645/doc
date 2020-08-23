@@ -10,11 +10,11 @@
 
 ## 导图
 
-![文档整理](./文档整理.png)
+![文档整理](./out/index/文档整理思维导图.png)
 
 @startmindmap
 caption 237833645@gihub.io
-title 文档整理
+title 文档整理思维导图
 
 * DOC
 
@@ -22,15 +22,10 @@ title 文档整理
 *** ubuntu内核编译
 *** STM32 OLED屏
 *** 荔枝派
-*** stm32-demo
-**** stm32cube-hal-usart
-**** stm32cube-hal-spi-master
-**** stm32cube-hal-gpio
-**** stm32cube-hal-exti
 *** Wi-Fi_crack
 
 ** 工作
-*** alios
+*** 管理流程文档
 *** mt2625
 *** mtk_work
 **** 技术总结报告
@@ -60,6 +55,8 @@ title 文档整理
 ***** sensor
 ***** tp
 **** 效率工作技巧
+**** 功能开发代码片段
 *** sprd_work
 **** sprd-android-code-operation-20190717
+**** alios
 @endmindmap
