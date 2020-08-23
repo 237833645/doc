@@ -48,6 +48,36 @@ wget -c -r -nd -np -k -L -p www.oldlinux.org/Linux.old/
 192.30.253.120 codeload.github.com
 
 
+101.84.138.127
+
+199.232.69.194 github.global.ssl.fastly.net
+140.82.112.3 github.com
+140.82.113.3 www.github.com gist.github.com
+
+185.199.108.154 docs.github.com help.github.com github.githubassets.com gtihub.githubassets.com www.githubassets.com
+185.199.109.154 docs.github.com help.github.com github.githubassets.com gtihub.githubassets.com www.githubassets.com
+185.199.110.154 docs.github.com help.github.com github.githubassets.com gtihub.githubassets.com www.githubassets.com
+185.199.111.154 docs.github.com help.github.com github.githubassets.com gtihub.githubassets.com www.githubassets.com
+
+185.199.108.154 avatars2.githubassets.com assets-cdn.github.githubassets.com ithub.githubassets.com font-srcgithub.githubassets.com
+185.199.109.154 avatars2.githubassets.com assets-cdn.github.githubassets.com ithub.githubassets.com font-srcgithub.githubassets.com
+185.199.110.154 avatars2.githubassets.com assets-cdn.github.githubassets.com ithub.githubassets.com font-srcgithub.githubassets.com
+185.199.111.154 avatars2.githubassets.com assets-cdn.github.githubassets.com ithub.githubassets.com font-srcgithub.githubassets.com
+
+185.199.108.154 avatars1.githubassets.com weiweila.net
+185.199.109.154 avatars1.githubassets.com weiweila.net
+185.199.110.154 avatars1.githubassets.com weiweila.net
+185.199.111.154 avatars1.githubassets.com weiweila.net
+
+
+avatars2.githubassets.com
+assets-cdn.github.githubassets.com
+ithub.githubassets.com
+font-srcgithub.githubassets.com
+avatars1.githubassets.com
+weiweila.net
+
+
 3. sudo killall -HUP mDNSResponder
 
 ```

@@ -4,3 +4,4 @@
 - [快速调试技巧](快速调试技巧/index.md)
 - [效率工作技巧](效率工作技巧/index.md)
 - [驱动移植包](驱动移植包/index.md)
+- [编译环境搭建](./android-ubuntu-env.md)
