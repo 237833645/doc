@@ -10,8 +10,3 @@
 查看输出值      /sys/class/gpio/ # cat gpio12/value
 取消导出        /sys/class/gpio/ # echo 12 > unexport
 ```
-
-## GPIO设备驱动移植代码
-
-GPIO设备控制驱动移植代码适合kernel3.18和kernel4.4，下载地址：  
-[GPIO设备控制驱动移植代码 gpio_ctrl.zip](./res/gpio_ctrl.zip)
