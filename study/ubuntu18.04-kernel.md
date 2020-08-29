@@ -61,7 +61,8 @@
 
 ## 五、总结
 
-- 目前可以在不用linux内核源码编译换内核就可以直接做简单的内核代码编程。ubuntu自带了insmod功能，只需要下载对应系统的内核头文件就可以编译helloworld.ko模块了，具体操作如下：
+- 目前可以在不用linux内核源码编译换内核就可以直接做简单的内核代码编程。ubuntu自带了insmod功能，  
+  只需要下载对应系统的内核头文件就可以编译helloworld.ko模块了，具体操作如下：
 
     ```bash
     sudo apt-get install linux-headers-$(uname -r)
