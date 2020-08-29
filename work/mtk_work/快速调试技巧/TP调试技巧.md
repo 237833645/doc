@@ -40,5 +40,3 @@
         > cat /proc/gt1x_debug
 
     ![7A9E7862-8971-4df6-BDD0-F3E4C2DACE24.png](img/7A9E7862-8971-4df6-BDD0-F3E4C2DACE24.png)
-
-## 

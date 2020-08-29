@@ -27,7 +27,7 @@ excel表中的CLK Lane Speed 和Data Rate是一个意思
 
 内置的工具里面有一个fbconfig来修改mipi的timging信号。
 首先是开启的方式是源文件在
-> vendor\mediatek\proprietary\hardware\fbconfig_tool\common
+vendor\mediatek\proprietary\hardware\fbconfig_tool\common
 
 ```bash
 使用时需要打开Project中的宏改为
