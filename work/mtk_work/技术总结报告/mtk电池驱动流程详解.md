@@ -188,14 +188,13 @@ int hw_charging_get_charger_type(void)
 
 
 相关文件关系:
+
+```code
 Battery_common.c (s:\i841\mediatek\kernel\drivers\power) // 充电逻辑文件
-
 Charging_hw_pmic.c (s:\i841\mediatek\platform\mt6582\kernel\drivers\power) // 具体的充电芯片，相关电池参数检测
-
 Linear_charging.c (s:\i841\mediatek\kernel\drivers\power) // 充电状态控制，内部 PMIC
-
 Switch_charging.c (s:\i841\mediatek\kernel\drivers\power) // 充电状态控制，外部 Charge IC
-
+```
 
 ```c
 //
