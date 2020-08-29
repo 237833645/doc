@@ -2,7 +2,7 @@
 
 ## 阿里文档地址
 
-<https://developer.alios.cn/#/md%2Fdevelopercenter%2F%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E5%92%8C%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%2F%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%2F%E6%90%AD%E5%BB%BA%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.md?docversion=0>
+[阿里OS文档连接地址](https://developer.alios.cn/#/md%2Fdevelopercenter%2F%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E5%92%8C%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%2F%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%2F%E6%90%AD%E5%BB%BA%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.md?docversion=0)
 
 ## Gerrit配置
 
