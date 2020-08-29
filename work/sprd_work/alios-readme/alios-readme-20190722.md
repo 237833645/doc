@@ -38,9 +38,7 @@
 
 - 更新代码 repo sync
 
-- ~~本地git下载地址（此仓库已经作废）~~
-
-    > ~~git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git~~
+- > 本地git下载地址（此仓库已经作废) git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git
 
 ## 代码编译指令
 
