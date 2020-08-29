@@ -4,7 +4,7 @@
 
 ## 硬件原理介绍
 
-参考文档：https://blog.csdn.net/qq_39417870/article/details/98100361
+参考文档 [MTK驱动模块_4 battery-硬件原理介绍](https://blog.csdn.net/qq_39417870/article/details/98100361)
 
 battery作为手机的供电系统，提供至关重要的作用，关系手机续航，性能的稳定。本节先从batter的硬件原理开始介绍。
 
@@ -50,11 +50,12 @@ Q = ∫ i dt
 
 ## 代码架构和流程
 
-参考文档：https://blog.csdn.net/qq_39417870/article/details/98172104
+参考文档：[【MTK驱动模块_5】battery2--代码架构和流程
+](https://blog.csdn.net/qq_39417870/article/details/98172104)
 
 ## 文档参考如下
 
-- [代码架构和流程 https://blog.csdn.net/qq_39417870/article/details/98172104](https://blog.csdn.net/qq_39417870/article/details/98172104)
-- [MTK Battery系统 http://www.voidcn.com/article/p-bklswglr-xp.html ](http://www.voidcn.com/article/p-bklswglr-xp.html)
-- [MTK Android Driver ：battery http://www.voidcn.com/article/p-ndkgksdb-pe.html](http://www.voidcn.com/article/p-ndkgksdb-pe.html)
-- [MTK battery 原理 http://www.voidcn.com/article/p-btvhcgse-sn.html](http://www.voidcn.com/article/p-btvhcgse-sn.html)
+- [代码架构和流程](https://blog.csdn.net/qq_39417870/article/details/98172104)
+- [MTK Battery系统](http://www.voidcn.com/article/p-bklswglr-xp.html)
+- [MTK Android Driver ：battery](http://www.voidcn.com/article/p-ndkgksdb-pe.html)
+- [MTK battery 原理 ](http://www.voidcn.com/article/p-btvhcgse-sn.html)

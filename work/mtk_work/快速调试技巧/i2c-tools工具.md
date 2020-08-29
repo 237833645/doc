@@ -24,7 +24,7 @@
 
 下载地址：[https://i2c.wiki.kernel.org/index.php/I2C_Tools](https://i2c.wiki.kernel.org/index.php/I2C_Tools)
 
-```c
+```code
 https://mirrors.edge.kernel.org/pub/software/utils/i2c-tools/
 git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git
 git clone git://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git -b i2c-tools-3.1
@@ -193,4 +193,4 @@ i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 ### mtk平台android系统移植包供使用参考
 
 下载地址：
-[../驱动移植包/common/android-i2c-tools移植包.zip](../驱动移植包/common/android-i2c-tools移植包.zip)
+[android-i2c-tools移植包.zip](../驱动移植包/common/android-i2c-tools移植包.zip)

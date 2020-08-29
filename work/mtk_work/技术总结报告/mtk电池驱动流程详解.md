@@ -1,6 +1,6 @@
 # mtk电池驱动流程详解
 
-[文档参考链接地址:https://blog.csdn.net/mrdongshiyi/article/details/85104839](https://blog.csdn.net/mrdongshiyi/article/details/85104839)
+文档参考链接地址:[mtk 电池驱动流程详解](https://blog.csdn.net/mrdongshiyi/article/details/85104839)
 
 mtk 电池驱动流程详解
 充电算法，充9S停1S
@@ -98,7 +98,7 @@ mtk_imp_tracking() 对闭合电压补偿后，当作开路电压使用
 BC1.1 充电协议，主要用来区分是插入的是 USB 还是充电器，如果是 USB 只能提供 500ma 充电，
 如果是充电器，则可以大电流充电
 
-```c
+```code
 int hw_charging_get_charger_type(void)
 {
 #if 0
@@ -166,7 +166,7 @@ int hw_charging_get_charger_type(void)
 }
 ```
 
-```
+```code
 概念: 
         ZCV：开路电压
         OCV: 开路电压
@@ -830,7 +830,7 @@ int bat_thread_kthread(void *x)
 
                                         if (BMT_status.charger_exist == KAL_TRUE)
                                         {
-                                            /* can not power down due to charger exist, so need reset system
+/* can not power down due to charger exist, so need reset system
 忽略由于充电器的存在而导致的断电，因此需要复位 */
                                             orderly_reboot();
                                         }
@@ -1038,6 +1038,7 @@ int bat_thread_kthread(void *x)
 
 
 电池测量模块初始化:
+```code
 module_init(battery_meter_init);
 battery_meter_init(void)
 platform_device_register(&battery_meter_device);
@@ -1070,3 +1071,4 @@ status = bm_func[cmd] (data);
 return STATUS_UNSUPPORTED;
 return status;
 }
+```

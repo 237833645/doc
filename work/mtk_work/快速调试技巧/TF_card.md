@@ -18,7 +18,7 @@
 ![img-eint0](img/78BD730B-F267-41da-A1A0-CAF4E98DB27B.png)
 ![img-eint1](img/F6B2B7BF-4016-4f1e-81C8-4F91C11673D1.png)
 
-```c
+```code
 mt6735m.dtsi文件
 mtk-msdc.0 {
   compatible = "simple-bus";
@@ -168,9 +168,8 @@ mmc1_register_setting_default: mmc1@register_default {
 
 ## 详细的TF-Card技术介绍
 
-1. [深入理解SD卡协议 https://www.jianshu.com/p/6272e4cb1eeb ](https://www.jianshu.com/p/6272e4cb1eeb)
-
-2. [SD卡 TF卡 接口引脚定义 https://blog.csdn.net/u010783226/article/details/92064456](https://blog.csdn.net/u010783226/article/details/92064456)
+1. [深入理解SD卡协议](https://www.jianshu.com/p/6272e4cb1eeb)
+2. [SD卡 TF卡 接口引脚定义](https://blog.csdn.net/u010783226/article/details/92064456)
 
 ## 调试过程中问题总结
 
