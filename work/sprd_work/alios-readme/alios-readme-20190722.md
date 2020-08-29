@@ -38,8 +38,9 @@
 
 - 更新代码 repo sync
 
-> 本地git下载地址（此仓库已经作废)  
-  git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git
+- 本地git下载地址（此仓库已经作废)
+
+> git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git
 
 ## 代码编译指令
 
@@ -94,4 +95,5 @@
 --|--
 adb抓取log  | adb -host logctl
 adb shell  |  adb -host shell
-指令调用工程测试模式 | sendlink page://EqcFactoryMode.yunos.com/FactoryList
+
+> 指令调用工程测试模式 | sendlink page://EqcFactoryMode.yunos.com/FactoryList
