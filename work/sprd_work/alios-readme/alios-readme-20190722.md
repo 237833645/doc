@@ -34,13 +34,17 @@
 
 - 远程下载repo地址
 
-> repo init -u ssh://gerrit-custom2.yunos.com:29418/repo/yunos/tianmu -b rel_watch_s01_r2_hht_yunospick
+```code
+repo init -u ssh://gerrit-custom2.yunos.com:29418/repo/yunos/tianmu -b rel_watch_s01_r2_hht_yunospick
+```
 
 - 更新代码 repo sync
 
 - 本地git下载地址（此仓库已经作废)
 
-> git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git
+```code
+git clone git@192.168.1.174:rel_watch_s01_r2_hht_yunospick/base.git
+```
 
 ## 代码编译指令
 
@@ -54,13 +58,20 @@
 
   - 安装nodejs：
 
-    > cd xmake/ ; ./setup_node.sh
+```code
+    cd xmake/ ; ./setup_node.sh
+```
 
 - 编译前代码遍历环境配置 (工程名：gomtel_q9 版本类型：user )
-    >cd xmake && ./mk_yunos.sh gomtel_q9 user config --enable-cntr-rt=no --enable-cntr-cvg=no --enable-cntr-hal=no --enable-unified-surface=yes --with-permission=no --enable-jsaot=on --enable-closed-source && source xdirs && xmake && xmake image-stripped
 
-- ~~编译 (终端未关闭前提下，都可以使用下面的指令来编译而不需要每次都配置‘编译前代码遍历环境配置’)
+```code
+cd xmake && ./mk_yunos.sh gomtel_q9 user config --enable-cntr-rt=no --enable-cntr-cvg=no --enable-cntr-hal=no --enable-unified-surface=yes --with-permission=no --enable-jsaot=on --enable-closed-source && source xdirs && xmake && xmake image-stripped
+```
+
+```code
+~~编译 (终端未关闭前提下，都可以使用下面的指令来编译而不需要每次都配置‘编译前代码遍历环境配置’)
     source xdirs && xmake~~
+```
 
 - 编译后生成img目录: prebuilts/images/工程名/
 
@@ -79,9 +90,9 @@
 
 - 展讯平台下载
 
-    使用展讯ResearchDownload工具下载 pac包地址在编译后生成img目录下面。
+  使用展讯ResearchDownload工具下载 pac包地址在编译后生成img目录下面。
 
-    同展讯下载方式
+  同展讯下载方式
 
 ## 阿里系统使用小技巧
 
@@ -96,4 +107,8 @@
 adb抓取log  | adb -host logctl
 adb shell  |  adb -host shell
 
-> 指令调用工程测试模式 | sendlink page://EqcFactoryMode.yunos.com/FactoryList
+指令调用工程测试模式
+
+```code
+sendlink page://EqcFactoryMode.yunos.com/FactoryList
+```
