@@ -4,10 +4,6 @@
 
 ## dws配置中断
 
-![]()
-![]()
-![]()
-
 ## dtsi配置
 
 ```code
@@ -40,8 +36,8 @@
 #define PIRBS612_DEVICE "PIRBS612"
 #ifdef PIRBS612_DEBUG_CODE
 #undef PIRBS612_DEBUG
-#define PIRBS612_DEBUG(a,arg...) pr_err(PIRBS612_DEVICE ": " a, ##arg)
-#define PIRBS612_FUNC()	pr_err(PIRBS612_DEVICE ": %s line=%d\n", __func__, __LINE__)
+#define PIRBS612_DEBUG(a,arg...)  pr_err(PIRBS612_DEVICE ": " a, ##arg)
+#define PIRBS612_FUNC()           pr_err(PIRBS612_DEVICE ": %s line=%d\n", __func__, __LINE__)
 #else
 #define PIRBS612_DEBUG(arg...)
 #define PIRBS612_FUNC()
@@ -361,7 +357,7 @@ static irqreturn_t pirbs612_eint_func_2(int irq, void *desc) {
       atomic_set(&a_flag, 0);
       atomic_set(&b_flag, 0);
       // g_out_value++;
-      // gpio_set_bluelight(1);	// sensor a  触发
+      // gpio_set_bluelight(1); // sensor a  触发
       input_report_key(pirbs612_input_dev, KEY_F5, 1);
       input_sync(pirbs612_input_dev);
       input_report_key(pirbs612_input_dev, KEY_F5, 0);
@@ -370,7 +366,7 @@ static irqreturn_t pirbs612_eint_func_2(int irq, void *desc) {
   } else {
     irq_set_irq_type(pirbs612_irq_2, IRQ_TYPE_EDGE_FALLING);
 
-    // gpio_set_bluelight(0);	// sensor a  未触发
+    // gpio_set_bluelight(0); // sensor a  未触发
     input_report_key(pirbs612_input_dev, KEY_F4, 1);
     input_sync(pirbs612_input_dev);
     input_report_key(pirbs612_input_dev, KEY_F4, 0);

@@ -10,7 +10,9 @@
 
 ## 导图
 
-![文档整理](./out/index/文档整理思维导图.png)
+![文档整理](./out/index/freemind.png)
+
+<!--
 
 @startmindmap
 caption 237833645@gihub.io
@@ -59,3 +61,4 @@ title 文档整理思维导图
 **** sprd-android-code-operation-20190717
 **** alios
 @endmindmap
+-->
