@@ -2,7 +2,7 @@
 
 ## GOODIX
 
-### GT917S
+### GT917S兼容调试
 
 - datasheet []()
 - 原理图
