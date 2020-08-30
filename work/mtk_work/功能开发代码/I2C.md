@@ -15,7 +15,7 @@
 
 ### lk阶段
 
-```code
+```c
 #include <cust_gpio_usage.h>
 #include <cust_i2c.h>
 #include <platform/mt_gpio.h>
@@ -81,13 +81,9 @@ int lt9211_read_byte(u8 addr, u8 *dataBuffer) {
 
 #### dts片段
 
-```code
-
-```
-
 #### 代码片段
 
-```code
+```c
 #include <linux/string.h>
 
 #include <linux/delay.h>
@@ -300,4 +296,6 @@ MODULE_DESCRIPTION("MTK lt9211 I2C Driver");
 
 ## i2c控制代码移植包
 
-- A9-Ai眼镜功能包含了lk和kernel的i2c驱动[lcm.override.lcd.zip](./res/lcm.override.lcd.zip)
+- A9-Ai眼镜功能包含了lk和kernel的i2c驱动
+  [lcm.override.lcd.zip](./res/lcm.override.lcd.zip)
+
