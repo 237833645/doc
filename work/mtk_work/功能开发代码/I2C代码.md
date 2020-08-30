@@ -126,7 +126,7 @@ struct lt9211_dev {
   struct i2c_client *client;
 };
 
-//static const struct i2c_device_id lt9211_id[] = {{I2C_LT9211_ID_NAME, 0},{0},};
+static const struct i2c_device_id lt9211_id[] = {I2C_LT9211_ID_NAME, 0};
 
 static struct i2c_driver lt9211_iic_driver = {
     .id_table = lt9211_id,
