@@ -83,7 +83,7 @@ int lt9211_read_byte(u8 addr, u8 *dataBuffer) {
 
 #### 代码片段
 
-```c
+```code
 #include <linux/string.h>
 
 #include <linux/delay.h>
@@ -126,7 +126,7 @@ struct lt9211_dev {
   struct i2c_client *client;
 };
 
-static const struct i2c_device_id lt9211_id[] = {{I2C_LT9211_ID_NAME, 0}};
+static const struct i2c_device_id lt9211_id[] = {{I2C_LT9211_ID_NAME, 0},{}};
 
 static struct i2c_driver lt9211_iic_driver = {
     .id_table = lt9211_id,
@@ -298,4 +298,3 @@ MODULE_DESCRIPTION("MTK lt9211 I2C Driver");
 
 - A9-Ai眼镜功能包含了lk和kernel的i2c驱动
   [lcm.override.lcd.zip](./res/lcm.override.lcd.zip)
-
