@@ -94,11 +94,35 @@ int lt9211_read_byte(u8 addr, u8 *dataBuffer) {
 
 ```code
 &i2c1 {
-  LT9211@2d {
-    compatible = "mediatek,LT9211";
-    reg = <0x2d>;
-  };
+    #address-cells = <1>;
+    #size-cells = <0>;
+    lt9211@2d {
+        compatible = "mediatek,lt9211";
+        reg = <0x2d>;
+        status = "okay";
+    };
+    isl97900crz_l@29 {
+        compatible = "mediatek,isl97900crz_l";
+        reg = <0x29>;
+        status = "okay";
+    };
+    isl97900crz_r@28 {
+        compatible = "mediatek,isl97900crz_r";
+        reg = <0x28>;
+        status = "okay";
+    };
+    ovp0921_l@05 {
+        compatible = "mediatek,ovp0921_l";
+        reg = <0x05>;
+        status = "okay";
+    };
+    ovp0921_r@04 {
+        compatible = "mediatek,ovp0921_r";
+        reg = <0x04>;
+        status = "okay";
+    };
 };
+
 ```
 
 #### 代码片段
