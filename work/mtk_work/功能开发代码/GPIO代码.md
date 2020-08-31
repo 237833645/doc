@@ -71,6 +71,8 @@ void ISL_97900_RST(void)
 
 ### kernel阶段
 
+- dws配置(略)
+
 - dts配置
 
 ```code

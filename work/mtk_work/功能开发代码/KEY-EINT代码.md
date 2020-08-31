@@ -4,10 +4,106 @@
 
 ## dws配置中断
 
+![img-key-eint](./img/638687D4-E718-4c83-8860-24A2B1D9794D.png)
+
 ## dtsi配置
 
 ```code
+pirbs612: pirbs612 {
+    compatible = "mediatek, pirbs612_driver";
+};  
+  
+bs612_eint1: bs612_eint1 {
+    compatible = "mediatek,bs612_eint1";
+};
 
+bs612_eint2: bs612_eint2 {
+    compatible = "mediatek,bs612_eint2";
+};
+
+```
+
+```code
+&pio {
+    gpio_ctrl_default: gpio_ctrl_default@0 {
+
+    };
+
+    gpio_ctrl_1_high: gpio_ctrl_1_high@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO4__FUNC_GPIO4>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+    gpio_ctrl_1_low: gpio_ctrl_1_low@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO4__FUNC_GPIO4>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+
+    gpio_ctrl_2_high: gpio_ctrl_2_high@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO90__FUNC_GPIO90>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+    gpio_ctrl_2_low: gpio_ctrl_2_low@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO90__FUNC_GPIO90>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+
+    gpio_ctrl_3_high: gpio_ctrl_3_high@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO7__FUNC_GPIO7>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+    gpio_ctrl_3_low: gpio_ctrl_3_low@0{
+        pins_cmd0_dat {
+            pins = <PINMUX_GPIO7__FUNC_GPIO7>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+};
+
+&pirbs612 {
+    pinctrl-names = "default", "gpio_ctrl_1_high", "gpio_ctrl_1_low", "gpio_ctrl_2_high", "gpio_ctrl_2_low", "gpio_ctrl_3_high", "gpio_ctrl_3_low";
+    pinctrl-0 = <&gpio_ctrl_default>;
+    pinctrl-1 = <&gpio_ctrl_1_high>;
+    pinctrl-2 = <&gpio_ctrl_1_low>;
+    pinctrl-3 = <&gpio_ctrl_2_high>;
+    pinctrl-4 = <&gpio_ctrl_2_low>;
+    pinctrl-5 = <&gpio_ctrl_3_high>;
+    pinctrl-6 = <&gpio_ctrl_3_low>;
+    status = "okay";
+};
+```
+
+```code
+&bs612_eint1 {
+  interrupt-parent = <&pio>;
+  interrupts = <3 IRQ_TYPE_LEVEL_LOW 3 0>;
+  deb-gpios = <&pio 3 0>;
+  debounce = <64000>;
+  status = "okay";
+};
+
+&bs612_eint2 {
+  interrupt-parent = <&pio>;
+  interrupts = <9 IRQ_TYPE_LEVEL_LOW 9 0>;
+  deb-gpios = <&pio 9 0>;
+  debounce = <64000>;
+  status = "okay";
+};
 ```
 
 ## 触发GPIO中断上报按键值代码片段(s915门铃项目人体感应)
@@ -596,10 +692,6 @@ MODULE_DESCRIPTION("Rinlink pirbs612 driver");
 MODULE_AUTHOR("AL <wuzhiyong@rinlink.com>");
 MODULE_LICENSE("GPL");
 ```
-
-## 通过getevent来查看按键是否工作
-
-## hal层按键对应表
 
 ## 代码移植包
 

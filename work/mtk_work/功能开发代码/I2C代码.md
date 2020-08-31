@@ -11,17 +11,28 @@
 
 ## dws配置
 
+![i2c-dws](./img/B89F5D85-DF73-4293-91EC-10022E624D03.png)
+
 ## i2c控制代码片段
 
 ### lk阶段
 
-```c
+```code
 #include <cust_gpio_usage.h>
 #include <cust_i2c.h>
 #include <platform/mt_gpio.h>
 #include <platform/mt_i2c.h>
 #include <platform/mt_pmic.h>
 
+//i2c slave address 7 bit
+/*
+  cust_i2c.h 文件生成的变量可以直接使用
+
+  #define I2C_CHANNEL_1                   1
+  #define I2C_LT9211_AUTO_DETECT          FALSE
+  #define I2C_LT9211_CHANNEL              I2C_CHANNEL_1
+  #define I2C_LT9211_SLAVE_7_BIT_ADDR     0x2d
+*/
 
 #define LT9211_SLAVE_ADDR 0x2d
 struct mt_i2c_t lt9211_i2c;
@@ -80,6 +91,15 @@ int lt9211_read_byte(u8 addr, u8 *dataBuffer) {
 ### kernel阶段
 
 #### dts片段
+
+```code
+&i2c1 {
+  LT9211@2d {
+    compatible = "mediatek,LT9211";
+    reg = <0x2d>;
+  };
+};
+```
 
 #### 代码片段
 
