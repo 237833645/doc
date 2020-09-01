@@ -9,4 +9,4 @@
 - 电池温度和cpu温度客制化
 - [RTL8152B调试](./RTL8152B调试/RJ45调试.md)
 - [艾为AW9523B-内核4.4](aw9523b/AW9523B内核4.4移植文档.md)
-- [GOODIX-gt917s.md](./gt917s/gt917s.md)
+- [GOODIX-gt917s](./gt917s/gt917s.md)

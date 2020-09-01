@@ -8,7 +8,7 @@ mtk 电池驱动流程详解
 充电电压最大值是6500mV 最小值是4400mV 3.4V为开机电压，电压大于3.4V才能开机
 
 ```c
-// 获得 BATSNS 引脚电压 
+// 获得 BATSNS 引脚电压
 bat_vol = battery_meter_get_battery_voltage(KAL_TRUE);
 /* 获得 PMIC 的  ISENSE 引脚电压*/
 Vsense = battery_meter_get_VSense();
@@ -102,8 +102,8 @@ BC1.1 充电协议，主要用来区分是插入的是 USB 还是充电器，如
 int hw_charging_get_charger_type(void)
 {
 #if 0
-	return STANDARD_HOST;
-	/* return STANDARD_CHARGER; //adaptor */
+  return STANDARD_HOST;
+  /* return STANDARD_CHARGER; //adaptor */
 #else
     CHARGER_TYPE CHR_Type_num = CHARGER_UNKNOWN;
 
@@ -167,25 +167,24 @@ int hw_charging_get_charger_type(void)
 ```
 
 ```code
-概念: 
+概念:
         ZCV：开路电压
         OCV: 开路电压
         VC：闭路电压
         CAR：库伦计
         DOD: 放电深度，100-DOD 即电容容量
         Cmax/Qmax: 电池容量
- 
+
   
  初始化init------------pre_cc mode/CC Mode              topoff mode(CV mode)切换模式       Battery Full                         Battery hold
  1 初始化安全     1。做充电器的保护，                 1。做充电器的保护 2>，               1电池百分比总是显示100%             当充电器存在时，检查调用状态，
  充电器           2。如果(1)失败如果充电器电压为>6.5V 2。如果(1)失败如果充电器电压为>6.5V  注意:当充电,电池百分比仍然是100%。   1。如果呼叫活动，Vbat>4.05V停止充电注意:避免热的问题,
  2 检查V_bat电压   如果电池温度为>60c，则停止充电     如果电池温度为>60C，则停止充电
  是否大于3.4V决定 3.如果(2)通过，做充电算法:充电9秒，3.如果(2)通过，做充电算法。:充电10S
- 进入CC模式，				停止充电1秒。
+ 进入CC模式， 停止充电1秒。
  检查UI SOC是否等于100
  决定进入电池满电状态
  ```
-
 
 相关文件关系:
 
@@ -240,7 +239,7 @@ int bat_thread_kthread(void *x)
                     /* clear bit */
                     AUXADC_DRV_ClearBits16((u16 *)AUXADC_CON1, (1 << dwChannel));
                 }
-                /* step3  read channel and make sure old ready bit ==0 
+                /* step3  read channel and make sure old ready bit ==0
 /* step3读取通道，确保老的就绪位==0*/
                 while (AUXADC_DRV_ReadReg16(AUXADC_DAT0 + dwChannel * 0x04) & (1 << 12))
                 {
@@ -252,12 +251,12 @@ int bat_thread_kthread(void *x)
                         /* wait for idle time out等待空闲时间*/
                         pr_err("[adc_api]: wait for channel[%d] ready bit clear time out\n",
                                dwChannel);
-                        /* step4 set bit  to trigger sample 
+                        /* step4 set bit  to trigger sample
 4 设置位触发样本 */
                         if (adc_auto_set == 0)
                             AUXADC_DRV_SetBits16((u16 *)AUXADC_CON1, (1 << dwChannel));
 
-                        /* step5  read channel and make sure  ready bit ==1 
+                        /* step5  read channel and make sure  ready bit ==1
 5 读取通道并确保准备位==1*/
                         udelay(25); /* we must dealay here for hw sample cahnnel data 我们必须在此处理cahnnel样本数据*/
                         while (0 == (AUXADC_DRV_ReadReg16(AUXADC_DAT0 + dwChannel * 0x04) & (1 << 12)))
@@ -522,7 +521,7 @@ int bat_thread_kthread(void *x)
                             //为了避免没有电池的情况下插入电缆，然后插入电池使hw soc = 100%
                             /* if the difference bwtween ZCV and vbat is too large, using vbat instead ZCV */
                             //如果ZCV和vbat之间的差异太大，用vbat代替ZCV
-                            if (((gFG_capacity_by_v == 100) && (vbat_capacity < batt_meter_cust_data.cust_poweron_max_vbat_tolrance)) 
+                            if (((gFG_capacity_by_v == 100) && (vbat_capacity < batt_meter_cust_data.cust_poweron_max_vbat_tolrance))
                             || (abs(gFG_capacity_by_v - vbat_capacity) > batt_meter_cust_data.cust_poweron_delta_vbat_tolrance))
                             {
                                 bm_print(BM_LOG_CRTI,
@@ -648,7 +647,7 @@ int bat_thread_kthread(void *x)
 * MT6351 API抽象在charging_hw_bw25896.c。任何MT6351的充电器都需要设置这个。
 编译选项不限于CONFIG_MTK_BQ25896_SUPPORT。
 * PowerDown = 0
-*   
+*
 */
                         pwr = 0;
                         battery_charging_control(CHARGING_CMD_SET_CHRIND_CK_PDN, &pwr);
@@ -807,7 +806,7 @@ int bat_thread_kthread(void *x)
                                             "[BATTERY] CONFIG_POWER_EXT, no update battery update power down.\n");
 #else
                                 {
-                                    if ((g_platform_boot_mode == META_BOOT) || (g_platform_boot_mode == ADVMETA_BOOT) 
+                                    if ((g_platform_boot_mode == META_BOOT) || (g_platform_boot_mode == ADVMETA_BOOT)
                                     || (g_platform_boot_mode == ATE_FACTORY_BOOT))
                                     { //绕过温度检查
                                         battery_log(BAT_LOG_FULL,
@@ -941,7 +940,7 @@ int bat_thread_kthread(void *x)
                                                     case CHR_TOP_OFF: //顶部模式(CV模式)。
                                                         //1。做充电器的保护2。如果(1)失败如果充电器电压>6.5V
                                                         //2>如果电池温度>500停止充电3.
-                                                        //	如果(2)通过，做充电算法。:充电10年代
+                                                        //如果(2)通过，做充电算法。:充电10年代
                                                         BAT_TopOffModeAction();
                                                         break;
 
@@ -1035,8 +1034,8 @@ int bat_thread_kthread(void *x)
 
 ```
 
-
 电池测量模块初始化:
+
 ```code
 module_init(battery_meter_init);
 battery_meter_init(void)

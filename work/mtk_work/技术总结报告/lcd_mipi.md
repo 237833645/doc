@@ -105,7 +105,7 @@ Excel公式表 ( 此表可以快速计算 )
 ---
 
 ### RGB时序配置
+
 ![img_rgb](img/EA88DE89-72EA-4D96-B9A8-ECD206A927B0.png)
 
 [MIPI_Video-mode公式.xls](res/MIPI_Video%20mode公式.xls)
-
