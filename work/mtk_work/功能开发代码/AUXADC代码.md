@@ -59,6 +59,7 @@ extern int IMM_get_adc_channel_num(char *channel_name, int len);//可以直接�
 ```
 
 - 小电池检测功能驱动代码
+
 ```code
 
 //循环10次算adc平均值
