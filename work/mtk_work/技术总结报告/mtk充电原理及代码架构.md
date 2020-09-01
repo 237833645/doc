@@ -58,4 +58,4 @@ Q = ∫ i dt
 - [代码架构和流程](https://blog.csdn.net/qq_39417870/article/details/98172104)
 - [MTK Battery系统](http://www.voidcn.com/article/p-bklswglr-xp.html)
 - [MTK Android Driver ：battery](http://www.voidcn.com/article/p-ndkgksdb-pe.html)
-- [MTK battery 原理 ](http://www.voidcn.com/article/p-btvhcgse-sn.html)
+- [MTK battery 原理](http://www.voidcn.com/article/p-btvhcgse-sn.html)
