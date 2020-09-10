@@ -22,6 +22,14 @@
 开LCD背光灯         adb shell echo  255 > sys/class/leds/lcd-backlight/brightness
 ```
 
+- adb获取event消息
+
+```bash
+获取内核按键名    adb shell getevent -l
+获取内核按键值    adb shell getevent
+获取app的按键名   adb shell logcat | grep KeyEvent
+```
+
 - adb 发送power键值
 
 ```bash
