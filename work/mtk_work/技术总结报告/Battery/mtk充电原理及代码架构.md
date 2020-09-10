@@ -9,7 +9,8 @@
 battery作为手机的供电系统，提供至关重要的作用，关系手机续航，性能的稳定。本节先从batter的硬件原理开始介绍。
 
 battery的内部结构:
-![battery_00](./img/battery_00.png)
+
+![battery_00](./img/battery-00.png)
 
 电池内部结构：B+，B-,分别接锂电芯的正负极，一个封装好的电池留给外部的接口共计4个，分别P+，P-，NTC，ID；下面分别介绍：P+：电池正极p-：电池负极
 
@@ -21,7 +22,7 @@ ID脚：ID脚内部其实也就是一个R4电阻，这个ID脚我们用来做电
 
 接到主板上的充电回路
 
-![battery_01](./img/battery_01.png)
+![battery_01](./img/battery-01.png)
 
 电池容量计算：
 
@@ -50,7 +51,7 @@ Q = ∫ i dt
 
 ## 代码架构和流程
 
-参考文档：[【MTK驱动模块_5】battery2--代码架构和流程
+参考文档：[【 MTK驱动模块_5 】battery2--代码架构和流程
 ](https://blog.csdn.net/qq_39417870/article/details/98172104)
 
 ## 文档参考如下
