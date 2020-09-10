@@ -21,4 +21,4 @@
 ## 功能开发列表
 
 - [ATA-NFC: st21nfc \(android o 39 4.4\)](./ata-nfc-st21nfc/index.md)
-- [ATA-NFC: mt6605n \(android n 37 3.18\)](./ata-nfc-st21nfc/index.md)
+- ~~[ATA-NFC: mt6605n \(android n 37 3.18\)](./ata-nfc-st21nfc/index.md)~~
