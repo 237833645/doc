@@ -22,3 +22,16 @@
 
 - [ATA-NFC: st21nfc \(android o 39 4.4\)](./ata-nfc-st21nfc/index.md)
 - ~~[ATA-NFC: mt6605n \(android n 37 3.18\)](./ata-nfc-st21nfc/index.md)~~
+- [ATA-KEY开发](./ata_key.md)
+- [ATA-LCD开发](./ata_lcd.md)
+- [ATA-LED开发](./ata_led.md)
+- [ATA-GPS开发](./ata_gps.md)
+- [ATA-WIFI开发](./ata_wifi.md)
+- [ATA-BT开发](./ata_bt.md)
+- [ATA-G-Sensor开发](./ata_gsensor.md)
+- [ATA-ALSPS开发](./ata_alsps.md)
+- [ATA-KEY开发](./ata_key.md)
+- [ATA-KEY开发](./ata_key.md)
+- [ATA-KEY开发](./ata_key.md)
+- [ATA-KEY开发](./ata_key.md)
+- [ATA-KEY开发](./ata_key.md)
