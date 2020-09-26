@@ -67,7 +67,7 @@ T8原理图 (带aw9523b扩展按键)
   2. 单独增加aw9523的按键测试逻辑项
 
   ```code
-  //文件名  ftm_keys.c
+  //文件名  utils.cpp
 
   //此函数是增加的独立测试aw9523b的event3事件里面的按键值
   void ftm_save_aw9523_key_map(int key_code)
