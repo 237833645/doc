@@ -7,3 +7,4 @@
 - [艾为AW9523B-内核4.4](aw9523b/AW9523B内核4.4移植文档.md)
 - [GOODIX-gt917s](./gt917s/gt917s.md)
 - [adp5585手咪按键](./adp5585/index.md)
+- [MMC3680KJ指南针调试](./MMC3680KJ指南针调试/index.md)
