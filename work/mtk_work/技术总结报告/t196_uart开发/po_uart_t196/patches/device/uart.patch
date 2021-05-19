@@ -1,0 +1,50 @@
+diff --git a/mediatek/common/sepolicy/device.te b/mediatek/common/sepolicy/device.te
+index d1e1910..1645b71 100755
+--- a/mediatek/common/sepolicy/device.te
++++ b/mediatek/common/sepolicy/device.te
+@@ -3,7 +3,7 @@
+ # ==============================================
+ 
+ type devmap_device, dev_type;
+-type ttyMT_device, dev_type;
++type ttyMT_device, dev_type,mlstrustedobject;
+ type ttySDIO_device, dev_type;
+ type vmodem_device, dev_type;
+ type stpwmt_device, dev_type;
+diff --git a/mediatek/common/sepolicy/system_app.te b/mediatek/common/sepolicy/system_app.te
+index 7a58933..4b1345e 100644
+--- a/mediatek/common/sepolicy/system_app.te
++++ b/mediatek/common/sepolicy/system_app.te
+@@ -232,3 +232,7 @@ allow system_app teei_client_device:chr_file r_file_perms;
+ allow system_app isdbt_device:chr_file {ioctl open read write setattr create};
+ # End of Vanzo:wuzhiyong
+ allow system_app sysfs_breathlight:file {open getattr read write create};
++
++# wangfeng add for uart
++allow system_app ttyMT_device:file {read open write getattr};
++allow system_app ttyMT_device:chr_file {ioctl read open write getattr};
+diff --git a/mediatek/common/sepolicy/untrusted_app.te b/mediatek/common/sepolicy/untrusted_app.te
+index 9390ada..e9f6a5e 100644
+--- a/mediatek/common/sepolicy/untrusted_app.te
++++ b/mediatek/common/sepolicy/untrusted_app.te
+@@ -82,3 +82,7 @@ allow untrusted_app mtk_mwblacklist_service:service_manager find;
+ # Purpose : Allow third party app connects to md_monitor's local socket
+ # package:com.hugeland.mtktracer
+ allow untrusted_app md_monitor:unix_stream_socket connectto;
++
++# wangfeng add for uart
++allow untrusted_app ttyMT_device:file rw_file_perms;
++allow untrusted_app ttyMT_device:chr_file rw_file_perms;
+diff --git a/vanzo/h200/init.project.rc b/vanzo/h200/init.project.rc
+index 23aea23..5e0af6b 100644
+--- a/vanzo/h200/init.project.rc
++++ b/vanzo/h200/init.project.rc
+@@ -16,7 +16,7 @@ on post-fs-data
+     chmod 0666 /dev/ttyMT2
+     chown system system /dev/ttyMT2
+ #/dev/ttyMT1 for UART2
+-    chmod 0666 /dev/ttyMT1
++    chmod 0777 /dev/ttyMT1
+     chown system system /dev/ttyMT1
+ 
+ 
