@@ -7,18 +7,18 @@ import wave
 import sys
 import math
 import audioop
-#import sounddevice as sd
+# import sounddevice as sd
 from collections import deque
 
 chunk = 1024
 
 PyAudio = pyaudio.PyAudio
 
-#if len(sys.argv) < 2:
+# if len(sys.argv) < 2:
 #    print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
 #    sys.exit(-1)
 
-#wf = wave.open(sys.argv[1], 'rb')
+# wf = wave.open(sys.argv[1], 'rb')
 
 p = PyAudio()
 
@@ -46,7 +46,7 @@ channel_map = (0, 1)
 
 try:
     stream_info = pyaudio.PaMacCoreStreamInfo(
-        flags=pyaudio.PaMacCoreStreamInfo.paMacCorePlayNice, # default
+        flags=pyaudio.PaMacCoreStreamInfo.paMacCorePlayNice,  # default
         channel_map=channel_map)
 except AttributeError:
     print("Sorry, couldn't find PaMacCoreStreamInfo. Make sure that "
@@ -65,21 +65,21 @@ stream = p.open(
     output_host_api_specific_stream_info=stream_info)
 
 while True:
-  try:
-    cur_data = stream.read(chunk)
-    slid_win.append(math.sqrt(abs(audioop.avg(cur_data, 4))))
-    #print(cur_data)
+    try:
+        cur_data = stream.read(chunk)
+        slid_win.append(math.sqrt(abs(audioop.avg(cur_data, 4))))
+        # print(cur_data)
 
-    if (sum([x > THRESHOLD for x in slid_win]) > 0):
-      print('I heart something!')
-      success = True
-      break
-    if time.time() - listening_start_time > 60:
-      print('I don\'t hear anything already 20 seconds!')
-      break
-  except IOError:
-    print('IOError')
-    break
+        if (sum([x > THRESHOLD for x in slid_win]) > 0):
+            print('I heart something!')
+            success = True
+            break
+        if time.time() - listening_start_time > 60:
+            print('I don\'t hear anything already 20 seconds!')
+            break
+    except IOError:
+        print('IOError')
+        break
 
 stream.stop_stream()
 stream.close()

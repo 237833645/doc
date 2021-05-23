@@ -8,3 +8,4 @@
 - [GOODIX-gt917s](./gt917s/gt917s.md)
 - [adp5585手咪按键](./adp5585/index.md)
 - [MMC3680KJ指南针调试](./MMC3680KJ指南针调试/index.md)
+- [T196_UART开发](./t196_uart开发/README.md)
