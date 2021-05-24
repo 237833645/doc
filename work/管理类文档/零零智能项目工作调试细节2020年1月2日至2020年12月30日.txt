@@ -1020,3 +1020,83 @@ T62:
 
 
 
+0910:
+T8 ATA:
+按键测试：
+KEY_F8
+KEY_F1
+KEY_MENU
+KEY_BACK
+KEY_ENTER
+KEY_POWER
+KEY_UP
+KEY_DOWN
+KEY_LEFT
+KEY_RIGHT
+KEY_CAMERA
+SW_MICROPHONE_INSERT
+SW_JACK_PHYSICAL_INS
+
+
+0915:
+tm7-plus 手咪调试
+h603-tm7plus-pcb2-pcb3-inrico
+9523b rst gpio7
+9523b init gpio10
+i2c-0
+
+
+po_dct_tm7plus_pcb2_key_direction
+po_dct_tm7plus_pcb2_uart_key_direction
+
+待提交的文件
+/home/rinlink/rinlink/platform_n_35_37_53/kernel-3.18/tools/dct/old_dct
+\\192.168.1.12\rinlink-12\rinlink\platform_n_35_37_53\kernel-3.18\drivers\misc\mediatek\rinlink\adp5585
+
+adp5585
+
+
+
+20201120:
+S915 ATA
+1. speaker需要设置下配置参数，修改了ata工具需要人工判断pass还是fail    	ok
+2. 160服务器已经编译好s915的软件版本，需要配置key测试   			ongoing
+3. sim卡测试										ok
+4. 充电测试需要设置配置参数								ok
+5. 三色灯测试需要开发									wait
+6. 红外温度传感器需要开发									wait
+
+
+20201123:
+2. 160服务器已经编译好s915的软件版本，需要配置key测试   			ok
+5. 三色灯测试需要开发									wait（测试是能动，结束不了）
+6. 红外温度传感器需要开发									wait
+
+
+20201124:
+5. 三色灯测试需要开发									ok（测试是能动，结束不了）
+6. 红外温度传感器需要开发									ok（修改成了按键测试模式）
+
+20201125:
+s925 ATA测试完成版本发布
+
+20201126：
+H603T-T60
+\\192.168.1.160\yangyang\rinlink\platform_n_35_37_53\vendor\mediatek\proprietary\bootable\bootloader\preloader\custom\h603t\h603t.mk
+CUSTOM_CONFIG_MAX_DRAM_SIZE=0x20000000
+
+\\192.168.1.160\yangyang\rinlink\platform_n_35_37_53\vendor\mediatek\proprietary\bootable\bootloader\preloader\custom\h603t\inc\custom_MemoryDevice.h
+
+
+20201127：
+T703 T706、tm7-plus修改 拔出充电适配器，在放电电容结束前关机， GPIO7 低电平检测到拔出 h900_512-s915
+T703 T706默认软件就带此功能
+tm7-plus硬件设计电路的电容让中断脚无法触发，需要改板才能实现此功能
+
+S915:
+pcb2.0在pcb1.0的基础上
+1. 交叉了2个传感器中断脚位，
+2. 去掉了GPIO4换成GPIO8作传感器LDO使能
+软件做了兼容处理
+
+
