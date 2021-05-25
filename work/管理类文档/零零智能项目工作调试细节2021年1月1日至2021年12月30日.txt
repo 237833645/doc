@@ -51,3 +51,29 @@ T196 uart驱动开发完毕代码已经提交
 验证T196正式软件测试外发版本给客户
 
 0524:
+分析T703售后机器声音不一致问题，恢复出厂设置音频参数一致了，怀疑刷机没有使用upgrade方式
+
+0525：
+T703客户反馈恢复出厂设置问题没有解决，让他们重新刷机验证（客户反馈upgrade方式重新刷机问题解决了）
+T8 关闭线性充电充9停1的功能（T8项目是配置的是liner charger，之前的老项目都是配置的switch charger）
+./drivers/power/mediatek/charger/mtk_linear_charging.c
+
+        algo_data->total_charging_time = charging_time.tv_sec;
+
+        /* discharge for 1 second and charge for 9 seconds */
++#if 0 //wangfeng add for T9 charger
+        charger_dev_enable(info->chg1_dev, false);
+        msleep(1000);
+-
++#endif
+        vbat = battery_get_bat_voltage() * 1000; /* uV */
+        if (vbat > algo_data->topoff_voltage) {
+                algo_data->state = CHR_TOPOFF;
+
+
+上面的修改还是有问题，切换成switch changer模式
+
+学习三极管和mos管原理
+
+0526:
+S600项目改板，修改了之前不能使用的SIM卡热插拔中断脚，
