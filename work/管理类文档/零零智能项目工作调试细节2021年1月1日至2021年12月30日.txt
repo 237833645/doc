@@ -9,7 +9,6 @@
 
 0420:
 @宫伟  @高山飞  @赵宝发  
-
 相机按拍照键拍照之后拍照按键灰置无法再按
 
 A10 camera 软件验证如下：
@@ -121,3 +120,59 @@ GPIO_SIM1_SCLK = <&pio 77 0>;
 
 0603:
 1. 继续linux-kernel编程学习
+
+0604:
+1. debug_fs内核编程
+
+0607 - 0609:
+S600项目ATA测试功能开发
+[x] LED功能植入                (ok)    移植之前S915项目的ata代码
+[x] LCD测试画面显示             (ok)    加入了画面显示色彩测试 
+[x] GPS信号测试很难pass         (ok)    发现正常开机模式GPS是可以工作的，但是factory的gps是不能工作的, 
+[x] SIM卡测试，只有一个SIM卡     (ok)    修改工模双卡为单卡，主要在测试的时候出现SIM2失败
+[x] SIM信号测试功能验证         （ok）    
+[x] 按键功能对应值导入           (ok)
+[x] MIC测试功能开发导入          (ok)    freq 800-1200 amp 10000  100000000   factory.ini文件修改为Audio.Mic.Sets=0,1;
+[x] TP测试功能开发              (waiting) 平台默认给的TP自动测试就是判断TP是否有初始化ok，这个是有瑕疵的，没有对TP的中断进行测试，目前不做修改
+[x] RJ45测试功能开发            
+
+0609：
+RJ45 S600项目ATA测试功能开发
+
+打开RJ45控制开关
+echo 1 1 > /sys/devices/virtual/gpio_ctrl/gpio_ctrl/gpio_ctrl_en
+echo 2 1 > /sys/devices/virtual/gpio_ctrl/gpio_ctrl/gpio_ctrl_en
+
+关闭RJ45控制开关
+echo 1 0 > /sys/devices/virtual/gpio_ctrl/gpio_ctrl/gpio_ctrl_en
+echo 2 0 > /sys/devices/virtual/gpio_ctrl/gpio_ctrl/gpio_ctrl_en
+
+开发步骤：
+1. 内置 rtunicpg-arm-cortex 和 EF8152B.cfg 到文件系统中, 文件源放到vendor/mediatek/proprietary/external/目录下面
+2. 编写 代码 （暂停开发，需要先解决下面h603_tm7-plus飞线手咪调试）
+
+
+h603_tm7-plus飞线手咪调试 (客户拿来一个像电话机的手咪)
+
+调试背景：
+电话前端有个类似hall的中断，在接受到的时候认为挂断手咪，反之是拿起，由于之前h603_tm7-plus的手咪不兼容，所以做了飞线处理，将原来系统的音频源直接飞到手咪上
+
+调试需要解决的问题：
+  1.手咪听筒有滋滋的电流声 
+  2.接收对讲时手咪和车台喇叭都会发出声音 （由于飞线公用了一个音频发射源，所以在发声的时候会导致手咪上的喇叭和机器上的喇叭同时发声）
+  3. 电话手咪挂上时手咪听筒和车台喇叭都会有声音 （由于飞线公用了一个音频发射源，所以在发声的时候会导致手咪上的喇叭和机器上的喇叭同时发声）
+  4.手咪音量键调节无效  （这个是有用的，由于手咪上面的音量调节自带了音频PA）
+
+调试思路：
+1. 接收到手咪中断判断使用状态，如果是拿起状态，关闭主机音频PA使能功能，且发送按键消息给到APP
+2. 由于音频源飞线到手咪上，主板手咪上是没有音频输出信号的，所以公用了RST_9523B这个引脚，所以要对这个角进行配置输入态
+
+GPIO10 - 中断信号
+GPIO7  - 音频信号，需要对这个gpio进行输入设置
+GPIO91 - PA使能信号
+
+
+
+
+adp5585
+aw9523

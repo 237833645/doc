@@ -33,6 +33,5 @@
 - [ATA-ALSPS开发](./ata_alsps.md)
 - [ATA-M-Sensor开发](./ata_msensor.md)
 - [ATA-Vibrate开发](./ata_vibrator.md)
-- [ATA-KEY开发](./ata_key.md)
-- [ATA-KEY开发](./ata_key.md)
-- [ATA-KEY开发](./ata_key.md)
+- [ATA-SOUND开发](./ata_sound.md)
+- [ATA-TOUCH开发](./ata_sound.md)
