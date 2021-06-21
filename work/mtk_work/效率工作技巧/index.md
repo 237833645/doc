@@ -103,3 +103,11 @@ adb shell am start -n com.android.settings/com.android.settings.Settings$ApnSett
 6739O平台编译   odmdtboimage bootimage
 6737N平台编译   dtboimage bootimage
 ```
+
+## Git技巧
+
+- 使用 git status 命令，发现中文乱码、但是其他的命令如提交、查看历史中文是正常显示的。
+
+```bash
+git config --global core.quotepath false
+```

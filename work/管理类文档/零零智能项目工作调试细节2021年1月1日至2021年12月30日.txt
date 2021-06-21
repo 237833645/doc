@@ -173,6 +173,90 @@ GPIO91 - PA使能信号
 
 
 
+0610:
+h603_tm7plus 手咪调试
+1. 编写功能代码。
+2. 测试发现刚开机的时候hall中断还是能工作的后来就不工作了，分析了是中断引脚被一直拉死在地电平。
+3. 做了很多代码端修改量测，都没有解决这个问题
 
-adp5585
-aw9523
+
+0611：
+h603_tm7plus 手咪调试
+1. 去掉中断注册函数，量测是否还会被拉死                 （驱动中断注册函数后没有出现被拉死的现象  -- > 修改中断的处理方式）
+2. 修改成边缘触发方式，去掉中断屏蔽，量测是否被拉死
+3. 换成定时器轮询方式
+
+插入手咪不能开机，量测后发现，我们机器是带有电容的，所以插入手咪，再插入电源，手咪的3.3v点电为2.2v左右，另外手咪上ptt内部没有供电，eint手咪上用3.3v转换1.8v。
+这个时候由于输入3.3v电压不对，导致1.8v为1.52v，整个手咪上的单片机系统电压都是错乱的，导致了我们机器不能开机，所以去掉手咪的内部供电，用我们主板给他1.8v，可以正常开机了
+
+验证后证实了，拉死gpio问题是我代码的gpio读取设置导致，目前也不知道为什么会有这样的问题，所以用全局变量来记录中断状态，不对中断脚进行gpio控制，避免状态混乱
+（这个后续有时间需要继续研究）
+
+
+0615：
+1. h603_tm7plus继续手咪测试和功能修改
+还是使用workqueue的方式来做中断处理，由于逻辑很复杂，且复用了音频gpio所以只能使用mtk自带的gpio操作，避免内核报错。
+由于手咪内部的pa无法关闭，所以会出现2个喇叭同时发声的场景，机器上的pa是低电平使能，高电平disable，这个导致了我的整个音频的逻辑混乱
+
+
+0616：
+h603_tm7plus 手咪
+测试版本已经发出，客户要求继续飞线调试插入拔出中断
+
+h900_1g-s600 项目RJ45 ATA测试功能开发
+
+一、网卡工具rtunicpg
+
+1. 合入网卡工具rtunicpg
+\vendor\mediatek\proprietary\external\rtunicpg\rtunicpg-arm-cortex 
+\vendor\mediatek\proprietary\external\rtunicpg\EF8152B.cfg
+
+2. 编写makefile，让这2个文件进入到system/bin/目录下
+在device/mediatek/mt6739/device.mk 文件末尾加入
++PRODUCT_COPY_FILES += vendor/mediatek/proprietary/external/rtunicpg/rtunicpg-arm-cortex:$(TARGET_COPY_OUT_SYSTEM)/bin/rtunicpg-arm-cortex
++PRODUCT_COPY_FILES += vendor/mediatek/proprietary/external/rtunicpg/EF8152B.cfg:$(TARGET_COPY_OUT_SYSTEM)/bin/EF8152B.cfg
+
+3. 下载后查看系统rtunicpg-arm-cortex、EF8152B.cfg文件权限是否正常
+
+4. .rc文件修改上面2个文件权限
+
+二、工厂模式代码开发
+
+
+0617：
+h900_1g-s600 项目RJ45 ATA测试功能开发
+一、网卡工具rtunicpg （完成）
+二、工厂模式代码开发  
+    1. factory代码开发  （进行中）
+    2. ATA工具代码开发   （未开始）
+
+0618:
+h900_1g-s600 项目RJ45 ATA测试功能开发
+一、直接在SIM卡测试项里面最后加入RJ45的测试功能
+二、init.rc文件权限还没有修改 （验证user版本factory不需要设置这个权限也能工作）
+
+popen核心代码
+
+char line[256];
+FILE *fpipe;
+char *p;
+
+memset(line, 0, 256);
+if (!(fpipe = (FILE *)popen(cmd_ifconfig, "r"))) {
+        LOGE(TAG "failed popen %s\n", cmd_ifconfig);
+        return -errno;
+}
+	
+while (fgets(line, sizeof(line), fpipe))
+{
+        printf("%s",line);
+        p = strstr(line, "UP BROADCAST RUNNING MULTICAST");
+        if (p) {
+                printf("%s has found\n",p);
+                cmd_ifconfig_result = true;					// cmd_ifconfig_result
+        }
+}
+
+0621:
+h900_1g-s600 项目RJ45 ATA测试功能开发 (完成)
+
