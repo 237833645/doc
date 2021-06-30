@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://blog.itpub.net/31529038/viewspace-2645754/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>RK3288 Android7.1 软件开发指南_ITPUB博客</title>
+    <meta name="keywords" content="IT职业,IT生活">
+    <meta name="description" content="文档主要介绍Rockchip RK3288 Android7.1软件开发指南，旨在帮助软件开发工程师更快上手RK3288的开发及调试ITPUB博客每天千篇余篇博文新资讯，40多万活跃博主，为IT技术人提供全面的IT资讯和交流互动的IT博客平台-中国专业的IT技术ITPUB博客。">
+
+    <link rel="stylesheet" href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/layui.css">
+    <link rel="stylesheet" href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/base.css">
+    <link rel="stylesheet" href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/zhuanlan.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/hm.js.下载"></script><script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/push.js.下载"></script><script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/jquery.js.下载"></script>
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/base.js.下载"></script>
+
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/layui.js.下载"></script>
+        <script type="text/javascript" src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/jquery.placeholder.min.js.下载"></script>
+<script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/share.js.下载"></script><link rel="stylesheet" href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/share_style0_16.css"></head>
+<body>
+
+<!--header部分开始-->
+<div class="blog-header">
+    <div class="w1200">
+        <a href="http://blog.itpub.net/" class="fl"><h1 class="logo">ITPub博客</h1></a>
+        <div class="nav fl">
+            <a href="http://www.itpub.net/">首页</a>
+            <a href="http://blog.itpub.net/">博客</a>
+            <a href="http://blog.itpub.net/column">专栏</a>
+            <a href="http://edu.itpub.net/">学院</a>
+            <a href="http://www.itpub.net/forum.php">社区</a>
+            <a href="https://z.itpub.net/">技术栈</a>
+        </div>
+        <div class="fr">
+            <form action="http://blog.itpub.net/search/blog/" class="layui-form blog-search-wrap fl">
+                <input type="hidden" name="type" value="blog">
+                <input placeholder="搜索" type="text" class="layui-input" name="keyword">
+                <button class="search-btn icon-blog"></button>
+            </form>
+            <a href="http://blog.itpub.net/blog/post/" class="layui-btn layui-btn-primary fl mlr30" target="_blank">发博</a>
+            <!--登录前-->
+            <div class="fl head-name" id="u_info"><a class="blog-login">登录</a><a href="http://account.itpub.net/register" target="_blank" class="blog-register">注册</a></div>
+        </div>
+    </div>
+</div>
+<!--header部分结束-->
+    <script type="text/javascript">
+        // 手机适配
+        if (/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            if (window.location.href.indexOf("?mobile") < 0) {
+                if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                    window.location.href = "http://m.blog.itpub.net/31529038/viewspace-2645754/";
+                }
+            }
+        }
+    </script>
+
+    
+    <link href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/shCoreDefault.css" rel="stylesheet" type="text/css">
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/shCore.js.下载" type="text/javascript"></script>
+    <link rel="stylesheet" href="./RK3288 Android7.1软件开发指南_ITPUB博客_files/aliplayer-min.css">
+    <script type="text/javascript" src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/aliplayer-min.js.下载"></script>
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/APlayer.min.js.下载" type="text/javascript"></script>
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/slidebar.js.下载" type="text/javascript"></script>
+
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/template.js.下载"></script>
+    <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/detail.js.下载"></script>
+    <script type="text/javascript">
+        $(function () {
+            SyntaxHighlighter.all();
+            blogObj.renderVoice();
+        });
+    </script>
+    <style>
+        .code .container > textarea{ height:100%; }
+        .translate{color: #9fa3a7 !important;font-size:12px !important;}
+        .translate a{font-size:12px !important;color:#9fa3a7 !important;}
+        .translate a:hover {font-size:12px !important;color:#f15142 !important;}
+        .newslist{padding:10px 5px;height:20px !important;line-height:20px;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;border-bottom:1px solid #eee}
+        .fake-video-btn:hover{
+            cursor: pointer;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 63px;
+            border-color: #00c1de;
+        }
+        .it-player-wrap {
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-bottom: 20px;
+            background: #FBFBFB;
+            border: 1px solid #EFEFEF;
+            border-radius: 4px;
+        }
+
+        .it-player-wrap .control {
+            width: 50px;
+            height: 50px;
+            background-color: #57a5f2;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .it-player-wrap .control .play,.it-player-wrap .control .pause {
+            background-size: 30px !important;
+            color: #ffffff;
+            width: 100%;
+            height: 100%;
+        }
+
+        .it-player-wrap .control .play {
+            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTU5NjM3ODcxMTQ0IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjYwMjkiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNOTUzLjQ0NTA2NSA2MDguMjkwNzI0TDM1MC4yOTkyMSA5ODAuNjM0MjExQzI1Ni42NDExNTEgMTAzOC40NTUyNjMgMTgwLjY5MDc4OSA5OTcuNzk5ODM2IDE4MC42OTA3ODkgODkxLjkxNTAzM1YxMTUuNDg2NzExQzE4MC42OTA3ODkgOC42MzgyMjQgMjU2LjIxOTUzOS0zMS4yOTQ0NCAzNTAuMjM4OTggMjYuNzY3NTM0bDYwMy4yNjYzMTUgMzcyLjIyMzAyNmM5My42NTgwNTkgNTcuODIxMDUzIDk0LjA3OTY3MSAxNTEuMjM4MTkxIDAgMjA5LjMwMDE2NHoiIHAtaWQ9IjYwMzAiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L3N2Zz4=") no-repeat center;
+
+        }
+
+        .it-player-wrap .control .pause {
+            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTU5NjM3NzQ2MzAwIiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ0NjciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNzM1LjkgNjQuOWMtNTEuMiAwLTk2IDQ0LjctOTYgOTUuOHY3MDIuNmMwIDUxLjEgNDQuOCA5NS44IDk2IDk1LjhzOTYtNDQuNyA5Ni05NS44VjE2MC43YzAtNTEuMS00NC44LTk1LjgtOTYtOTUuOHogbS00NDcuOCAwYy01MS4yIDAtOTYgNDQuNy05NiA5NS44djcwMi42YzAgNTEuMSA0NC44IDk1LjggOTYgOTUuOHM5Ni00NC43IDk2LTk1LjhWMTYwLjdjLTAuMS01MS4xLTQ0LjktOTUuOC05Ni05NS44eiIgcC1pZD0iNDQ2OCIgZmlsbD0iI2ZmZmZmZiI+PC9wYXRoPjwvc3ZnPg==") no-repeat center;
+        }
+
+        .it-player-wrap .box {
+
+            flex: 1;
+        }
+
+        .it-player-wrap .box .info {
+            font-family: PingFang-SC-Regular;
+            font-size: 12px;
+            color: #A8A8A8;
+            text-align: left;
+            line-height: 24px;
+            margin: 0;
+        }
+
+        .it-player-wrap .box .info .size {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .it-player-wrap .progress-wrap {
+            position: relative;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .it-player-wrap .progress-line,.it-player-wrap  .progress-line-inner {
+            position: absolute;
+            height: 6px;
+            width: 100%;
+            background: #DDECFF;
+            border-radius: 8.5px;
+        }
+
+        .it-player-wrap .progress-line-inner {
+            background: #4C83E5 !important;
+        }
+
+        .it-player-wrap .progress-button {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            background: #4C83E5;
+            box-shadow: 0 2px 4px 0 #A0C2FF;
+            border-radius: 10px;
+            top: -10px;
+            font-family: PingFang-SC-Regular;
+            font-size: 12px;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 20px;
+
+            cursor: pointer;
+        }
+    </style>
+
+
+    <style>
+        .crumb{
+            padding: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(238,238,238,0.4);
+        }
+        .crumb p{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .newul{
+            line-height: 25px;
+        }
+        .new-item{
+            padding: 5px;
+            display: block;
+            width: 250px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        #doc-content img{
+            margin:none;
+            display:initial;
+        }
+        
+        .syntaxhighlighter{
+            width:890px;
+        }
+        
+        .syntaxhighlighter td.code .line{
+            white-space: nowrap;
+        }
+        
+        .syntaxhighlighter td.code .container{
+            width:840px!important;
+        }
+        
+        .syntaxhighlighter td.code{
+            overflow: scroll!important;
+        }
+
+    </style>
+
+    <div class="crumb">
+        <p>
+            <a href="http://blog.itpub.net/">首页</a> &gt;
+            <a href="http://blog.itpub.net/it/">IT职业</a> &gt;
+            <a href="http://blog.itpub.net/itlife/">IT生活</a> &gt;
+            <a>RK3288 Android7.1 软件开发指南</a>
+        </p>
+    </div>
+    <!--main部分开始-->
+    <div class="blog-main clearfix w1200">
+        <div class="preview-wrap">
+            <div class="preview-header">
+                <h1 class="preview-title ">RK3288 Android7.1 软件开发指南                 </h1>
+                <div class="mess">
+                                        <span style="margin: auto 10px auto 0px"><a href="http://blog.itpub.net/itlife/">IT生活</a></span>
+                                            <span>作者：<a href="http://blog.itpub.net/31529038/">SZX511</a></span>
+                                        <span>时间：2019-05-27 16:53:11</span>
+                    <span class="dian"></span>
+                    <span class="icon-see">2872</span>
+                    <span class="dian"></span>
+                    <span class="icon-comment">0</span>
+
+                    <!--博主本人和管理员 显示 开始-->
+                    <i class="superman"><a href="javascript:;" mid="2645754" onclick="blogObj.delDraft($(this))">删除</a></i>
+                    <i class="superman"><a href="http://blog.itpub.net/blog/post/2645754/">编辑</a></i>
+                    <!--博主本人和管理员 显示 结束-->
+                </div>
+            </div>
+            <div class="preview-body windowH">
+
+                <div class="preview-main">
+
+                                            <div id="doc-content" style="padding: 0px;">
+                            
+                                                            <p>
+1.1 DDR 支持列表
+</p>
+<p>
+RK3288 支持双通道 DDR3、DDR3L、LPDDR2、LPDDR3。
+</p>
+<p>
+<img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/a512e96a484eed12.png" title="" alt="">
+</p>
+<p>
+RK3288 DDR 颗粒支持程度列表，详见 RKDocs\Platform support lists 目录下《RK DDR Support List Ver2.24》，下表中所标示的 DDR 支持程度表，只建议选用√、T/A 标示的颗粒.
+</p>
+<p>
+<img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/055a1cc3bebec83d.png" title="" alt="">
+</p>
+<p>
+<br>
+</p>
+<p>
+1.2 EMMC 支持列表
+</p>
+<p>
+RK3288 支持 eMMC4.5，SDIO3.0，可运行 HS200 模式，详见 RKDocs\Platform support lists 目录下《RKeMMCSupportList Ver1.33_20170215》，下表中所标示的 eMMC支持程度表，只建议选用√、T/A 标示的颗粒
+</p>
+<p>
+<img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/e927160c7881ca7a.png" title="" alt="" width="674" height="207">
+</p>
+<p>
+<br>
+</p>
+<p>
+1.2.1 高性能 eMMC 颗粒的选取
+</p>
+<p>
+为了提高系统性能，选取高性能的 eMMC 颗粒也是需要的。请在挑选 eMMC 颗粒前，参照我们的支持列表的型号，对应的研究下厂商提供的 Datasheet，重点关注下厂商标注的performance 一章节。
+</p>
+<p>
+参照厂商大小、读写的速率进行筛选。建议选取顺序读速率&gt;200MB/s、顺序写速率&gt;40MB/s。
+</p>
+<p>
+如有选型上的疑问，也可直接联系我们的 FAE 窗口。
+</p>
+<p>
+<img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/ed89752dcb7e81e9.png" title="" alt="" width="680" height="220">
+</p>
+<p>
+<br>
+</p>
+<p>
+1.3 WiFi/BT 支持列表
+</p>
+<p>
+RK3288 内核运行 Linux4.4，WiFi/BT 支持列表，详见 RKDocs\Platform support lists目录下《Rockchip_WiFi_Situation》，文档中所列的 Wifi/BT 芯片列表是，建议按照列表上的型号进行选型。如果有其他 WiFi/BT 芯片调试，可先与 WiFi/BT 芯片原厂沟通，是否有可以稳定在 Linux4.4 运行的驱动程序，并能提供调试帮助。
+</p>
+<p>
+另外后续我们会不断更新支持列表，如果疑问和建议可以与我们的 FAE 窗口联系。
+</p>
+<p>
+<br>
+</p>
+<p>
+1.4 SDK 软件包适用硬件列表
+</p>
+<p>
+本 SDK 是基于谷歌 Android7.1.1 32bit 系统，适配瑞芯微 RK3288 芯片的软件包，适用于RK3288SDK(EVB)开发板及基于其上所有的开发产品。
+</p>
+<p>
+SDK 附带了 RK3288SDK(EVB)样机板的硬件使用说明。
+</p>
+<p>
+<img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/f00870d197f1dfe3.png" title="" alt="" width="709" height="177">
+</p>
+<p>
+<br>
+</p>
+<p>
+1.5 多媒体编解码支持列表
+</p>
+<p>
+详见 RKDocs\Platform support lists\RK3288 Multimedia Codec Benchmark v1.8.pdf
+</p>
+<p>
+<br>
+</p>
+<p>
+2.1 文档索引
+</p>
+<p>
+随 RK3288 SDK 发布的文档旨在帮助开发者快速上手开发及调试，文档中涉及的内容并不能涵盖所有的开发知识和问题。文档列表也正在不断更新，如有文档上的疑问及需求，请联系我们的FAE 窗口。
+</p>
+<p>
+RK3288 SDK 中在 RKDocs 目录下附带了 Develop reference documents（开发指导文档）、Platform support lists（支持列表）、RKTools manuals（工具使用文档）。
+</p>
+<p>
+<br>
+</p>
+<p>
+RKDocs/
+</p>
+<p>
+├── Develop reference documents
+</p>
+<p>
+│ ├── Camera_for_RockChipSDK 参考说明_v4.1.pdf
+</p>
+<p>
+│ ├── RK USB Compliance Test Note V1.2.pdf
+</p>
+<p>
+│ ├── Rockchip_android7.1_wifi_配置明 V1.4.pdf
+</p>
+<p>
+│ ├── Rockchip Audio 开发指南 V1.0-20160606.pdf
+</p>
+<p>
+│ ├── Rockchip CPU-Freq 开发指南 V1.0.1-20170213.pdf
+</p>
+<p>
+│ ├── Rockchip DEVFreq 开发指南 V1.0-20160701.pdf
+</p>
+<p>
+│ ├── Rockchip I2C 开发指南 V1.0-20160629.pdf
+</p>
+<p>
+│ ├── Rockchip IO-Domain 开发指南 V1.0-20160630.pdf
+</p>
+<p>
+│ ├── RockChip_LCD 开发文档 v1.6.pdf
+</p>
+<p>
+│ ├── Rockchip Pin-Ctrl 开发指南 V1.0-20160725.pdf
+</p>
+<p>
+│ ├── Rockchip Recovery OTA 用户操作指南 V1.00.pdf
+</p>
+<p>
+│ ├── Rockchip RK818 电量计开发指南 V1.0-20160725.pdf
+</p>
+<p>
+│ ├── Rockchip SDMMC SDIO eMMC 开发指南 V1.0-20160630.pdf
+</p>
+<p>
+│ ├── Rockchip Secure Boot Application Note_v1.7_20170519.pdf
+</p>
+<p>
+│ ├── Rockchip SPI 开发指南 V1.0-20160629.pdf
+</p>
+<p>
+│ ├── Rockchip Thermal 开发指南 V1.0.1-20170428.pdf
+</p>
+<p>
+│ ├── Rockchip UART 开发指南 V1.0-20160629.pdf
+</p>
+<p>
+│ ├── Rockchip U-Boot 开发指南 V3.7-20160708.pdf
+</p>
+<p>
+| |── Rockchip-USB-Performance-Anais-Guide.pdf
+</p>
+<p>
+│ ├── Rockchip USB 开发指南 V1.0-20160704.pdf
+</p>
+<p>
+│ ├── Rockchip Vendor Storage Application Note.pdf
+</p>
+<p>
+│ ├── Rockchip DRM Panel Porting Guide.pdf
+</p>
+<p>
+│ ├── Rockchip 以太网开发指南 V2.3.1-20160708.pdf
+</p>
+<p>
+│ ├── Rockchip 休眠唤醒开发指南 V0.1-20160729.pdf
+</p>
+<p>
+│ ├── Rockchip 时钟子模块开发指南 V1.0-20160630.pdf
+</p>
+<p>
+│ ├── Rockchip 背光控制开发指南 V0.1-20160729.pdf
+</p>
+<p>
+│ └── Rockchip 量产烧录指南 V1.0-20160718.pdf
+</p>
+<p>
+├── Platform support lists
+</p>
+<p>
+├── RK3288 EVB2.0(RK_EVB_RK3288_LPDDR3P232SD6_V10_20171012SQJ)
+</p>
+<p>
+用户指南_20171228.pdf
+</p>
+<p>
+│ ├── RK3288 Multimedia Codec Benchmark v1.8.pdf
+</p>
+<p>
+│ ├── RK3288 SDK 开发板用户指南 V10.7z
+</p>
+<p>
+│ ├── RK DDR Support List Ver2.24.pdf
+</p>
+<p>
+│ ├── RKeMMCSupportList Ver1.33_20170215.pdf
+</p>
+<p>
+│ ├── RKISPV1_Camera_Module_AVL_v1.3.pdf
+</p>
+<p>
+│ ├── RKISPV1_Camera_User_Manual_v2.0.pdf
+</p>
+<p>
+│ └── Rockchip_WiFi_Situation_20170214.pdf
+</p>
+<p>
+├── RK3288_ANDROID7.1-TABLET-SDK_ALPHA_20170421 发布说明.pdf
+</p>
+<p>
+├── RK3288 Android7.1 软件开发指南.pdf
+</p>
+<p>
+└── RKTools manuals
+</p>
+<p>
+├── Android 固件生成用户手册 V1.00.pdf
+</p>
+<p>
+&nbsp;├── Android 增加一个分区配置指南 V1.00.pdf
+</p>
+<p>
+&nbsp;├── Android 开发工具手册.pdf
+</p>
+<p>
+&nbsp;├── Recovery 升级相关文档.rar
+</p>
+<p>
+&nbsp;├── REPO 镜像服务器搭建和管理_V2.2_20131231.pdf
+</p>
+<p>
+&nbsp;├── RK3288 7.1 异显双声功能参考补丁.rar
+</p>
+<p>
+&nbsp;├── RK SDK OTA 包生成方法.pdf
+</p>
+<p>
+&nbsp;├── RKVR 光学参数调节.rar
+</p>
+<p>
+&nbsp;├── RK 从 SD 卡更新 LCD 屏幕参数的说明 V1.3-base-android7.1-v4.rar
+</p>
+<p>
+&nbsp;├── RK 固件升级失败原因分析_V1.1 20121122.pdf
+</p>
+<p>
+&nbsp;├── RK 平台 apache_tomcat_ota 服务器搭建说明.rar
+</p>
+<p>
+&nbsp;├── RK 平台 EMMC 颗粒兼容稳定性测试.rar
+</p>
+<p>
+&nbsp;├── RK 平台 SD-SDIO-eMMC 排查说明.doc
+</p>
+<p>
+&nbsp;├── rk 平台量产升级指导文档 V1.1.pdf
+</p>
+<p>
+&nbsp;├── Rockchip Box HDMI 旋转功能 补丁说明 V1.0-20171122.zip
+</p>
+<p>
+&nbsp;├── Rockchip Parameter File Format Ver1.3.pdf
+</p>
+<p>
+&nbsp;├── Rockchip PCBA 模块 开发指南--20170210.pdf
+</p>
+<p>
+&nbsp;├── WNpctool 简要使用说明_V1.1.0_0920.pdf
+</p>
+<p>
+&nbsp;├── 压力测试 Stresstest 文档_ver1.1.pdf
+</p>
+<p>
+&nbsp;└── 量产工具升级及相关问题处理.pdf
+</p>
+<p>
+<br>
+</p>
+<p>
+2.2 工具索引
+</p>
+<p>
+随RK3288 SDK发布的工具，用于开发调试阶段及量产阶段。工具版本会随SDK更新不断更新，如有工具上的疑问及需求，请联系我们的 FAE 窗口。
+</p>
+<p>
+RK3288 SDK 中在 RKTools 目录下附带了 linux（Linux 操作系统环境下使用工具）、windows（Windows 操作系统环境下使用工具）。
+</p>
+<p>
+<br>
+</p>
+<p>
+RKTools/
+</p>
+<p>
+├── linux
+</p>
+<p>
+│ ├── Linux_Pack_Firmware
+</p>
+<p>
+│ │ └── rockdev
+</p>
+<p>
+│ │ ├── afptool
+</p>
+<p>
+│ │ ├── mkupdate.sh
+</p>
+<p>
+│ │ ├── package-file
+</p>
+<p>
+│ │ ├── readme.txt
+</p>
+<p>
+│ │ ├── rkImageMaker
+</p>
+<p>
+│ │ └── unpack.sh
+</p>
+<p>
+│ ├── Linux_SecureBoot
+</p>
+<p>
+│ │ └── Linux_SecureBoot_v1.82.zip
+</p>
+<p>
+│ ├── Linux_TA_Sign_Tool.rar
+</p>
+<p>
+│ ├── Linux_Upgrade_Tool_1.27.rar
+</p>
+<p>
+│ └── Readme.txt
+</p>
+<p>
+└── windows
+</p>
+<p>
+├── AndroidTool_Release_v2.41.zip
+</p>
+<p>
+├── DriverAssitant_v4.5.zip
+</p>
+<p>
+├── Efuse_Tool_V1.36.rar
+</p>
+<p>
+├── FactoryTool_v1.45.zip
+</p>
+<p>
+├── FWFactoryTool-5.4.zip
+</p>
+<p>
+├── OemTool_v1.3.rar
+</p>
+<p>
+├── SD_Firmware_Tool._v1.46.zip
+</p>
+<p>
+├── SecureBootTool_v1.83_foruser.rar
+</p>
+<p>
+├── Windows_TA_Sign_Tool.rar
+</p>
+<p>
+└── WNpctool_Setup_V1.1.2_1226.rar
+</p>
+<p>
+<br>
+</p>
+<p>
+3 SDK 编译/烧写
+</p>
+<p>
+本章节参考源码工程 RKDocs 目录下的 SDK 发布说明文档中有关编译烧写的章节
+</p>
+<p>
+<br>
+</p>
+<p>
+4 U-Boot 开发
+</p>
+<p>
+本节简单介绍U-Boot基本概念和编译的注意事项，帮助客户了解RK平台U-Boot框架，具体U-Boot开发细节可参考 RKDocs\Develop reference documents 目录下《Rockchip UBoot 开发指南 V3.7-20160708.pdf》。
+</p>
+<p>
+<br>
+</p>
+<p>
+4.1 Rockchip U-Boot 简介
+</p>
+<p>
+Rockchip U-Boot 是基于开源的 U-Boot 2014.10 正式版进行开发的，主要支持：
+</p>
+<p>
+
+</p>
+<p>
+支持芯片：RK3288、RK3036、RK312x、RK3368、RK322x、RK3366、RK3399等；
+</p>
+<p>
+支持 Android 平台的固件启动；
+</p>
+<p>
+支持 ROCKUSB 和 Google Fastboot 两种方式烧写；
+</p>
+<p>
+支持 secure boot 固件签名加密保护机制；
+</p>
+<p>
+支持 LVDS、EDP、MIPI、HDMI、CVBS 等显示设备；
+</p>
+<p>
+支持 SDCard、eMMC、Nand Flash、U 盘等存储设备；
+</p>
+<p>
+支持开机 logo 显示、充电动画显示，低电管理、电源管理；
+</p>
+<p>
+支持 I2C、SPI、PMIC、CHARGE、GUAGE、USB、GPIO、PWM、DMA、GMAC、eMMC、NAND 中断等驱动；
+</p>
+<p>
+<br>
+</p>
+<p>
+4.2 平台配置
+</p>
+<p>
+平台配置文件位于 U-Boot 根目录下的 configs 文件夹下，其中 Rockchip 相关的以 RK 开头待更新
+</p>
+<p>
+<br>
+</p>
+<p>
+4.3 U-Boot 编译
+</p>
+<p>
+本章节参考源码工程 RKDocs 目录下的 SDK 发布说明文档中有关 uboot 编译的章节
+</p>
+<p>
+<br>
+</p>
+<p>
+5 内核开发常见配置
+</p>
+<p>
+本节简单介绍内核一些常见配置的修改，主要是 DTS 的配置，帮助客户更快更方便的进行一些简单的修改。
+</p>
+<p>
+<br>
+</p>
+<p>
+5.1 DTS 配置
+</p>
+<p>
+5.1.1 WiFi&amp;BT 配置
+</p>
+<p>
+本平台上 WiFi、BT 有提供自动兼容方案，即一套固件可以支持多个 WiFi 模块。但当前发布的 SDK 所采用的还是原来将 WiFi 驱动编译进内核的方式，如果客户需要使用 WiFi 自动兼容的方案，只需按照 RKDocs\Develop reference documents 目录下《Rockchip Android7.1_WiFi_配置说明 V1.4》及《RealTek wifi 驱动移植说明_V1.1.pdf》提到的注意事项进行修改即可。
+</p>
+<p>
+<br>
+</p>
+<p>
+5.1.2 GPIO 对应关系注意
+</p>
+<p>
+关于原理图上的 gpio 跟 dts 里面的 gpio 的对应关系，例如 GPIO4c0，那么对应的 dts 里面应该是“gpio4 16”。因为 GPIOA 有 8 个 pin，GPIOB 也有 8 个 pin，以此计算可得 c0 口就是16，c1 口就是 17，以此类推
+</p>
+<p>
+<br>
+</p>
+<p>
+5.2 ARM、GPU 频率修改
+</p>
+<p>
+参考源码工程 RKDocs\Develop reference documents 目录下《Rockchip DEVFreq 开发指南》
+</p>
+                                                    </div>
+                                        <p style="clear:both;"></p>
+                    <p class="translate">
+                                                    来自 “ ITPUB博客 ” ，链接：http://blog.itpub.net/31529038/viewspace-2645754/，如需转载，请注明出处，否则将追究法律责任。
+                                            </p>
+
+                </div>
+            </div>
+                            <div class="preview-footer clearfix">
+                    <!--已点赞、收藏-->
+                    <div class="icon-praise" id="praise" onclick="blogObj.praise($(this),&#39;/praise/&#39;)"><span class="text"></span><span class="num">0</span></div>
+                    <div class="icon-collect" id="collect" onclick="blogObj.praise($(this),&#39;/favour/&#39;)"><span class="text"></span><span class="num">0</span></div>
+                    <div class="share-group fr">
+                        <div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1624534835814">
+                            <span class="fl">分享到：</span>
+                            <a href="javascript:;" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="javascript:;" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                            <a href="javascript:;" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="javascript:;" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        </div>
+
+                        <script>
+                            window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {},
+                                    "bdText": "",
+                                    "bdDesc": "",
+                                    "bdMini": "",
+                                    "bdMiniList": false,
+                                    "bdPic": "",
+                                    "bdStyle": "0",
+                                    "bdSize": "32"
+                                }, "share": {"bdSize": 16}
+                            };
+                            with (document)
+                                0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                            if ($(window).width() < 1320) {
+                                if ($(window).width() < 1200) {
+                                    $(".sideslip").css({
+                                        "left": "20px",
+                                        "margin-left": 0
+                                    })
+                                } else {
+                                    $(".sideslip").css({
+                                        "margin-left": "-590px"
+                                    })
+                                }
+                            }</script>
+                    </div>
+
+                </div>
+
+                <div class="article-context">
+                    <div class="fl">
+                        <span class="color77">上一篇：</span>
+                                                    <a href="http://blog.itpub.net/31529038/viewspace-2645734/">Hi3798CV200DMD_VER.B参考版SCH原理图(pcb,DSN,OrCAD)</a>
+                        
+                    </div>
+                    <div class="fr">
+                        <span class="color77">下一篇：</span>
+                                                    <a href="http://blog.itpub.net/31529038/viewspace-2645854/">全球首款5G笔记本电脑将搭载高通骁龙8cx 5G平台发布</a>
+                                            </div>
+                </div>
+
+                <input type="hidden" id="blogId" value="2645754">
+
+
+                <!--评论开始-->
+                <div class="blog-comment">
+                    <div class="new-comment">
+                        <input type="hidden" id="hid" name="hid" value="2645754">
+                        <input type="hidden" name="_token" value="gvZE0xOPmZjSf7lmvWw2eBhJKtEOyJOXy9fHzXyY">
+                        <a class="avatar" href="javascript:;">
+                            <img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/user_pic_default.png"></a>
+                        <!--用户未登录-->
+
+                        <div class="sign-container">
+                            <span>请登录后发表评论</span>
+                            <a class="btn btn-sign">
+                                </a><a class="layui-btn ml30" onclick="blog.login(event)">登录</a>
+                            
+                        </div>
+
+                        <!--用户已登录-->
+                        <textarea placeholder="请写下你的评论…" onfocus="blogObj.textareaFocus($(this),200)" maxlength="200" style="display: none;"></textarea>
+
+
+                    </div>
+                    <div class="comment-list">
+                        <div class="top-title"><span class="all-comment">全部评论</span> <span class="colorbb ml20"></span>
+                        </div>
+                        <div class="comment-items" id="comment_items">
+                            <script type="text/template" id="blog_template">
+                                <%for(var i=0;i
+                                <items.length;i++){%>
+                                <div class="comment-item">
+                                    <div class="author">
+                                        <a target="_blank" href="/<%=items[i].uid%>" class="avatar">
+                                    <img src="<%=items[i].headimg%>" alt="">
+
+                                </a>
+                                <div class="info">
+                                    <div class="name"><a target="_blank" href="/<%=items[i].uid%>"><%=items[i].username%></a> <span class="fr reply-btn" onclick="blogObj.newComment($(this),'<%=items[i].username%>',<%=items[i].id%>)">回复</span></div>
+                                    <div class="time colorbb"><%=items[i].createtime%></div>
+                                </div>
+                            </div>
+                            <p class="comment-wrap"><%=items[i].content%></p>
+                            <%if(items[i].items.items.length) { %>
+
+                            <div class="sub-comment-list">
+                                <%for(var j=0;j<items[i].items.items.length;j++){%>
+                                <div class="sub-comment">
+                                    <div class="color77 time-reply">
+                                        <span  class="time"><%=items[i].items.items[j].createtime%></span>
+                                        <span class="reply-btn fr" onclick="blogObj.newComment($(this),'<%=items[i].items.items[j].username%>',<%=items[i].items.items[j].id%>)">回复</span>
+                                    </div>
+                                    <p><a href="/<%=items[i].uid%>"><%=items[i].items.items[j].username%></a>&nbsp;&nbsp;&nbsp;回复&nbsp;&nbsp;&nbsp;<a href="/<%=items[i].touid%>"><%=items[i].items.items[j].tousername%></a>： <span class="content"><%=items[i].items.items[j].content%></span></p>
+                                </div>
+                                <%}%>
+                                <%if(items[i].items.total > 5) { %>
+                                <div class="more-comment"><span class="sub-comment-count">还有<i class="count"><%=items[i].items.total-5%></i>条评论</span><span class="more-comment-btn" onclick=blogObj.loadSubComment($(this),<%=items[i].id%>) data-count=1 data-flag=true>点击查看</span></div>
+                                <%}%>
+
+                            </div>
+                            <%}%>
+                        </div>
+                        <%}%>
+                        </script>
+                </div> <div class="blog-default"> <img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/search_pic_kong.svg" alt=""> </div>
+
+            </div>
+
+        </div>
+        <!--评论结束-->
+            </div>
+    <script>
+            </script>
+    <div class="fr w290">
+        <!--作者信息开始-->
+        <!--作者信息开始-->
+<div class="author-info right-fixed ">
+        <div class="head-img">
+        <a href="http://blog.itpub.net/31529038/"><img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/avatar.php" alt=""></a>
+    </div>
+    <div class="author-name"><a href="http://blog.itpub.net/31529038/">SZX511</a></div>
+            <div class="author-intro">
+        AR产品，VR产品定制，全息投影，裸眼3D，体感互动，投影互动，真人大屏互动，unity定制等
+    </div>
+            <p class="register-time"><span class="color77">注册时间：</span>2018-03-29</p>
+            <ul class="tree-list clearfix">
+        <li>
+            <div class="item-tt">博文量</div>
+            <a href="http://blog.itpub.net/31529038/"><span class="item-num blognum">291</span></a>
+        </li>
+        <li>
+            <div class="item-tt">访问量</div>
+            <div class="item-num blogviewnum">499628</div>
+        </li>
+    </ul>
+
+</div>
+<!--作者信息结束-->
+
+<script>
+    var data = {uid: 31529038};
+    $._ajax({
+        url: '/getAuthorInfo/',
+        data: data,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            if (data.code == 200) {
+                var data = data.data;
+                $(".blognum").text(data.blognum);
+                $(".blogviewnum").text(data.visitednum);
+            }
+        }
+    });
+</script>        <!--作者信息结束-->
+
+                <!--博文推荐开始-->
+        <div class="blog-choice right-fixed" style="position: static; top: 0px; left: 1175.45px;">
+            <h3 class="choice-title">最新文章</h3>
+            <ul class="newul">
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2771125/" class="clearfix">
+                       Kinect体感互动解决方案——体感漫画拍照游戏
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2770956/" class="clearfix">
+                       互动投影+沉浸式互动投影综合解决方案
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2770141/" class="clearfix">
+                       AR大屏体感互动软件：体感抠像拍照系统
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2770016/" class="clearfix">
+                       大屏互动解决方案
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769914/" class="clearfix">
+                       VR教育：让学习变得有趣而简单
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769833/" class="clearfix">
+                       体感互动照片墙，大屏互动图片墙软件方案
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769624/" class="clearfix">
+                       VR消防安全应用方案，VR消防内容软件
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769558/" class="clearfix">
+                       VR校园安全解决方案，开启校园安全教育新体验！
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769337/" class="clearfix">
+                       全息投影+音乐喷泉，带你享受神秘的视觉盛宴！
+                </a>
+                </li>
+                            <li class="new-item">
+                <a href="http://blog.itpub.net/31529038/viewspace-2769257/" class="clearfix">
+                       AR真人大屏互动的应用形式和特点
+                </a>
+                </li>
+                        <ul>
+
+
+        </ul></ul></div>
+        <!--大牛精选结束-->
+            </div>
+</div>
+<div class="icon-back-top" onclick="$(&#39;html,body&#39;).animate({scrollTop:0},&#39;slow&#39;);" style="display: none;"></div>
+    <!--main部分结束-->
+
+<!--百度推送-->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+<!--2021-06-24 19:40:31-->
+
+<!--footer部分开始-->
+<div class="blog-footer">
+    <div class="w1200 pr">
+        <div class="footer-links">
+            <a class="icon-blog icon-wx mr30">
+                <div class="wx-qrcode">
+                    <img src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/qrcode.jpg" alt="">
+
+                </div>
+            </a>
+            <a href="https://weibo.com/itpub2001?from=myfollow_all" class="icon-blog icon-wb" target="_blank"></a>
+        </div>
+        <p class="footer-nav">
+            <a href="http://www.it168.com/bottomfile/it168.shtml" target="_blank">支持我们</a>
+            <a href="http://www.it168.com/bottomfile/tgzn.shtml" target="_blank">作者招募</a>
+            <a href="http://www.it168.com/bottomfile/sytk.shtml" target="_blank">用户协议</a>
+            <a href="http://blog.itpub.net/31509949/viewspace-2157750/" target="_blank">FAQ</a>
+            <a href="http://edu.itpub.net/contactus.html" target="_blank">Contact Us</a>
+            <script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/z_stat.php" language="JavaScript"></script><script src="./RK3288 Android7.1软件开发指南_ITPUB博客_files/core.php" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=1274521965" target="_blank" title="站长统计">站长统计</a>
+        </p>
+        <p>北京盛拓优讯信息技术有限公司. 版权所有&nbsp;&nbsp;<a style="color:#777777;" target="_blank" href="http://beian.miit.gov.cn/">京ICP备09055130号-4</a>  北京市公安局海淀分局网监中心备案编号：11010802021510  niuxiaotong@pcpop.com  17352615567</p>
+        <p>广播电视节目制作经营许可证(京) 字第1234号 中国互联网协会会员</p>
+    </div>
+</div>
+<!--footer部分结束-->
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5016281862f595e78ffa42f085ea0f49";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<!-- END STAT PV -->
+
+
+</body></html>

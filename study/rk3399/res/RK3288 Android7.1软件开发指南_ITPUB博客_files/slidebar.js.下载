@@ -1,0 +1,238 @@
+var Slidebar = function (settings) {
+
+    var key
+
+    this.defaults = {
+        parent: undefined,
+        minValue: 0,
+        maxValue: 200,
+        showPercent: true,
+        callback: undefined,
+        style: {}
+    }
+
+    this.settings = extend({}, this.defaults, settings)
+
+    this.value = null
+    this.bar = null
+    this.line = null
+    this.button = null
+
+    this.init()
+
+    function extend(out) {
+        out = out || {}
+        for (var i = 1, len = arguments.length; i < len; i++) {
+            var obj = arguments[i]
+            if (!obj) continue
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key))
+                    out[key] = (typeof obj[key] === 'object' && !/(HTML(\w{1,})Element)|Array/i.test(obj[key].constructor)) ? extend(out[key], obj[key])
+                        : obj[key]
+            }
+        }
+        return out
+    }
+
+    return this
+}
+
+Slidebar.prototype = {
+
+    init: function () {
+
+        var sliding = false,
+            startX = 0
+
+        var bar, line, lineInner, button
+
+        this.bar = document.createElement('div')
+        this.line = document.createElement('div')
+        this.lineInner = document.createElement('div')
+        this.button = document.createElement('div')
+
+        bar = this.bar
+        line = this.line
+        lineInner = this.lineInner
+        button = this.button
+        bar.className = 'progress-wrap'
+        line.className = 'progress-line'
+
+        lineInner.className = 'progress-line-inner'
+        button.className = 'progress-button'
+
+        this.settings.parent.appendChild(bar)
+        bar.appendChild(line)
+        bar.appendChild(lineInner)
+        bar.appendChild(button)
+
+        this.setValue(this.settings.minValue)
+
+        button.addEventListener('mousedown', function (e) {
+            if (e.target === button) {
+                e.preventDefault()
+                sliding = true
+                startX = e.pageX
+                document.addEventListener('mousemove', moveEvent)
+            }
+            ////console.log(e.target === button)
+        })
+
+        document.addEventListener('mouseup', function (e) {
+            if (sliding) {
+                sliding = false
+                startX = null
+                document.removeEventListener('mousemove', moveEvent)
+                ////console.log('removeEventListener')
+            }
+        })
+
+
+        var moveEvent = function (e) {
+            if (sliding) {
+                var newValue = this.value + ((e.pageX - startX) / this.line.offsetWidth) * (this.settings.maxValue - this.settings.minValue)
+                startX = e.pageX
+                this.setValue(newValue < 0 ? 0 : newValue > this.settings.maxValue ? this.settings.maxValue : newValue)
+            }
+        }.bind(this)
+
+    },
+
+    setValue: function (value) {
+        var position
+        this.value = Math.max(this.settings.minValue, Math.min(this.settings.maxValue, value))
+        var v = value + (this.button.offsetWidth / this.line.offsetWidth * (this.button.offsetLeft / (this.line.offsetWidth - this.button.offsetWidth)) * this.settings.maxValue)
+        var w = 0
+        if (v <= this.settings.maxValue) {
+            position = (value - this.settings.minValue) / (this.settings.maxValue - this.settings.minValue)
+            w = Math.round(position * this.line.offsetWidth)
+            this.button.style.left = w + 'px'
+        } else {
+            w = this.line.offsetWidth - this.button.offsetWidth
+            this.button.style.left = w + 'px'
+        }
+        this.lineInner.style.width = (w + 2) + 'px'
+
+        ////console.log(position)
+        if (this.settings.callback) this.settings.callback(v > this.settings.maxValue ? this.settings.maxValue : v)
+    },
+
+    setSlidebar: function (v) {
+        var value = v - (this.button.offsetWidth / this.line.offsetWidth * (this.button.offsetLeft / (this.line.offsetWidth - this.button.offsetWidth)) * this.settings.maxValue)
+        this.value = value
+        var position = (value - this.settings.minValue) / (this.settings.maxValue - this.settings.minValue)
+        var w = Math.round(position * this.line.offsetWidth)
+        var l = this.line.offsetWidth - this.button.offsetWidth
+        if (w > l) {
+            w = l
+        }
+        if (w < 0) w = 0
+        this.button.style.left = w + 'px'
+        this.lineInner.style.width = (w + 2) + 'px'
+    }
+
+}
+
+// window.Slidebar = Slidebar
+
+var Player = function (settings) {
+
+    var size = settings.size || 0
+    var time = settings.time || 0
+    var name = settings.name || ''
+
+    if (time) {
+        time = ('0' + Math.floor(time / 60)).slice(-2) + ':' + ('0' + time % 60).slice(-2)
+    }
+    if (size) {
+        size = size >= 1024 ? ((size / 1024 / 1024).toFixed(2) + 'M') : (size + 'K')
+    }
+
+    settings.container.innerHTML = '<div class="it-player-wrap"><div class="control"><div class="control-button play"></div></div><div class="box"><div class="info">'
+        + (name ? ('<span class="size">名称：' + name + '</span>') : '')
+        + (size ? ('<span class="size">大小：' + size + '</span>') : '')
+        + (time ? ('<span class="time">时长：' + time + '</span>') : '')
+        + '</div><div class="progress"></div></div><div class="con-aplayer" style="display: none"></div></div>'
+
+
+    settings.parent = settings.container.getElementsByClassName('progress')[0]
+
+    var cb = settings.callback
+    var button = null
+    var ap = null
+    var playstime = 0
+    settings.callback = function (value) {
+        button = button || settings.container.getElementsByClassName('progress-button')[0]
+        // var time = value ? parseInt(settings.time / 1000 * value) : 0
+        var time = parseInt(value)
+        button.innerHTML = ('0' + Math.floor(time / 60)).slice(-2) + ':' + ('0' + time % 60).slice(-2)
+        playstime = time
+        ap && ap.seek(time)
+        cb && cb(value)
+    }
+
+    var control = settings.container.getElementsByClassName('control-button')[0]
+    var paused = false
+    var intObj = 0
+    control.addEventListener('click', function () {
+        paused = !paused
+        var that = this
+        if (paused) {
+            if (!ap) {
+                createAPlayer(playstime)
+                // settings.maxValue = ap.duration
+
+            }
+            ap.play()
+            this.classList.remove('play')
+            this.classList.add('pause')
+
+            intObj = setInterval(function () {
+                var time = Math.round(ap.audio.currentTime)
+                settings.maxValue = ap.audio.duration
+                button.innerHTML = ('0' + Math.floor(time / 60)).slice(-2) + ':' + ('0' + time % 60).slice(-2)
+
+                slidebar.setSlidebar(ap.audio.currentTime)
+
+                if (ap.audio.paused) {
+                    paused = !paused
+                    //ap.pause()
+                    that.classList.remove('pause')
+                    that.classList.add('play')
+                    clearInterval(intObj)
+                    return
+                }
+            }, 500)
+        } else {
+            ap.pause()
+            this.classList.remove('pause')
+            this.classList.add('play')
+            clearInterval(intObj)
+        }
+        //console.log(ap)
+    }, false)
+
+    var slidebar = new Slidebar(settings)
+
+    var createAPlayer = function (playstime) {
+        ap = new APlayer({
+            container: settings.container.getElementsByClassName('con-aplayer')[0],
+            audio: [{
+                url: settings.url,
+                volume: 1,
+                //type: 'hls'
+            }],
+            loop: 'none'
+        })
+        ap.audio.currentTime = playstime
+    }
+    this.destroy = function () {
+        ap && ap.destroy()
+        clearInterval(intObj)
+        slidebar = null
+        delete this
+    }
+    return this
+}
+
+window.ItPlayer = Player
