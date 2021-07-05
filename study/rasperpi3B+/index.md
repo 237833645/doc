@@ -5,7 +5,6 @@
   - [插入hdmi+键盘+网线开机](#插入hdmi键盘网线开机)
   - [配置](#配置)
   - [配置 wifi](#配置-wifi)
-  - [配置 BT](#配置-bt)
 
 ---
 
@@ -23,8 +22,10 @@
 ## 配置
 
 - 更换源 中国科学技术大学
-  
-  Raspbian http://mirrors.ustc.edu.cn/raspbian/raspbian/
+
+```code
+sed -i 's/ports.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+```
 
 - 内核安装
 
@@ -90,6 +91,11 @@ network={
         ssid="007-2"
         #psk="LLzn8355"
         psk=72e65c854061dc9d91232e90f62ce70016bcbf2a53e90875ffd0a38fd51c8b72
+}
+network={
+        ssid="YAL-AL00"
+        #psk="65432100"
+        psk=ed2bfc42f79dc1ba65bd2721b254648811b791bfd01902b99c958712a4d598b7
 }
 ```
 
@@ -187,11 +193,5 @@ sudo ufw allow ssh         // 允许所有的外部IP访问本机的samba端口(
 | :-    | -:     |
 | 公司网络WIFI | ubuntu@192.168.3.67 |
 | 公司网络LAN | ubuntu@192.168.1.139 |
-
----
-
-## 配置 BT
-
-- xxx
 
 ---
