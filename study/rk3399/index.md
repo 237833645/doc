@@ -40,7 +40,10 @@ ssh-keygen -t rsa -C "user@host"  请将 user@host 替换成您的邮箱地址�
 ## 申请完毕后更新代码
 
 .repo/repo/repo sync -l
-.repo/repo/repo sync
+
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=ex_US.UTF-8
+.repo/repo/repo sync -c
 
 这样最新的代码就被同步下来了
 
@@ -49,4 +52,3 @@ ssh-keygen -t rsa -C "user@host"  请将 user@host 替换成您的邮箱地址�
 - 编译参考文档 rk3399_android7/RKDocs/rk3399/Rockchip_RK3399_Developer_Guide_Android7.1_Software_CN&EN.pdf
 - 下载工具下载文档 rk3399_android7/RKTools/windows/AndroidTool/AndroidTool_Release_v2.65/Android开发工具手册_v1.2.pdf
 - 下载工具	rk3399_android7/RKTools/windows/AndroidTool/AndroidTool_Release_v2.65/AndroidTool.exe
-
