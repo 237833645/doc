@@ -195,3 +195,22 @@ sudo ufw allow ssh         // 允许所有的外部IP访问本机的samba端口(
 | 公司网络LAN | ubuntu@192.168.1.139 |
 
 ---
+
+- 12. 配置静态wifi地址
+
+修改 /etc/network/interfaces dhcp 为 manual
+
+```code
+auto wlan0
+
+#iface wlan0 inet dhcp          : 这个是原来的dhcp的设置
+iface wlan0 inet manual         ：修改为manual
+wpa-conf /etc/wpa_supplicant.conf
+```
+
+在 /etc/dhcpcd.conf 最后加入SSID 和对应的 ip 地址
+
+```code
+SSID 007-2
+inform 192.168.3.250
+```
