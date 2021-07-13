@@ -367,9 +367,15 @@ rk3399 android10.0
 2. 编译code_demo里面的例程来验证是可以的
 3. 完成rk3399 audio部门原理图的理解
 
-0709
-1. 
+0712:
+1. rk3399学习display相关知识
+2. edid、ddc、hdmi-a、hdmi-b、hdmi-c、hdmi-d、等
+3. LVDS系统及学习及文档输出
+4. 看了串口log
 
+0713:
+1. 树莓派zero安装系统
+2. rk3399 mipi显示屏调试学习
 
 
 

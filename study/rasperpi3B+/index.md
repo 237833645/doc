@@ -10,8 +10,9 @@
 
 ## 系统安装步骤 （下载回来的文件较大放入移动硬盘中）
 
-- 格式化T卡工具 “SDCardFormatterv5_WinEN.zip”
-- 刷入镜像工具 “balenaEtcher-Setup-1.5.115.exe”
+- 格式化T卡工具 “SDCardFormatterv5_WinEN.zip” 
+    https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip
+- 刷入镜像工具 “balenaEtcher-Setup-1.5.115.exe” https://www.balena.io/etcher/
 - ubuntu镜像源 “ubuntu-18.04.5-preinstalled-server-arm64+raspi3.img” （最新的ubuntu版本开机有问题）
 - ubuntu server 系统默认的用户名为：ubuntu ，密码为：ubuntu
 
