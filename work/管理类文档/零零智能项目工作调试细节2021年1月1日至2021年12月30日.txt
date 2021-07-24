@@ -394,4 +394,47 @@ rk3399 android10.0
 3. rk3399电源域配置学习
 
 
+0722:
+1. lbd3399-android10-sdk-v1软件代码工程使用
+    代码部署：
+        tar -jxvf lbd3399-android10-sdk-v1.tar.bz2 解压后是一个.git的文件夹，使用git checkout . 把工程代码检出
+    阅读代码根目录下的readMe文档
+    按照代码进行编译
+        u-boot编译：    
+                cd u-boot && ./make.sh rk3399
+        kernel编译：    
+                cd kernel && make ARCH=arm64 rockchip_defconfig android-10.config rk3399.config
+                
+                #kernel img parse option:
+                #kernel for hdmi only
+                make ARCH=arm64 rk3399-blend-android-mipi.img -j16
+                #kernel for hdmi+lvds
+                make ARCH=arm64 rk3399-blend-android-hdmiLvds.img -j16
+                #kernel for hdmi+edp
+                make ARCH=arm64 rk3399-blend-android-hdmieDp.img -j16
+        android编译：
+                source javaenv.sh
+                source build/envsetup.sh
+                lunch rk3399_Android10-userdebug
+                make -j26
+                ./mkimage.sh
+                ./build.sh -pu
+2. lbd3399-android10-sdk-v1软件编译打包完成（这个直接支持打包成update.img）
+3. lbd3399-android10-sdk-v1对比此工程代码和瑞芯微官方代码的区别，这个集成了所有模块操作
+4. 修改h603a-t60项目的充电电流为1A
+5. L399产品立项
+
+0723：
+1. 导入树莓派内核代码到source insight
+2. 详细阅读pinctl代码
+
+0724：
+1. 查看lvds屏幕接线和LDB3399主板，是可以直接插入的
+2. 量测lcd相关的电压，背光升压芯片是46v，将背光升压主板接入LDB3399主板的控制板是可以升压到46V的
+3. 量测发现lvds的数据线有电平0.4v左右，其他的都没有电，查看原理图发现原理图和主板上的芯片对应不起来，需要拿到走线图才行（赵总请人帮忙转走线图）
+4. 和LDB3399供应商确认了2套android10.0的代码,回复使用：android\lbd3399-android10-sdk-v1.tar.bz2
+5. 刷机后开机正常，其他功能还需要验证
+
+
+
 
